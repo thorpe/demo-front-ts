@@ -5,7 +5,7 @@ import { FormComponentProps } from 'antd/lib/form'
 import intl from 'react-intl-universal'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
+import useRootStore from '@store/useRootStore'
 
 const FormItem = Form.Item
 

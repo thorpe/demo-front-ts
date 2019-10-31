@@ -1,7 +1,7 @@
 import React, { createContext, ReactElement } from 'react'
 import { Observer } from 'mobx-react'
 
-import * as store from 'Store/index'
+import * as store from '@store/index'
 
 interface ChildrenProps<T> {
     children: (value: T) => ReactElement<any>

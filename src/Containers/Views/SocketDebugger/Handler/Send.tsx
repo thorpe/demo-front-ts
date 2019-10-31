@@ -4,9 +4,9 @@ import { Button, AutoComplete, Popconfirm, Modal, Input, message } from 'antd'
 import ReactJson from 'react-json-view'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
-import { DATA_FORMATS } from 'Constants/socket'
+import useRootStore from '@store/useRootStore'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { DATA_FORMATS } from '@constants/socket'
 import { send } from 'Services/Websocket'
 
 const localSocketIOEvents = localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_IO_EVENTS)

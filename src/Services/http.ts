@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios'
 import qs from 'qs'
 import { message } from 'antd'
 
-import { userInfo } from 'Store/AuthStore/syncUserInfo'
+import { userInfo } from '@store/AuthStore/syncUserInfo'
 
 export interface AxiosRequestConfig extends _AxiosRequestConfig {
     startTime?: Date
@@ -26,7 +26,6 @@ const TOKENERROR = [401, 402, 403]
 const DEFAULTCONFIG = {
     baseURL: process.env.BASEURL
 }
-
 
 const http: HttpRequest = {}
 const methods: Method[] = ['get', 'post', 'put', 'delete']

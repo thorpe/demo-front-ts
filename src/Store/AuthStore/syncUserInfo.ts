@@ -1,4 +1,4 @@
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 export const initialUserInfo = (() => {
     const localUserInfo = localStorage.getItem(LOCALSTORAGE_KEYS.USERINFO)

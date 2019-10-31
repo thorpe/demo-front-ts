@@ -3,8 +3,8 @@ import { observer } from 'mobx-react'
 import { Layout, Icon } from 'antd'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
-import { GITHUB_LINK } from 'Constants/index'
+import useRootStore from '@store/useRootStore'
+import { GITHUB_LINK } from '@constants/index'
 
 function Header() {
     const { globalStore, authStore } = useRootStore()

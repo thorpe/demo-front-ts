@@ -3,9 +3,9 @@ import { observer } from 'mobx-react'
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
-import useRootStore from 'Store/useRootStore'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
-import { SOCKER_TYPES } from 'Constants/socket'
+import useRootStore from '@store/useRootStore'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { SOCKER_TYPES } from '@constants/socket'
 
 function Type() {
     const { socketStore } = useRootStore()

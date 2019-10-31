@@ -5,11 +5,11 @@ import { Select, ConfigProvider } from 'antd'
 import { Locale } from 'antd/lib/locale-provider'
 
 import styles from './index.scss'
-import { useOnMount } from 'Helpers/hooks'
-import { setCookie } from 'Helpers/index'
-import { COOKIE_KEYS } from 'Constants/index'
-import PageLoading from 'Components/PageLoading'
-import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from 'Locales/loader'
+import { useOnMount } from '@helpers/hooks'
+import { setCookie } from '@helpers/index'
+import { COOKIE_KEYS } from '@constants/index'
+import PageLoading from '@components/PageLoading'
+import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader'
 
 interface IProps {
     children?: React.ReactNode

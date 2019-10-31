@@ -1,6 +1,6 @@
 import Loadable from 'react-loadable'
 
-import PageLoading from 'Components/PageLoading'
+import PageLoading from '@components/PageLoading'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 

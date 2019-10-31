@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import { Layout, Icon, Switch } from 'antd'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
+import useRootStore from '@store/useRootStore'
 import SiderMenu from './Menu'
 
 function Sider() {

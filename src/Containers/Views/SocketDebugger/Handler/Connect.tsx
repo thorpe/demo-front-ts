@@ -3,9 +3,9 @@ import { observer } from 'mobx-react'
 import { message, Input, Button, Checkbox } from 'antd'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
+import useRootStore from '@store/useRootStore'
 import { socketConnect, socketDisconnect } from 'Services/Websocket'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 function Connect() {
     const { socketStore } = useRootStore()

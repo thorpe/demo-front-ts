@@ -1,8 +1,8 @@
 import { observable, action, computed } from 'mobx'
 
-import { StoreExt } from 'Helpers/reactExt'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
-import { SOCKER_TYPES, DATA_FORMATS } from 'Constants/socket'
+import { StoreExt } from '@helpers/reactExt'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { SOCKER_TYPES, DATA_FORMATS } from '@constants/socket'
 
 /**
  * socket debugger store

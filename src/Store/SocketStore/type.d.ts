@@ -1,5 +1,5 @@
 import { SocketStore as SocketStoreModel } from './index'
-import { SOCKET_TYPE, DATA_FORMAT_TYPE } from 'Constants/socket'
+import { SOCKET_TYPE, DATA_FORMAT_TYPE } from '@constants/socket'
 
 export as namespace ISocketStore
 

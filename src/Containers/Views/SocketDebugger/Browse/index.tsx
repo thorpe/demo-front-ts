@@ -6,8 +6,8 @@ import { CellMeasurerCache, CellMeasurer } from 'react-virtualized/dist/es/CellM
 import { List as VList, ListRowProps } from 'react-virtualized/dist/es/List'
 
 import styles from './index.scss'
-import useRootStore from 'Store/useRootStore'
-import { useOnMount } from 'Helpers/hooks'
+import useRootStore from '@store/useRootStore'
+import { useOnMount } from '@helpers/hooks'
 import Message from './Message'
 
 function Browse() {

@@ -6,7 +6,7 @@ import pathToRegexp from 'path-to-regexp'
 
 import styles from './index.scss'
 import { RootConsumer } from '@shared/App/Provider'
-import { arrayToTree, queryArray } from 'Helpers/index'
+import { arrayToTree, queryArray } from '@helpers/index'
 import menu, { IMenu, IMenuInTree } from './../menu'
 
 const { SubMenu } = Menu

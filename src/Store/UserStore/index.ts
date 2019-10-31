@@ -1,7 +1,7 @@
 import { observable, action, runInAction } from 'mobx'
 import { PaginationConfig } from 'antd/lib/pagination'
 
-import { StoreExt } from 'Helpers/reactExt'
+import { StoreExt } from '@helpers/reactExt'
 
 export class UserStore extends StoreExt {
     /**

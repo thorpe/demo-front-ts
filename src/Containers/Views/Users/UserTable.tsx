@@ -3,8 +3,8 @@ import { Table, Divider, Popconfirm } from 'antd'
 import { observer } from 'mobx-react'
 
 import styles from './index.scss'
-import { useOnMount } from 'Helpers/hooks'
-import useRootStore from 'Store/useRootStore'
+import { useOnMount } from '@helpers/hooks'
+import useRootStore from '@store/useRootStore'
 import UserModal from './UserModal'
 
 interface IProps {

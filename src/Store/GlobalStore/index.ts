@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 
-import { StoreExt } from 'Helpers/reactExt'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
+import { StoreExt } from '@helpers/reactExt'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 export class GlobalStore extends StoreExt {
     /**

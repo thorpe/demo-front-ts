@@ -2,8 +2,8 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Route, RouteProps } from 'react-router-dom'
 
-import { useOnMount } from 'Helpers/hooks'
-import useRootStore from 'Store/useRootStore'
+import { useOnMount } from '@helpers/hooks'
+import useRootStore from '@store/useRootStore'
 
 function PrivateRoute({ component: Component, ...rest }: RouteProps) {
     const { routerStore, authStore } = useRootStore()

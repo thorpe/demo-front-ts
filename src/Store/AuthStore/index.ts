@@ -1,10 +1,10 @@
 import { observable, action, reaction } from 'mobx'
 import { isPlainObject } from 'lodash'
 
-import { StoreExt } from 'Helpers/reactExt'
+import { StoreExt } from '@helpers/reactExt'
 import { routerStore } from './../'
 import { initialUserInfo, syncUserInfo } from './syncUserInfo'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 export class AuthStore extends StoreExt {
     /**

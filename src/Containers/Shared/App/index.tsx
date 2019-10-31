@@ -5,9 +5,9 @@ import { createHashHistory } from 'history'
 import { syncHistoryWithStore } from 'mobx-react-router'
 
 import styles from './index.scss'
-import * as store from 'Store/index'
-import PageLoading from 'Components/PageLoading'
-import Error from 'Components/Error'
+import * as store from '@store/index'
+import PageLoading from '@components/PageLoading'
+import Error from '@components/Error'
 import Provider from './Provider'
 import IntlWrapper from './IntlWrapper'
 
@@ -15,11 +15,11 @@ const hashHistory = createHashHistory()
 const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const Home = Loadable({
-    loader: () => import( '@views/Home'),
+    loader: () => import('@views/Home'),
     loading: PageLoading
 })
 const Login = Loadable({
-    loader: () => import( '@views/Login'),
+    loader: () => import('@views/Login'),
     loading: PageLoading
 })
 
@@ -33,9 +33,9 @@ function App() {
                     <Router history={history}>
                         <HashRouter>
                             <Switch>
-                                <Route exact path="/login" component={Login}/>
-                                <Route path="/" component={Home}/>
-                                <Route component={Error}/>
+                                <Route exact path="/login" component={Login} />
+                                <Route path="/" component={Home} />
+                                <Route component={Error} />
                             </Switch>
                         </HashRouter>
                     </Router>

@@ -2,9 +2,9 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Select } from 'antd'
 
-import useRootStore from 'Store/useRootStore'
-import { LOCALSTORAGE_KEYS } from 'Constants/index'
-import { DATA_FORMATS } from 'Constants/socket'
+import useRootStore from '@store/useRootStore'
+import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { DATA_FORMATS } from '@constants/socket'
 
 function DataFormat() {
     const { socketStore } = useRootStore()

@@ -7,6 +7,7 @@ import Error from '@components/Error'
 import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
 import Sider from './Sider'
+import Footer from './Footer'
 
 function Home() {
     return (
@@ -34,6 +35,7 @@ function Home() {
                         </Switch>
                     </Router>
                 </Layout.Content>
+                <Footer />
             </Layout>
         </Layout>
     )

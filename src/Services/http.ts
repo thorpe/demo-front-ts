@@ -30,7 +30,7 @@ const DEFAULT_CONFIG = {
 
 
 const http: HttpRequest = {}
-const methods: Method[] = ['get', 'post', 'put', 'delete']
+const methods: Method[] = ['get', 'post', 'put', 'delete', 'options']
 
 let authTimer: NodeJS.Timer = null
 
@@ -42,8 +42,8 @@ methods.forEach(v => {
         const axiosConfig: AxiosRequestConfig = {
             method: v,
             url,
-            baseURL: baseUrl || DEFAULT_CONFIG.baseURL,
-            headers: { Authorization: `Bearer ${userInfo.token}` }
+            baseURL: baseUrl || DEFAULT_CONFIG.baseURL
+            // headers: { Authorization: `Bearer ${userInfo.token}` }
         }
         const instance = axios.create(DEFAULT_CONFIG)
 
@@ -55,22 +55,31 @@ methods.forEach(v => {
             },
             error => Promise.reject(error)
         )
+
         // Add a response interceptor
         instance.interceptors.response.use(
             response => {
-                const rdata =
-                    typeof response.data === 'object' && !isNaN(response.data.length) ? response.data[0] : response.data
-                if (!isSuccess(rdata)) {
+                const responseData = typeof response.data === 'object' && !isNaN(response.data.length) ? response.data[0] : response.data
+                console.log('0============================')
+                console.log(responseData)
+                if (!isSuccess(responseData)) {
                     return Promise.reject({
-                        msg: rdata.msg,
-                        errCode: rdata.errCode,
+                        msg: responseData.msg,
+                        errCode: responseData.errCode,
                         type: HTTP_ERROR[HTTP_ERROR.LOGIC_ERROR],
                         config: response.config
                     })
                 }
-                return resFormat(rdata)
+                return resFormat(responseData)
             },
             error => {
+                console.log('1============================')
+                console.log(error)
+                console.log('2============================')
+                console.log(error.response)
+                console.log('3============================')
+                console.log(error.response.status)
+                console.log('4============================')
                 if (TOKEN_ERROR.includes(error.response.status)) {
                     message.destroy()
                     message.error('Authentication failure, Please relogin!')
@@ -81,10 +90,8 @@ methods.forEach(v => {
                     return
                 }
                 return Promise.reject({
-                    msg: error.response.statusText || error.message || 'network error',
-                    type: /^timeout of/.test(error.message)
-                        ? HTTP_ERROR[HTTP_ERROR.TIMEOUT_ERROR]
-                        : HTTP_ERROR[HTTP_ERROR.NETWORK_ERROR],
+                    msg: 2,
+                    type: 22,
                     config: error.config
                 })
             }
@@ -101,6 +108,7 @@ methods.forEach(v => {
             .request(axiosConfig)
             .then(res => res)
             .catch(err => {
+                console.log('2============================')
                 message.destroy()
                 message.error(err.response || err.msg || err.stack || 'unknown error')
                 return Promise.reject(

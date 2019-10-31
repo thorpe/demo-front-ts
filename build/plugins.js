@@ -28,7 +28,7 @@ const basePlugins = [
     }),
     new webpack.DefinePlugin(defineEnv),
     new TypedCssModulesPlugin({
-        globPattern: 'src/!(styles)/**/*.scss'
+        globPattern: 'src/!(Styles)/**/*.scss'
     })
 ]
 

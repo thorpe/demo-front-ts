@@ -21,7 +21,7 @@ const sassLoader = {
     loader: 'sass-loader',
     options: {
         sassOptions: {
-            includePaths: [require('bourbon').includePaths, resolve('src/styles')]
+            includePaths: [require('bourbon').includePaths, resolve('src/Styles')]
         }
     }
 }

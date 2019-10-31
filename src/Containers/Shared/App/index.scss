@@ -1,18 +1,18 @@
 @import '_base.scss';
 
 .appWrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin: 0 auto;
-    min-height: 100%;
-    overflow: auto;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 100%;
+  overflow: auto;
+  width: 100%;
 }
 
 .intlSelect:global.ant-select {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 100px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 100px;
 }

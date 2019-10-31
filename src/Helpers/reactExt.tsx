@@ -13,9 +13,9 @@ import * as api from '@services/Api'
  * @template S
  */
 export class ComponentExt<P = {}, S = {}> extends React.Component<P, S> {
-    readonly api = api
-    readonly $message = message
-    readonly $notification = notification
+  readonly api = api
+  readonly $message = message
+  readonly $notification = notification
 }
 
 /**
@@ -25,7 +25,7 @@ export class ComponentExt<P = {}, S = {}> extends React.Component<P, S> {
  * @class StoreExt
  */
 export class StoreExt {
-    readonly api = api
-    readonly $message = message
-    readonly $notification = notification
+  readonly api = api
+  readonly $message = message
+  readonly $notification = notification
 }

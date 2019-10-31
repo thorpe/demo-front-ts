@@ -7,38 +7,37 @@ import Error from '@components/Error'
 import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
 import Sider from './Sider'
-import Footer from './Footer'
 
 function Home() {
-    return (
-        <Layout>
-            <Sider />
-            <Layout>
-                <Header />
-                <Layout.Content className={styles.content}>
-                    <Router>
-                        <Switch>
-                            {menu.map(m => {
-                                if (!m.path) {
-                                    return null
-                                }
-                                return (
-                                    <Route
-                                        key={m.id}
-                                        exact={m.exact}
-                                        path={m.path}
-                                        component={m.component ? asynchronousComponents[m.component] : null}
-                                    />
-                                )
-                            })}
-                            <Route component={Error} />
-                        </Switch>
-                    </Router>
-                </Layout.Content>
-                <Footer />
-            </Layout>
-        </Layout>
-    )
+  return (
+    <Layout>
+      <Sider/>
+      <Layout>
+        <Header/>
+        <Layout.Content className={styles.content}>
+          <Router>
+            <Switch>
+              {menu.map(m => {
+                if (!m.path) {
+                  return null
+                }
+                return (
+                  <Route
+                    key={m.id}
+                    exact={m.exact}
+                    path={m.path}
+                    component={m.component ? asynchronousComponents[m.component] : null}
+                  />
+                )
+              })}
+              <Route component={Error}/>
+            </Switch>
+          </Router>
+        </Layout.Content>
+
+      </Layout>
+    </Layout>
+  )
 }
 
 export default Home

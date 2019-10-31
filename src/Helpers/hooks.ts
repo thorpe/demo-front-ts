@@ -8,11 +8,11 @@ import React from 'react'
  * @returns
  */
 export function useOnMount(onMount: () => any) {
-    return React.useEffect(() => {
-        if (onMount) {
-            onMount()
-        }
-    }, [])
+  return React.useEffect(() => {
+    if (onMount) {
+      onMount()
+    }
+  }, [])
 }
 
 /**
@@ -23,7 +23,7 @@ export function useOnMount(onMount: () => any) {
  * @returns
  */
 export function useOnUnmount(onUnmount: () => any) {
-    return React.useEffect(() => {
-        return () => onUnmount && onUnmount()
-    }, [])
+  return React.useEffect(() => {
+    return () => onUnmount && onUnmount()
+  }, [])
 }

@@ -15,34 +15,34 @@ const hashHistory = createHashHistory()
 const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const Home = Loadable({
-    loader: () => import('@views/Home'),
-    loading: PageLoading
+  loader: () => import('@views/Home'),
+  loading: PageLoading
 })
 const Login = Loadable({
-    loader: () => import('@views/Login'),
-    loading: PageLoading
+  loader: () => import('@views/Login'),
+  loading: PageLoading
 })
 
 const AppWrapper = ({ children }: { children?: React.ReactNode }) => <div className={styles.appWrapper}>{children}</div>
 
 function App() {
-    return (
-        <Provider>
-            <IntlWrapper>
-                <AppWrapper>
-                    <Router history={history}>
-                        <HashRouter>
-                            <Switch>
-                                <Route exact path="/login" component={Login} />
-                                <Route path="/" component={Home} />
-                                <Route component={Error} />
-                            </Switch>
-                        </HashRouter>
-                    </Router>
-                </AppWrapper>
-            </IntlWrapper>
-        </Provider>
-    )
+  return (
+    <Provider>
+      <IntlWrapper>
+        <AppWrapper>
+          <Router history={history}>
+            <HashRouter>
+              <Switch>
+                <Route exact path="/login" component={Login}/>
+                <Route path="/" component={Home}/>
+                <Route component={Error}/>
+              </Switch>
+            </HashRouter>
+          </Router>
+        </AppWrapper>
+      </IntlWrapper>
+    </Provider>
+  )
 }
 
 export default App

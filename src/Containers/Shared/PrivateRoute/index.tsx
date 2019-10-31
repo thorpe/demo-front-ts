@@ -6,17 +6,17 @@ import { useOnMount } from '@helpers/hooks'
 import useRootStore from '@store/useRootStore'
 
 function PrivateRoute({ component: Component, ...rest }: RouteProps) {
-    const { routerStore, authStore } = useRootStore()
+  const { routerStore, authStore } = useRootStore()
 
-    function checkLocalUserInfo() {
-        if (!authStore.userInfo.token) {
-            routerStore.history.replace('/login')
-        }
+  function checkLocalUserInfo() {
+    if (!authStore.userInfo.token) {
+      routerStore.history.replace('/login')
     }
+  }
 
-    useOnMount(checkLocalUserInfo)
+  useOnMount(checkLocalUserInfo)
 
-    return <Route {...rest} render={props => <Component {...props} {...rest} />} />
+  return <Route {...rest} render={props => <Component {...props} {...rest} />}/>
 }
 
 export default observer(PrivateRoute)

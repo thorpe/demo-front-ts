@@ -1,29 +1,29 @@
 @import '_base.scss';
 
 .login {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .form {
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
-    padding: 36px 36px 12px;
-    width: 320px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+  padding: 36px 36px 12px;
+  width: 320px;
 }
 
 .logoBox {
-    font-size: 55px;
-    margin-bottom: 15px;
-    text-align: center;
+  font-size: 55px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .tips {
-    color: $gray-color;
-    display: flex;
-    font-size: $font-size-sm;
-    justify-content: space-around;
-    margin-top: -20px;
+  color: $gray-color;
+  display: flex;
+  font-size: $font-size-sm;
+  justify-content: space-around;
+  margin-top: -20px;
 }

@@ -1,3 +1,7 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import 'antd-mobile/dist/antd-mobile.css'
+
 import React from 'react'
 import Loadable from 'react-loadable'
 import { HashRouter, Router, Switch, Route } from 'react-router-dom'
@@ -16,11 +20,11 @@ const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const Home = Loadable({
   loader: () => import('@views/Home'),
-  loading: PageLoading
+  loading: PageLoading,
 })
 const Login = Loadable({
   loader: () => import('@views/Login'),
-  loading: PageLoading
+  loading: PageLoading,
 })
 
 const AppWrapper = ({ children }: { children?: React.ReactNode }) => <div className={styles.appWrapper}>{children}</div>
@@ -33,9 +37,9 @@ function App() {
           <Router history={history}>
             <HashRouter>
               <Switch>
-                <Route exact path="/login" component={Login}/>
-                <Route path="/" component={Home}/>
-                <Route component={Error}/>
+                <Route exact path="/login" component={Login} />
+                <Route path="/" component={Home} />
+                <Route component={Error} />
               </Switch>
             </HashRouter>
           </Router>

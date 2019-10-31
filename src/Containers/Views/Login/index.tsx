@@ -9,7 +9,8 @@ import useRootStore from '@store/useRootStore'
 
 const FormItem = Form.Item
 
-interface IProps extends FormComponentProps {}
+interface IProps extends FormComponentProps {
+}
 
 function Login({ form }: IProps) {
   const { authStore } = useRootStore()

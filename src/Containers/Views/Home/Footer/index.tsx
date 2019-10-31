@@ -31,7 +31,9 @@ const Footer: React.FC = props => {
         <WhiteSpace />
         <Button icon="check-circle-o">with icon</Button>
         <WhiteSpace />
-        <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />}>with custom icon</Button><WhiteSpace />
+        <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />}>with custom icon</Button>
+
+        <WhiteSpace />
         <Button icon="check-circle-o" inline size="small" style={{ marginRight: '4px' }}>
           with icon and inline
         </Button>

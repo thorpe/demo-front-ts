@@ -1,0 +1,27 @@
+@import '_base.scss';
+
+.browse {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+    flex: 1;
+    margin-left: 20px;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 0 15px;
+}
+
+.messageHeader {
+    align-items: center;
+    display: flex;
+}
+
+.content {
+    border-bottom: 1px dotted #cac5c5;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    word-break: break-all;
+    word-wrap: break-word;
+}

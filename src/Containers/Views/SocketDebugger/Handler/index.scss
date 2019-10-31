@@ -1,0 +1,79 @@
+@import '_base.scss';
+
+.handler {
+    width: 50%;
+}
+
+.head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+// Type
+.reset {
+    margin-bottom: 15px;
+}
+
+.autoComplete {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btnCover {
+    margin-left: 10px;
+}
+
+.content {
+    border: 1px dotted #cac5c5;
+    border-radius: 3px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.textContent:global(.ant-input) {
+    margin: 10px 0;
+}
+
+// Connect
+.container {
+    margin: 20px 0 50px;
+}
+
+.socketUrlInput:global(.ant-input) {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.connect {
+    align-items: center;
+    display: flex;
+}
+
+.btn {
+    margin-left: 7px;
+}
+
+.checkbox {
+    align-items: center;
+    composes: btn;
+    display: flex;
+
+    :global {
+        .ant-checkbox {
+            top: 0;
+
+            & + span {
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.tips {
+    border-left: 4px solid #ebedf0;
+    color: #697b8c;
+    font-size: 90%;
+    margin: 1em 0;
+    padding-left: 0.8em;
+}

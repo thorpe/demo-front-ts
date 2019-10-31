@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "removeComments": false,
+        "rootDirs": ["./src"],
+        "baseUrl": "./src",
+        "paths": {
+            "@constants/*": ["Constants/*"],
+            "@services/*": ["Services/*"],
+            "@store/*": ["Store/*"],
+            "@utils/*": ["Helpers/*"],
+            "@assets/*": ["Assets/*"],
+            "@locales/*": ["Locales/*"],
+            "@components/*": ["Components/*"],
+            "@views/*": ["Containers/Views/*"],
+            "@shared/*": ["Containers/Shared/*"]
+        },
+        "jsx": "react",
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "lib": ["es7", "dom"],
+        "skipLibCheck": true,
+        "typeRoots": ["node", "node_modules/@types", "./typings"]
+    }
+}

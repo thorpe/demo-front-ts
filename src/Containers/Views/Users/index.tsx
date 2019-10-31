@@ -6,10 +6,10 @@ import UserTable from './UserTable'
 import AutoSizer from '@components/AutoSizer'
 
 export default function Users() {
-    return (
-        <div className={styles.container}>
-            <Header />
-            <AutoSizer className={styles.tableBox}>{({ height }) => <UserTable scrollY={height - 120} />}</AutoSizer>
-        </div>
-    )
+  return (
+    <div className={styles.container}>
+      <Header/>
+      <AutoSizer className={styles.tableBox}>{({ height }) => <UserTable scrollY={height - 120}/>}</AutoSizer>
+    </div>
+  )
 }

@@ -1,16 +1,16 @@
 @import '_base.scss';
 
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .tableBox {
-    flex: 1;
-    overflow-y: hidden;
+  flex: 1;
+  overflow-y: hidden;
 }
 
 .ctrlEle {
-    color: $primary-color;
-    cursor: pointer;
+  color: $primary-color;
+  cursor: pointer;
 }

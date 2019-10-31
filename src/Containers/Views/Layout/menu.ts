@@ -7,6 +7,7 @@ const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading
 export const asynchronousComponents = {
   SocketDebugger: loadComponent(() => import('@views/SocketDebugger')),
   Users: loadComponent(() => import('@views/Users')),
+
   Test: loadComponent(() => import('@views/Test'))
 }
 

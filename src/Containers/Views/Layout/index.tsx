@@ -12,9 +12,9 @@ import Footer from './Footer'
 function Home() {
   return (
     <Layout>
-      <Sider/>
+      <Sider />
       <Layout>
-        <Header/>
+        <Header />
         <Layout.Content className={styles.content}>
           <Router>
             <Switch>
@@ -31,11 +31,11 @@ function Home() {
                   />
                 )
               })}
-              <Route component={Error}/>
+              <Route component={Error} />
             </Switch>
           </Router>
         </Layout.Content>
-        <Footer/>
+        <Footer />
       </Layout>
     </Layout>
   )

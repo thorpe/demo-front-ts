@@ -18,13 +18,13 @@ import IntlWrapper from './IntlWrapper'
 const hashHistory = createHashHistory()
 const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
-const Home = Loadable({
-  loader: () => import('@views/Home'),
-  loading: PageLoading,
+const Layout = Loadable({
+  loader: () => import('@views/Layout'),
+  loading: PageLoading
 })
 const Login = Loadable({
   loader: () => import('@views/Login'),
-  loading: PageLoading,
+  loading: PageLoading
 })
 
 const AppWrapper = ({ children }: { children?: React.ReactNode }) => <div className={styles.appWrapper}>{children}</div>
@@ -38,7 +38,7 @@ function App() {
             <HashRouter>
               <Switch>
                 <Route exact path="/login" component={Login} />
-                <Route path="/" component={Home} />
+                <Route path="/" component={Layout} />
                 <Route component={Error} />
               </Switch>
             </HashRouter>

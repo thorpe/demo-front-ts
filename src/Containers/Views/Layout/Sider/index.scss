@@ -1,0 +1,38 @@
+@import '_base.scss';
+
+.sider {
+  :global(.ant-layout-sider-children) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.logoBox {
+  font-size: 50px;
+  padding: 10px 0;
+  text-align: center;
+
+  &.dark {
+    color: rgba(white, 0.65);
+  }
+}
+
+.menu {
+  flex: 1;
+}
+
+.changeTheme {
+  align-items: center;
+  border-top: 1px solid $border-light-color;
+  display: flex;
+  font-size: $font-size-sm;
+  justify-content: space-around;
+  padding: 12px 10px;
+  transition: all 0.3s;
+
+  &.dark {
+    background-color: $dark-color;
+    border-color: $dark-color;
+    color: rgba(white, 0.65);
+  }
+}

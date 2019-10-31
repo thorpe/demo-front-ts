@@ -110,7 +110,7 @@ class SiderMenu extends React.Component<IProps> {
             key={String(item.id)}
             title={
               <span>
-                                {item.icon && <Icon type={item.icon}/>}
+                                {item.icon && <Icon type={item.icon} />}
                 <span>{item.title}</span>
                             </span>
             }
@@ -121,7 +121,7 @@ class SiderMenu extends React.Component<IProps> {
       }
       return (
         <Menu.Item key={String(item.id)}>
-          {item.icon && <Icon type={item.icon}/>}
+          {item.icon && <Icon type={item.icon} />}
           <span>{item.title}</span>
         </Menu.Item>
       )

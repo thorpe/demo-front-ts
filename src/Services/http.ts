@@ -27,6 +27,8 @@ const DEFAULT_CONFIG = {
     baseURL: process.env.BASEURL
 }
 
+
+
 const http: HttpRequest = {}
 const methods: Method[] = ['get', 'post', 'put', 'delete']
 

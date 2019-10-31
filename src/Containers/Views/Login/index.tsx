@@ -38,14 +38,14 @@ function Login({ form }: IProps) {
     <div className={styles.login}>
       <Form onSubmit={submit} className={styles.form}>
         <div className={styles.logoBox}>
-          <Icon type="ant-design"/>
+          <Icon type="ant-design" />
         </div>
         <FormItem hasFeedback>
           {getFieldDecorator('account', {
             rules: [{ required: true }]
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }}/>}
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="account"
             />
           )}
@@ -55,7 +55,7 @@ function Login({ form }: IProps) {
             rules: [{ required: true }]
           })(
             <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }}/>}
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="password"
             />

@@ -13,22 +13,11 @@ function Sider() {
   const ChangeTheme = (
     <div className={classnames(styles.changeTheme, sideBarTheme === 'dark' && styles.dark)}>
       Switch Theme
-      <Switch
-        checkedChildren="dark"
-        unCheckedChildren="light"
-        checked={sideBarTheme === 'dark'}
-        onChange={val => changeSiderTheme(val ? 'dark' : 'light')}
-      />
+      <Switch checkedChildren="dark" unCheckedChildren="light" checked={sideBarTheme === 'dark'} onChange={val => changeSiderTheme(val ? 'dark' : 'light')} />
     </div>
   )
   return (
-    <Layout.Sider
-      className={styles.sider}
-      trigger={null}
-      theme={sideBarTheme}
-      collapsible
-      collapsed={sideBarCollapsed}
-    >
+    <Layout.Sider className={styles.sider} trigger={null} collapsedWidth={0} theme={sideBarTheme} collapsible collapsed={sideBarCollapsed}>
       <div className={classnames(styles.logoBox, sideBarTheme === 'dark' && styles.dark)}>
         <Icon type="ant-design" />
       </div>

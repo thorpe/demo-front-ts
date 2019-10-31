@@ -3,13 +3,39 @@ import { observable, action } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
+export enum DialogType {
+  SINGLE,
+  CHOICE,
+}
+
+type DialogCallback = () => void
+
+export interface DialogParams {
+  title?: string
+  custom?: React.ReactNode
+  text?: string[]
+
+  singlePress?: string
+
+  negativePress?: string
+  positivePress?: string
+
+  callbackPositive?: DialogCallback
+  callbackNegative?: DialogCallback
+}
+
+export interface DialogData extends DialogParams {
+  id: string
+  type: DialogType
+  callbackClose: () => void
+}
+
+export type DialogQueue = DialogData[]
+
 export class GlobalStore extends StoreExt {
-  /**
-   * 菜单栏折叠
-   *
-   * @type {boolean}
-   * @memberof GlobalStore
-   */
+  @observable
+  currentDialog: DialogData
+
   @observable
   sideBarCollapsed: boolean = localStorage.getItem(LOCALSTORAGE_KEYS.SIDE_BAR_COLLAPSED) === '1'
   /**
@@ -19,8 +45,7 @@ export class GlobalStore extends StoreExt {
    * @memberof GlobalStore
    */
   @observable
-  sideBarTheme: IGlobalStore.SideBarTheme =
-    (localStorage.getItem(LOCALSTORAGE_KEYS.SIDE_BAR_THEME) as IGlobalStore.SideBarTheme) || 'light'
+  sideBarTheme: IGlobalStore.SideBarTheme = (localStorage.getItem(LOCALSTORAGE_KEYS.SIDE_BAR_THEME) as IGlobalStore.SideBarTheme) || 'light'
   /**
    * 打开的菜单key
    *

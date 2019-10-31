@@ -1,4 +1,4 @@
-import http from 'Services/http'
+import http from '@services/http'
 
 export default {
     getUsers(data: object): Promise<any> {

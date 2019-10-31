@@ -1,7 +1,7 @@
 import React from 'react'
 import { message, notification } from 'antd'
 
-import * as api from 'Services/Api'
+import * as api from '@services/Api'
 
 /**
  * extends component

@@ -7,7 +7,7 @@ import styles from './index.scss'
 import useRootStore from '@store/useRootStore'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 import { DATA_FORMATS } from '@constants/socket'
-import { send } from 'Services/Websocket'
+import { send } from '@services/Websocket'
 
 const localSocketIOEvents = localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_IO_EVENTS)
 let initialSocketIOEvents: string[] = localSocketIOEvents ? JSON.parse(localSocketIOEvents) : []

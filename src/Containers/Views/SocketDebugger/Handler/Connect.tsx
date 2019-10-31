@@ -4,7 +4,7 @@ import { message, Input, Button, Checkbox } from 'antd'
 
 import styles from './index.scss'
 import useRootStore from '@store/useRootStore'
-import { socketConnect, socketDisconnect } from 'Services/Websocket'
+import { socketConnect, socketDisconnect } from '@services/Websocket'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 function Connect() {

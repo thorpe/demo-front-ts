@@ -15,15 +15,15 @@ export interface HttpRequest {
     put?(url: string, data: object, baseUrl?: string): Promise<any>
 }
 
-enum HTTPERROR {
-    LOGICERROR,
-    TIMEOUTERROR,
-    NETWORKERROR
+enum HTTP_ERROR {
+    LOGIC_ERROR,
+    TIMEOUT_ERROR,
+    NETWORK_ERROR
 }
 
-const TOKENERROR = [401, 402, 403]
+const TOKEN_ERROR = [401, 402, 403]
 
-const DEFAULTCONFIG = {
+const DEFAULT_CONFIG = {
     baseURL: process.env.BASEURL
 }
 
@@ -40,10 +40,11 @@ methods.forEach(v => {
         const axiosConfig: AxiosRequestConfig = {
             method: v,
             url,
-            baseURL: baseUrl || DEFAULTCONFIG.baseURL,
+            baseURL: baseUrl || DEFAULT_CONFIG.baseURL,
             headers: { Authorization: `Bearer ${userInfo.token}` }
         }
-        const instance = axios.create(DEFAULTCONFIG)
+        const instance = axios.create(DEFAULT_CONFIG)
+
         // Add a request interceptor
         instance.interceptors.request.use(
             cfg => {
@@ -61,14 +62,14 @@ methods.forEach(v => {
                     return Promise.reject({
                         msg: rdata.msg,
                         errCode: rdata.errCode,
-                        type: HTTPERROR[HTTPERROR.LOGICERROR],
+                        type: HTTP_ERROR[HTTP_ERROR.LOGIC_ERROR],
                         config: response.config
                     })
                 }
                 return resFormat(rdata)
             },
             error => {
-                if (TOKENERROR.includes(error.response.status)) {
+                if (TOKEN_ERROR.includes(error.response.status)) {
                     message.destroy()
                     message.error('Authentication failure, Please relogin!')
                     clearTimeout(authTimer)
@@ -80,8 +81,8 @@ methods.forEach(v => {
                 return Promise.reject({
                     msg: error.response.statusText || error.message || 'network error',
                     type: /^timeout of/.test(error.message)
-                        ? HTTPERROR[HTTPERROR.TIMEOUTERROR]
-                        : HTTPERROR[HTTPERROR.NETWORKERROR],
+                        ? HTTP_ERROR[HTTP_ERROR.TIMEOUT_ERROR]
+                        : HTTP_ERROR[HTTP_ERROR.NETWORK_ERROR],
                     config: error.config
                 })
             }

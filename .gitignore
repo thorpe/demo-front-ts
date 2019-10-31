@@ -3,7 +3,7 @@ npm-debug*
 /dist
 /index.html
 /package-lock.json
-/.cache-loader
 /.awcache
 /deploy
 .idea
+.cache-loader

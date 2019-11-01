@@ -22,7 +22,7 @@ function Home() {
                 if (!m.path) {
                   return null
                 }
-                return (
+                return(
                   <Route
                     key={m.id}
                     exact={m.exact}

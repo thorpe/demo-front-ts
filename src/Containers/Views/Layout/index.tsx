@@ -22,14 +22,7 @@ function Home() {
                 if (!m.path) {
                   return null
                 }
-                return(
-                  <Route
-                    key={m.id}
-                    exact={m.exact}
-                    path={m.path}
-                    component={m.component ? asynchronousComponents[m.component] : null}
-                  />
-                )
+                return (<Route key={m.id} exact={m.exact} path={m.path} component={m.component ? asynchronousComponents[m.component] : null} />)
               })}
               <Route component={Error} />
             </Switch>

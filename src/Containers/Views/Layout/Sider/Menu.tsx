@@ -98,7 +98,6 @@ class SiderMenu extends React.Component<IProps> {
     return map[key] || []
   }
 
-  // 递归生成菜单
   getMenus = (menuTree: IMenuInTree[]) => {
     return menuTree.map(item => {
       if (item.children) {
@@ -106,15 +105,7 @@ class SiderMenu extends React.Component<IProps> {
           this.levelMap[item.id] = item.pid
         }
         return (
-          <SubMenu
-            key={String(item.id)}
-            title={
-              <span>
-                                {item.icon && <Icon type={item.icon} />}
-                <span>{item.title}</span>
-                            </span>
-            }
-          >
+          <SubMenu key={String(item.id)} title={<span>{item.icon && <Icon type={item.icon} />} <span>{item.title}</span></span>}>
             {this.getMenus(item.children)}
           </SubMenu>
         )
@@ -132,7 +123,7 @@ class SiderMenu extends React.Component<IProps> {
     this.levelMap = {}
     const { sideBarTheme } = this.props
     const menuItems = this.getMenus(this.menuTree)
-    // 寻找选中路由
+
     let currentMenu: IMenu = null
     for (const item of menu) {
       if (item.path && pathToRegexp(item.path).exec(this.currentRoute)) {
@@ -148,14 +139,7 @@ class SiderMenu extends React.Component<IProps> {
       selectedKeys = ['1']
     }
     return (
-      <Menu
-        className={styles.menu}
-        theme={sideBarTheme}
-        mode="inline"
-        selectedKeys={selectedKeys}
-        onClick={this.goto}
-        {...this.menuProps}
-      >
+      <Menu className={styles.menu} theme={sideBarTheme} mode="inline" selectedKeys={selectedKeys} onClick={this.goto} {...this.menuProps}>
         {menuItems}
       </Menu>
     )

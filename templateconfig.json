@@ -2,12 +2,12 @@
   "templatepath": "tool",
   "componentPlacementPath": "src",
   "filterPath": [
-    "src/services",
-    "src/assets",
-    "src/constants",
-    "src/router",
-    "src/store",
-    "src/utils",
-    "src/styles"
+    "src/Services",
+    "src/Assets",
+    "src/Constants",
+    "src/Router",
+    "src/Store",
+    "src/Helpers",
+    "src/Styles"
   ]
 }

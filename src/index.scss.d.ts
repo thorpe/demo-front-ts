@@ -3,5 +3,6 @@
 interface CssExports {
 
 }
-declare var cssExports: CssExports;
+
+declare var cssExports: CssExports
 export = cssExports;

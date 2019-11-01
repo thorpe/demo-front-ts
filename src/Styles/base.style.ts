@@ -1,6 +1,5 @@
 import { css, keyframes } from '@emotion/core'
 import styled, { ThemeProps, Theme } from './Themes/theme'
-// import styled from '@emotion/styled'
 
 export const FontXLarge = '2.0rem'
 export const FontTitle = '1.6rem'

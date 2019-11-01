@@ -41,7 +41,7 @@ export default function IntlWrapper({ children }: IProps) {
   useOnMount(loadLocales)
 
   if (!currentLocale) {
-    return <PageLoading/>
+    return <PageLoading />
   }
   const selectLanguage = (
     <Select className={styles.intlSelect} onChange={onSelectLocale} value={currentLocale}>

@@ -70,9 +70,6 @@ methods.forEach(v => {
         return resFormat(responseData)
       },
       error => {
-        console.log(error.response)
-        console.log('3============================')
-
         if (TOKEN_ERROR.includes(error.response.status)) {
           message.destroy()
           message.error('Authentication failure, Please relogin!')

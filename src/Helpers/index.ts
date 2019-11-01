@@ -8,10 +8,10 @@ import { cloneDeep } from 'lodash'
  * @param {string} value
  * @param {number} [expiredays=365]
  */
-export function setCookie(name: string, value: string, expiredays = 365) {
-  const exdate = new Date()
-  exdate.setDate(exdate.getDate() + expiredays)
-  document.cookie = `${name}=${escape(value)};expires=${exdate.toUTCString()}`
+export function setCookie(name: string, value: string, expireDays = 365) {
+  const exDate = new Date()
+  exDate.setDate(exDate.getDate() + expireDays)
+  document.cookie = `${name}=${escape(value)};expires=${exDate.toUTCString()}`
 }
 
 /**

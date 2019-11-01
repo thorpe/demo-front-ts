@@ -41,8 +41,7 @@ methods.forEach(v => {
     const axiosConfig: AxiosRequestConfig = {
       method: v,
       url,
-      baseURL: baseUrl || DEFAULT_CONFIG.baseURL,
-      withCredentials: true
+      baseURL: baseUrl || DEFAULT_CONFIG.baseURL
       // headers: { Authorization: `Bearer ${userInfo.token}` }
     }
     const instance = axios.create(DEFAULT_CONFIG)
@@ -60,8 +59,6 @@ methods.forEach(v => {
     instance.interceptors.response.use(
       response => {
         const responseData = typeof response.data === 'object' && !isNaN(response.data.length) ? response.data[0] : response.data
-        console.log('0============================')
-        console.log(responseData)
         if (!isSuccess(responseData)) {
           return Promise.reject({
             msg: responseData.msg,
@@ -73,13 +70,9 @@ methods.forEach(v => {
         return resFormat(responseData)
       },
       error => {
-        console.log('1============================')
-        console.log(error)
-        console.log('2============================')
         console.log(error.response)
         console.log('3============================')
-        console.log(error.response.status)
-        console.log('4============================')
+
         if (TOKEN_ERROR.includes(error.response.status)) {
           message.destroy()
           message.error('Authentication failure, Please relogin!')
@@ -90,8 +83,8 @@ methods.forEach(v => {
           return
         }
         return Promise.reject({
-          msg: 2,
-          type: 22,
+          msg: error.response.data.message,
+          type: error.response.data.code,
           config: error.config
         })
       }
@@ -108,7 +101,6 @@ methods.forEach(v => {
       .request(axiosConfig)
       .then(res => res)
       .catch(err => {
-        console.log('2============================')
         message.destroy()
         message.error(err.response || err.msg || err.stack || 'unknown error')
         return Promise.reject(axiosConfig.url.includes('autoScript.set') ? { err } : { err, stack: err.msg || err.stack || '' })

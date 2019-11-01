@@ -1,21 +1,19 @@
 import React from 'react'
 import intl from 'react-intl-universal'
 import { find } from 'lodash'
-import { Select, ConfigProvider } from 'antd'
+import { LocaleProvider } from 'antd'
 import { Locale } from 'antd/lib/locale-provider'
-
-import styles from './index.scss'
-import { useOnMount } from '@helpers/hooks'
-import { setCookie } from '@helpers/index'
+import { useOnMount } from '@helpers/reactExt'
 import { COOKIE_KEYS } from '@constants/index'
-import PageLoading from '@components/PageLoading'
+// import PageLoading from '@components/PageLoading'
+import LayoutLoading from '@views/Layout/LayoutLoading'
 import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader'
 
-interface IProps {
+interface Props {
   children?: React.ReactNode
 }
 
-export default function IntlWrapper({ children }: IProps) {
+export default function IntlWrapper({ children }: Props) {
   const [currentLocale, setCurrentLocale] = React.useState('')
   const [antdLocaleData, setAntdLocaleData] = React.useState<Locale>(null)
 
@@ -33,31 +31,37 @@ export default function IntlWrapper({ children }: IProps) {
     })
   }
 
-  function onSelectLocale(val: string) {
-    setCookie(COOKIE_KEYS.LANG, val)
-    location.reload()
-  }
+  /*
+   function onSelectLocale(val: string) {
+   setCookie(COOKIE_KEYS.LANG, val)
+   window.location.reload()
+   } */
 
   useOnMount(loadLocales)
 
   if (!currentLocale) {
-    return <PageLoading />
+    return <LayoutLoading />
+    // return <PageLoading />
   }
-  const selectLanguage = (
-    <Select className={styles.intlSelect} onChange={onSelectLocale} value={currentLocale}>
-      {SUPPOER_LOCALES.map(l => (
-        <Select.Option key={l.value} value={l.value}>
-          {l.name}
-        </Select.Option>
-      ))}
-    </Select>
-  )
+  /* const selectLanguage = (
+   <Select
+   css={{ position: 'absolute', top: '15px', right: '15px', width: '100px' }}
+   onChange={onSelectLocale}
+   value={currentLocale}
+   >
+   {SUPPOER_LOCALES.map(l => (
+   <Select.Option key={l.value} value={l.value}>
+   {l.name}
+   </Select.Option>
+   ))}
+   </Select>
+   ) */
   return (
-    <ConfigProvider locale={antdLocaleData}>
+    <LocaleProvider locale={antdLocaleData}>
       <React.Fragment>
-        {selectLanguage}
+        {/* {selectLanguage} */}
         {children}
       </React.Fragment>
-    </ConfigProvider>
+    </LocaleProvider>
   )
 }

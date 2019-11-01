@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Route, RouteProps } from 'react-router-dom'
 
-import { useOnMount } from '@helpers/hooks'
+import { useOnMount } from '@helpers/reactExt'
 import useRootStore from '@store/useRootStore'
 
 function PrivateRoute({ component: Component, ...rest }: RouteProps) {

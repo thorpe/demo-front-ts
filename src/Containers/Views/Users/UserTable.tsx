@@ -3,7 +3,7 @@ import { Table, Divider, Popconfirm } from 'antd'
 import { observer } from 'mobx-react'
 
 import styles from './index.scss'
-import { useOnMount } from '@helpers/hooks'
+import { useOnMount } from '@helpers/reactExt'
 import useRootStore from '@store/useRootStore'
 import UserModal from './UserModal'
 

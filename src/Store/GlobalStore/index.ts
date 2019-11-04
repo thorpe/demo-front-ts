@@ -168,30 +168,6 @@ export class GlobalStore extends StoreExt {
       !!this.currentDialog
   }
 
-  // Dialog usage
-
-  // case 1: single
-  // globalStore.pushDialogOk({ title: '테스트1', text: ['클럽 포털 더보기 클릭!'] })
-
-  // // case 2: single
-  // const custom = <p>Custom Contents</p>
-  // globalStore.pushDialogOk({ title: '테스트2', custom })
-
-  // // case 3: single
-  // globalStore.pushDialogOk({ title: '테스트3', text: ['클럽 포털 더보기 클릭!'], singlePress: '닫기' })
-
-  // globalStore.pushDialogYesNo({
-  //   title: '테스트4',
-  //   text: ['클럽 포털 더보기 클릭!'],
-  //   singlePress: '닫기',
-  //   callbackPositive: () => {
-  //     message.info('positive clicked!')
-  //   },
-  //   callbackNegative: () => {
-  //     message.info('negative clicked!')
-  //   },
-  // })
-
   @action
   pushDialog = (type: DialogType, params: DialogParams): DialogData => {
     const dlg = params as DialogData

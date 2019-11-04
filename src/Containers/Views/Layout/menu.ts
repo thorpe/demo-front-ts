@@ -1,6 +1,10 @@
 import Loadable from 'react-loadable'
+import { filter } from 'lodash'
 
 import PageLoading from '@components/PageLoading'
+import {
+  ClubPotalIco,
+} from '@shared/Icon/MenuIcon'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 
@@ -15,45 +19,44 @@ export const asynchronousComponents = {
 export type AsynchronousComponentKeys = keyof typeof asynchronousComponents
 
 export interface RouteMenu {
-  title: string
-  id: number
+  id: string
+  exact: boolean
   pid?: number
+  signedin?: boolean
   path?: string
-  icon?: string
+  name?: string
+  icon?: () => JSX.Element
   component?: AsynchronousComponentKeys
-  exact?: boolean
+  namespace?: string // models's namespace to set popup page
+  locale?: string
+  invisible?: boolean
 }
-
 export interface MenuInTree extends RouteMenu {
   children?: MenuInTree[]
 }
 
-export interface IMenuInTree extends RouteMenu {
-  children?: IMenuInTree[]
-}
-
 export const menu: RouteMenu[] = [
   {
-    id: 1,
+    id: '1',
     path: '/',
-    title: 'SocketDebugger',
-    icon: 'coffee',
+    name: 'SocketDebugger',
+    icon: ClubPotalIco,
     component: 'SocketDebugger',
     exact: true,
   },
   {
-    id: 2,
+    id: '2',
     path: '/users',
-    title: 'Users',
-    icon: 'user',
+    name: 'Users',
+    icon: ClubPotalIco,
     component: 'Users',
     exact: true,
   },
   {
-    id: 3,
+    id: '3',
     path: '/test',
-    title: 'Test',
-    icon: 'user',
+    name: 'Test',
+    icon: ClubPotalIco,
     component: 'Test',
     exact: true,
   },
@@ -61,14 +64,14 @@ export const menu: RouteMenu[] = [
 
 
 export function filterMenus(signedin: boolean) {
-  // eslint-disable-next-line arrow-body-style
-  const filtered = filter(menus, (el: RouteMenu) => {
+
+  const filtered = filter(menu, (el: RouteMenu) => {
     return el.id.length > 0
   })
   if (signedin === true) {
     return filtered
   }
-  // eslint-disable-next-line arrow-body-style
+
   return filter(filtered, (el: RouteMenu) => {
     return el.signedin === false
   })

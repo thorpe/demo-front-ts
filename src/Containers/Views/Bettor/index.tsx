@@ -75,9 +75,6 @@ const BettorFind: React.FC = props => {
 
   return (
     <Fragment>
-      <div>12</div>
-      <div>12</div>
-      <div>12</div>
       <TitleWrap>
         <Title>12121212</Title>
       </TitleWrap>

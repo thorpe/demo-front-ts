@@ -1,19 +1,22 @@
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core'
-import 'antd-mobile/dist/antd-mobile.css' /* antd-mobile */
+import 'antd-mobile/dist/antd-mobile.css'
 import Loadable from 'react-loadable'
+
 import { HashRouter, Router, Switch, Route } from 'react-router-dom'
 import { createHashHistory } from 'history'
 import { syncHistoryWithStore } from 'mobx-react-router'
+import { ThemeProvider } from 'emotion-theming'
+
+
 import * as store from '@store/index'
 import LayoutLoading from '@views/Layout/LayoutLoading'
 import PageLoading from '@components/PageLoading'
 import Error from '@components/Error'
 import { Theme } from '@themes/theme'
-import { ThemeProvider } from 'emotion-theming'
-
-
 import DarkTheme from '@themes/dark.theme'
+
+
 import { HideAni, ShowPopoverAni, ModalHeightAni, mq, mqMin } from '@styles/base.style'
 import IntlWrapper from './IntlWrapper'
 import Provider from './Provider'
@@ -38,7 +41,7 @@ const GlobalStyle = (theme: Theme) => css`
     position: relative;
     z-index: -1;
     width: 100%;
-    height: 100%;
+    height: 100% - 100px;
   }
   .ant-layout,
   .ant-layout-content {
@@ -74,11 +77,11 @@ const GlobalStyle = (theme: Theme) => css`
 
   /* font 설정 */
   * {
-    /* position: relative; */
-    font-family: 'Roboto', 'Noto Sans CJK KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', '돋움', dotum,
-      sans-serif !important;
+    font-family: 'Roboto', 'Noto Sans CJK KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', '돋움', dotum, sans-serif !important;
     user-select: none;
   }
+  
+  
   html {
     font-size: 10px;
   }
@@ -86,7 +89,6 @@ const GlobalStyle = (theme: Theme) => css`
     font-size: 1rem;
     font-weight: 600;
     background-color: ${theme.color.lowestBg};
-    /* letter-spacing: -0.02rem; */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

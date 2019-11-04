@@ -23,29 +23,14 @@ const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const PrimaryLayout = Loadable({
   loader: () => import(/* webpackChunkName: "home" */ '@views/Layout'),
-  loading: LayoutLoading
+  loading: LayoutLoading,
 })
 
 const Login = Loadable({
   loader: () => import(/* webpackChunkName: "login" */ '@views/Login'),
-  loading: PageLoading
+  loading: PageLoading,
 })
 
-// const AppWrapper = ({ children }: { children?: React.ReactNode }) => (
-//   <div
-//     css={{
-//       display: 'flex',
-//       width: '100%',
-//       height: '100%',
-//       margin: '0 auto',
-//       overflow: 'auto',
-//       minHeight: '100%',
-//       flexDirection: 'column',
-//     }}
-//   >
-//     {children}
-//   </div>
-// )
 
 const GlobalStyle = (theme: Theme) => css`
   html,
@@ -683,12 +668,10 @@ const GlobalStyle = (theme: Theme) => css`
 
 function App() {
   return (
-    // <ThemeProvider theme={WhiteTheme}>
     <ThemeProvider theme={DarkTheme}>
       <Provider>
         <Global styles={GlobalStyle} />
         <IntlWrapper>
-          {/* <AppWrapper> */}
           <Router history={history}>
             <HashRouter>
               <Switch>
@@ -698,7 +681,6 @@ function App() {
               </Switch>
             </HashRouter>
           </Router>
-          {/* </AppWrapper> */}
         </IntlWrapper>
       </Provider>
     </ThemeProvider>

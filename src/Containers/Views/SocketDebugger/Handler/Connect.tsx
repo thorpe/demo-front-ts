@@ -19,6 +19,7 @@ function Connect() {
   }
 
   function handleConnect() {
+    alert('2')
     if (!url) {
       message.destroy()
       return message.error('Please input socket url!')
@@ -28,18 +29,18 @@ function Connect() {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.connect}>
-        <Input className={styles.socketUrlInput} value={url} onChange={handleChange} />
+    <div >
+      <div >
+        <Input value={url} onChange={handleChange} />
         {socketStore.isSocketIO && (
           <Checkbox disabled={socketStore.socketIsConnected} className={styles.checkbox} checked={socketStore.notSupportPolling} onChange={e => socketStore.setNotSupportPolling(e.target.checked)}>
             no polling
           </Checkbox>
         )}
-        <Button className={styles.btn} type="primary" onClick={handleConnect} disabled={socketStore.socketIsConnected}>
+        <Button  type="primary" onClick={handleConnect} disabled={socketStore.socketIsConnected}>
           connect
         </Button>
-        <Button className={styles.btn} type="danger" onClick={socketDisconnect} disabled={!socketStore.socketIsConnected}>
+        <Button  type="danger" onClick={socketDisconnect} disabled={!socketStore.socketIsConnected}>
           disconnect
         </Button>
       </div>

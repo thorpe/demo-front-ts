@@ -5,18 +5,18 @@ interface Size {
   height: number
 }
 
-interface IP {
+interface Ip {
   className?: string
   style?: React.CSSProperties
   children?: (props: Size) => React.ReactNode
 }
 
-interface IS {
+interface Is {
   height: number
   width: number
 }
 
-class AutoSizer extends React.Component<IP, IS> {
+class AutoSizer extends React.Component<Ip, Is> {
   state = { height: 0, width: 0 }
 
   private containerRef: HTMLDivElement = null

@@ -60,6 +60,7 @@ export class SocketStore extends StoreExt {
 
   @action
   setNotSupportPolling = (val: boolean) => {
+    alert('1212')
     this.notSupportPolling = val
     localStorage.setItem(LOCALSTORAGE_KEYS.NOT_SUPPORT_POLLING, String(val))
   }

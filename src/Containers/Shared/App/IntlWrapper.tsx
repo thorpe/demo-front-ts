@@ -31,35 +31,15 @@ export default function IntlWrapper({ children }: Props) {
     })
   }
 
-  /*
-   function onSelectLocale(val: string) {
-   setCookie(COOKIE_KEYS.LANG, val)
-   window.location.reload()
-   } */
-
   useOnMount(loadLocales)
 
   if (!currentLocale) {
     return <LayoutLoading />
-    // return <PageLoading />
   }
-  /* const selectLanguage = (
-   <Select
-   css={{ position: 'absolute', top: '15px', right: '15px', width: '100px' }}
-   onChange={onSelectLocale}
-   value={currentLocale}
-   >
-   {SUPPOER_LOCALES.map(l => (
-   <Select.Option key={l.value} value={l.value}>
-   {l.name}
-   </Select.Option>
-   ))}
-   </Select>
-   ) */
+
   return (
     <LocaleProvider locale={antdLocaleData}>
       <React.Fragment>
-        {/* {selectLanguage} */}
         {children}
       </React.Fragment>
     </LocaleProvider>

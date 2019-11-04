@@ -9,7 +9,7 @@ function PrivateRoute({ component: Component, ...rest }: RouteProps) {
   const { routerStore, authStore } = useRootStore()
 
   function checkLocalUserInfo() {
-    if (!authStore.userInfo.token) {
+    if (!authStore.userInfo) {
       routerStore.history.replace('/login')
     }
   }

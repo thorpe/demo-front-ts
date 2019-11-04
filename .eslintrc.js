@@ -17,6 +17,13 @@ module.exports = {
     // prettier/prettier 옵션이 많은 문제를 일으켜서 off 로 해둠
     'prettier/prettier': 'off',
 
+    "@typescript-eslint/no-namespace": "off",
+
+    "@typescript-eslint/class-name-casing": "off",
+
+    "@typescript-eslint/no-empty-interface": "off",
+
+
     // git 에서 (CRLF)windows 스타일로 줄바꿈 셋팅되어 있음
     //'linebreak-style': ['error', 'windows'],
 
@@ -92,6 +99,7 @@ module.exports = {
 
     // 다른 rule 에서 let과 const를 강제 시키기 때문에 강제시키는 의미가 없어짐
     'no-loop-func': 'off',
+
 
     '@typescript-eslint/no-unused-vars': [
       'error',

@@ -13,6 +13,7 @@ export const asynchronousComponents = {
   Users: loadComponent(() => import('@views/Users')),
 
   Test: loadComponent(() => import('@views/Test')),
+  Bettor: loadComponent(() => import('@views/Bettor')),
 }
 
 // all routers key
@@ -62,6 +63,16 @@ export const menu: RouteMenu[] = [
     name: 'Test',
     icon: ClubPotalIco,
     component: 'Test',
+    locale: 'menu.sider.search-club',
+    signedin: false,
+    exact: true,
+  },
+  {
+    id: '4',
+    path: '/bettor',
+    name: 'Test',
+    icon: ClubPotalIco,
+    component: 'Bettor',
     locale: 'menu.sider.search-club',
     signedin: false,
     exact: true,

@@ -6,14 +6,10 @@ import { Row, Col } from 'antd'
 import { formatNumber } from '@helpers/utils'
 import useRootStore from '@store/useRootStore'
 
-// icon
-import { GmoneyIco, ScashIco, HeartIco } from '@shared/Icon/MoneyIcon'
-
 // css
 import { Button, TxtLimit } from '@styles/base.style'
 import { UserInfo } from '@store/authStore'
 import {
-  MoneyStyle,
   Brand,
   CloseBtn,
   CloseBtnTxt,
@@ -27,23 +23,6 @@ import {
   MoneyRowWrap,
   MoneyRowWrapNum,
 } from './index.style'
-
-// icon
-const Gmoney = (
-  <MoneyStyle>
-    <GmoneyIco />
-  </MoneyStyle>
-)
-const Heart = (
-  <MoneyStyle>
-    <HeartIco />
-  </MoneyStyle>
-)
-const Scash = (
-  <MoneyStyle>
-    <ScashIco />
-  </MoneyStyle>
-)
 
 export interface UserSiderMenuProps {
   onClose: () => void
@@ -80,7 +59,7 @@ const UserSiderMenu: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) 
                 <p className="Txt">G{intl.get('money')}</p>
                 <span css={MoneyRowWrap}>
                   <MoneyRowWrapNum css={TxtLimit}>{formatNumber(money)}</MoneyRowWrapNum>
-                  {Gmoney}
+
                 </span>
               </Col>
 
@@ -88,7 +67,7 @@ const UserSiderMenu: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) 
                 <p className="Txt">{intl.get('heart')}</p>
                 <span css={MoneyRowWrap}>
                   <MoneyRowWrapNum>{formatNumber(heart)}</MoneyRowWrapNum>
-                  {Heart}
+
                 </span>
               </Col>
 
@@ -96,7 +75,7 @@ const UserSiderMenu: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) 
                 <p className="Txt">S{intl.get('cash')}</p>
                 <span css={MoneyRowWrap}>
                   <MoneyRowWrapNum>{formatNumber(cash)}</MoneyRowWrapNum>
-                  {Scash}
+
                 </span>
               </Col>
             </Row>

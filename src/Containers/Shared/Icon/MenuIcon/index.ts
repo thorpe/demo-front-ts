@@ -1,7 +1,7 @@
 import MyBankIco from './MyBankIco'
 import BettingHistoryIco from './BettingHistoryIco'
 import HomeIco from './HomeIco'
-import ClubPotalIco from './ClubPotalIco'
+import ClubPortalIco from './ClubPotalIco'
 import MatchupResultIco from './MatchupResultIco'
 import PickIco from './PickIco'
 import ItemshopIco from './ItemshopIco'
@@ -15,7 +15,7 @@ export {
   MyBankIco,
   BettingHistoryIco,
   HomeIco,
-  ClubPotalIco,
+  ClubPortalIco,
   MatchupResultIco,
   PickIco,
   ItemshopIco,

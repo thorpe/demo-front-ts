@@ -3,7 +3,7 @@ import { filter } from 'lodash'
 
 import PageLoading from '@components/PageLoading'
 import {
-  ClubPotalIco,
+  ClubPortalIco,
 } from '@shared/Icon/MenuIcon'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
@@ -41,7 +41,7 @@ export const menu: RouteMenu[] = [
     id: '1',
     path: '/',
     name: 'SocketDebugger',
-    icon: ClubPotalIco,
+    icon: ClubPortalIco,
     component: 'SocketDebugger',
     locale: 'menu.sider.search-club',
     signedin: false,
@@ -51,7 +51,7 @@ export const menu: RouteMenu[] = [
     id: '2',
     path: '/users',
     name: 'Users',
-    icon: ClubPotalIco,
+    icon: ClubPortalIco,
     component: 'Users',
     locale: 'menu.sider.search-club',
     signedin: false,
@@ -61,7 +61,7 @@ export const menu: RouteMenu[] = [
     id: '3',
     path: '/test',
     name: 'Test',
-    icon: ClubPotalIco,
+    icon: ClubPortalIco,
     component: 'Test',
     locale: 'menu.sider.search-club',
     signedin: false,
@@ -71,7 +71,7 @@ export const menu: RouteMenu[] = [
     id: '4',
     path: '/bettor',
     name: 'Test',
-    icon: ClubPotalIco,
+    icon: ClubPortalIco,
     component: 'Bettor',
     locale: 'menu.sider.search-club',
     signedin: false,

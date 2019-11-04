@@ -7,7 +7,6 @@ import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
 import { Button, mq } from '@styles/base.style'
 import styled, { Theme } from '@themes/theme'
-import { CafeIco } from '@shared/Icon/EtcIcon'
 import { DrawerWrap, SiderStyle } from './index.style'
 
 import GuestSiderMenu from './GuestSiderMenu'
@@ -59,18 +58,6 @@ const SubBtnStyle = (theme: Theme) => css`
   border: ${theme.border.inputLine};
   border-radius: 4px;
 `
-const BtnIcoStyle = styled.span`
-  position: relative;
-  top: 3px;
-  width: 16px;
-  margin-right: 8px;
-`
-
-const NaverCafeIco = (
-  <BtnIcoStyle>
-    <CafeIco />
-  </BtnIcoStyle>
-)
 
 // function Sider() {
 const Sider: React.FC<{}> = props => {
@@ -97,7 +84,6 @@ const Sider: React.FC<{}> = props => {
         css={SubBtnStyle}
         style={{ margin: '0 0 10px' }}
       >
-        {NaverCafeIco}
         승부사 공식 카페
       </a>
       {/* <Button style={{ width: '100%', margin: '10px 0' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>

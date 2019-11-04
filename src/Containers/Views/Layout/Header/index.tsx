@@ -11,7 +11,6 @@ import useRootStore from '@store/useRootStore'
 // icon
 import { MenuIco, MessageIco } from '@shared/Icon/MenuIcon'
 import { LogoIco } from '@shared/Icon/LogoIcon'
-import { AlramIco, ProfileIco } from '@shared/Icon/HeaderIcon'
 
 // css
 import { Button } from '@styles/base.style'
@@ -27,19 +26,10 @@ const AdvLogo = (
     <LogoIco />
   </LogoStyle>
 )
-const Alram = (
-  <IconStyle className="alert">
-    <AlramIco />
-  </IconStyle>
-)
+
 const Message = (
   <IconStyle className="message">
     <MessageIco />
-  </IconStyle>
-)
-const Profile = (
-  <IconStyle className="profile">
-    <ProfileIco />
   </IconStyle>
 )
 
@@ -121,11 +111,11 @@ function Header() {
               }}
               className={alertBtnColor}
             >
-              {Alram}
+
             </Button>
           </Popover>
 
-          <a href="/#/my-info">{Profile}</a>
+          <a href="/#/my-info"></a>
         </span>
         {/* <NoticeIconView/> */}
         {/* <SelectLang className={styles.action} key="selectlang" /> */}

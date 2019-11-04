@@ -8,13 +8,13 @@ export const asynchronousComponents = {
   SocketDebugger: loadComponent(() => import('@views/SocketDebugger')),
   Users: loadComponent(() => import('@views/Users')),
 
-  Test: loadComponent(() => import('@views/Test'))
+  Test: loadComponent(() => import('@views/Test')),
 }
 
 // all routers key
 export type AsynchronousComponentKeys = keyof typeof asynchronousComponents
 
-export interface IMenu {
+export interface RouteMenu {
   title: string
   id: number
   pid?: number
@@ -24,18 +24,22 @@ export interface IMenu {
   exact?: boolean
 }
 
-export interface IMenuInTree extends IMenu {
+export interface MenuInTree extends RouteMenu {
+  children?: MenuInTree[]
+}
+
+export interface IMenuInTree extends RouteMenu {
   children?: IMenuInTree[]
 }
 
-export const menu: IMenu[] = [
+export const menu: RouteMenu[] = [
   {
     id: 1,
     path: '/',
     title: 'SocketDebugger',
     icon: 'coffee',
     component: 'SocketDebugger',
-    exact: true
+    exact: true,
   },
   {
     id: 2,
@@ -43,7 +47,7 @@ export const menu: IMenu[] = [
     title: 'Users',
     icon: 'user',
     component: 'Users',
-    exact: true
+    exact: true,
   },
   {
     id: 3,
@@ -51,8 +55,23 @@ export const menu: IMenu[] = [
     title: 'Test',
     icon: 'user',
     component: 'Test',
-    exact: true
-  }
+    exact: true,
+  },
 ]
+
+
+export function filterMenus(signedin: boolean) {
+  // eslint-disable-next-line arrow-body-style
+  const filtered = filter(menus, (el: RouteMenu) => {
+    return el.id.length > 0
+  })
+  if (signedin === true) {
+    return filtered
+  }
+  // eslint-disable-next-line arrow-body-style
+  return filter(filtered, (el: RouteMenu) => {
+    return el.signedin === false
+  })
+}
 
 export default menu

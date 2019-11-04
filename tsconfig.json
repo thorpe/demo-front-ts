@@ -16,6 +16,7 @@
             "@containers/*": ["Containers/*"],
             "@helpers/*": ["Helpers/*"],
             "@interfaces/*": ["Interfaces/*"],
+            "@protocols/*": ["Protocols/*"],
             "@locales/*": ["Locales/*"],
             "@services/*": ["Services/*"],
             "@store/*": ["Store/*"],

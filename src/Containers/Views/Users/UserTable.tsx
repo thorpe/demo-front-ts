@@ -39,13 +39,13 @@ function UserTable({ scrollY }: IProps) {
           showSizeChanger: true,
           pageSize: userStore.pageSize,
           pageSizeOptions: ['30', '20', '10'],
-          total: userStore.total
+          total: userStore.total,
         }}
         onChange={userStore.handleTableChange}
       >
-        <Table.Column<IUserStore.IUser> key="account" title="Account" dataIndex="account" width={200}/>
-        <Table.Column<IUserStore.IUser> key="category" title="Category" dataIndex="category" width={100}/>
-        <Table.Column<IUserStore.IUser> key="createdAt" title="CreatedAt" dataIndex="createdAt" width={200}/>
+        <Table.Column<IUserStore.IUser> key="account" title="Account" dataIndex="account" width={200} />
+        <Table.Column<IUserStore.IUser> key="category" title="Category" dataIndex="category" width={100} />
+        <Table.Column<IUserStore.IUser> key="createdAt" title="CreatedAt" dataIndex="createdAt" width={200} />
         <Table.Column<IUserStore.IUser>
           key="action"
           title="Action"
@@ -55,7 +55,7 @@ function UserTable({ scrollY }: IProps) {
                             <span className={styles.ctrlEle} onClick={() => modifyUser(record)}>
                                 Modify
                             </span>
-                            <Divider type="vertical"/>
+                            <Divider type="vertical" />
                             <Popconfirm
                               placement="top"
                               title="确认删除?"
@@ -69,7 +69,7 @@ function UserTable({ scrollY }: IProps) {
           )}
         />
       </Table>
-      <UserModal visible={modalVisible} onCancel={() => setModalVisible(false)} user={currentUser}/>
+      <UserModal visible={modalVisible} onCancel={() => setModalVisible(false)} user={currentUser} />
     </React.Fragment>
   )
 }

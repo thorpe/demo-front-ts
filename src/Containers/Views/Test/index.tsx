@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { Fragment }  from 'react'
 import { observer } from 'mobx-react'
 
 const Test: React.FC = () => {
   return (
-    <div>
-      <p>sdfsdfsdf</p>
-      <p>sdfsdfsdf</p>
-      <p>sdfsdfsdf</p>
-    </div>
+    <Fragment>
+      <div>sdfsdfsdf1sfsdfsdf</div>
+      <div>sdfsdfsdf2sfsdfsdf</div>
+      <div>sdfsdfsdf3sfsdfsdf</div>
+      <div>sdfsdfsdf4sfsdfsdf</div>
+    </Fragment>
   )
 }
 

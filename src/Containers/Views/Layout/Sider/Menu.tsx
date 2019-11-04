@@ -1,28 +1,103 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import React from 'react'
 import { observer } from 'mobx-react'
 import { computed } from 'mobx'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
 import pathToRegexp from 'path-to-regexp'
-
-import styles from './index.scss'
+import intl from 'react-intl-universal'
 import { RootConsumer } from '@shared/App/Provider'
 import { arrayToTree, queryArray } from '@helpers/index'
-import menu, { IMenu, IMenuInTree } from './../menu'
+import { UserInfo } from '@store/authStore'
+import { SideBarTheme, GlobalStore } from '@store/globalStore'
+// css
+import styled from '@themes/theme'
+import { mq } from '@styles/base.style'
 
-const { SubMenu } = Menu
+// import menu, { IMenu, IMenuInTree } from './../menu'
+import menus, { filterMenus, RouteMenu, MenuInTree } from '../menu'
 
-interface IProps {
+const MenuItemContainer = styled.div`
+  padding: 32px 0 10px;
+  ${mq[0]} {
+    padding: 20px 0 0;
+  }
+`
+const MenuItemWrap = styled.div`
+  .ant-menu-inline,
+  .ant-menu-vertical,
+  .ant-menu-vertical-left {
+    border: none;
+  }
+  .ant-menu {
+    .ant-menu-item {
+      display: inline-block;
+      width: 25%;
+      height: 50px;
+      padding: 0 !important;
+      margin: 0 0 26px !important;
+      text-align: center;
+      line-height: 2.2rem;
+      ${mq[0]} {
+        margin: 0 0 20px !important;
+      }
+      &::after {
+        display: none;
+      }
+      svg path {
+        color: ${props => props.theme.color.themeTxt};
+        fill: ${props => props.theme.color.themeTxt};
+      }
+      svg {
+        display: block;
+        margin: 0 auto;
+      }
+      p {
+        font-size: ${props => props.theme.font.small};
+        color: ${props => props.theme.color.detail};
+      }
+    }
+    .ant-menu-item-selected {
+      background: ${props => props.theme.color.TP} !important;
+      p,
+      svg path {
+        color: ${props => props.theme.color.primary};
+        fill: ${props => props.theme.color.primary};
+      }
+    }
+  }
+`
+
+const IconStyle = css`
+  padding: 0 20px;
+  margin: 0 20px;
+  svg {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    ${mq[0]} {
+      width: 25px;
+      height: 25px;
+    }
+  }
+`
+
+interface SiderMenuProps {
+  toggleLoginCollapsed: (collapsed: boolean) => void
+  toggleSideBarCollapsed: (collapsed: boolean) => void
   sideBarCollapsed: boolean
-  sideBarTheme: IGlobalStore.SideBarTheme
+  sideBarTheme: SideBarTheme
   navOpenKeys: string[]
   setOpenKeys: (openKeys: string[]) => void
-  userInfo: IAuthStore.UserInfo
+  signedin: boolean
+  userInfo: UserInfo
   routerStore: RouterStore
+  globalStore: GlobalStore
 }
 
 @observer
-class SiderMenu extends React.Component<IProps> {
-  // 打开的菜单层级记录
+class SiderMenu extends React.Component<SiderMenuProps> {
   private levelMap: NumberObject = {}
 
   @computed
@@ -32,7 +107,13 @@ class SiderMenu extends React.Component<IProps> {
 
   @computed
   get menuTree() {
-    return arrayToTree<IMenuInTree>(menu, 'id', 'pid')
+    // const { signedin = false } = this.props
+    const filteredMenu = filterMenus(true)
+    const availableMenu = filteredMenu.filter((el: RouteMenu) => {
+      return el.invisible !== true
+    })
+
+    return arrayToTree<MenuInTree>(availableMenu, 'id', 'pid')
   }
 
   @computed
@@ -41,16 +122,38 @@ class SiderMenu extends React.Component<IProps> {
     return !sideBarCollapsed
       ? {
         onOpenChange: this.onOpenChange,
-        openKeys: navOpenKeys
+        openKeys: navOpenKeys,
       }
       : {}
   }
 
+  showModalMenu = (selectedMenu: RouteMenu) => {
+    if (selectedMenu.namespace === 'message') {
+      this.props.globalStore.toggleMessageCollapsed(false)
+    } else if (selectedMenu.namespace === 'giftbox') {
+      this.props.globalStore.toggleGiftBoxCollapsed(false)
+    } else if (selectedMenu.namespace === 'attendance') {
+      this.props.globalStore.toggleAttendanceCollapsed(false)
+    }
+  }
+
   goto = ({ key }: { key: string }) => {
+    const { signedin = false } = this.props
     const { history } = this.props.routerStore
-    const selectedMenu = menu.find(item => String(item.id) === key)
-    if (selectedMenu && selectedMenu.path && selectedMenu.path !== this.currentRoute) {
-      history.push(selectedMenu.path)
+    const selectedMenu = menus.find(item => String(item.id) === key)
+    if (selectedMenu) {
+      if (selectedMenu.signedin === true && signedin === false) {
+        // message.info('로그인이 필요합니다.')
+        this.props.toggleLoginCollapsed(false)
+      } else if (selectedMenu.namespace && selectedMenu.namespace.length) {
+        // contorl by globalStore collasped popup
+        // const name = intl.get(selectedMenu.locale)
+        // message.info(`${name} 는 준비중입니다.`)
+        this.showModalMenu(selectedMenu)
+      } else if (selectedMenu.path && selectedMenu.path !== this.currentRoute) {
+        history.push(selectedMenu.path)
+      }
+      this.props.toggleSideBarCollapsed(true)
     }
   }
 
@@ -68,9 +171,9 @@ class SiderMenu extends React.Component<IProps> {
     setOpenKeys(nextOpenKeys)
   }
 
-  getPathArray = (array: IMenu[], current: IMenu): string[] => {
+  getPathArray = (array: RouteMenu[], current: RouteMenu): string[] => {
     const result = [String(current.id)]
-    const getPath = (item: IMenu): void => {
+    const getPath = (item: RouteMenu): void => {
       if (item && item.pid) {
         result.unshift(String(item.pid))
         getPath(queryArray(array, String(item.pid), 'id'))
@@ -80,7 +183,6 @@ class SiderMenu extends React.Component<IProps> {
     return result
   }
 
-  // 保持选中
   getAncestorKeys = (key: string): string[] => {
     const map = {}
     const getParent = index => {
@@ -98,22 +200,12 @@ class SiderMenu extends React.Component<IProps> {
     return map[key] || []
   }
 
-  getMenus = (menuTree: IMenuInTree[]) => {
+  getMenus = (menuTree: MenuInTree[]) => {
     return menuTree.map(item => {
-      if (item.children) {
-        if (item.pid) {
-          this.levelMap[item.id] = item.pid
-        }
-        return (
-          <SubMenu key={String(item.id)} title={<span>{item.icon && <Icon type={item.icon} />} <span>{item.title}</span></span>}>
-            {this.getMenus(item.children)}
-          </SubMenu>
-        )
-      }
       return (
-        <Menu.Item key={String(item.id)}>
-          {item.icon && <Icon type={item.icon} />}
-          <span>{item.title}</span>
+        <Menu.Item key={String(item.id)} css={IconStyle}>
+          {item.icon && <item.icon />}
+          <p>{intl.get(item.locale)}</p>
         </Menu.Item>
       )
     })
@@ -124,8 +216,8 @@ class SiderMenu extends React.Component<IProps> {
     const { sideBarTheme } = this.props
     const menuItems = this.getMenus(this.menuTree)
 
-    let currentMenu: IMenu = null
-    for (const item of menu) {
+    let currentMenu: RouteMenu = null
+    for (const item of menus) {
       if (item.path && pathToRegexp(item.path).exec(this.currentRoute)) {
         currentMenu = item
         break
@@ -133,15 +225,26 @@ class SiderMenu extends React.Component<IProps> {
     }
     let selectedKeys: string[] = null
     if (currentMenu) {
-      selectedKeys = this.getPathArray(menu, currentMenu)
+      selectedKeys = this.getPathArray(menus, currentMenu)
     }
     if (!selectedKeys) {
       selectedKeys = ['1']
     }
     return (
-      <Menu className={styles.menu} theme={sideBarTheme} mode="inline" selectedKeys={selectedKeys} onClick={this.goto} {...this.menuProps}>
-        {menuItems}
-      </Menu>
+      <MenuItemContainer>
+        <MenuItemWrap>
+          <Menu
+            // className="MenuList"
+            theme={sideBarTheme}
+            mode="inline"
+            selectedKeys={selectedKeys}
+            onClick={this.goto}
+            {...this.menuProps}
+          >
+            {menuItems}
+          </Menu>
+        </MenuItemWrap>
+      </MenuItemContainer>
     )
   }
 }
@@ -151,7 +254,11 @@ function Wrapper() {
     <RootConsumer>
       {({ routerStore, authStore, globalStore }) => (
         <SiderMenu
+          toggleLoginCollapsed={globalStore.toggleLoginCollapsed}
+          toggleSideBarCollapsed={globalStore.toggleSideBarCollapsed}
           routerStore={routerStore}
+          globalStore={globalStore}
+          signedin={authStore.signedin}
           userInfo={authStore.userInfo}
           sideBarCollapsed={globalStore.sideBarCollapsed}
           sideBarTheme={globalStore.sideBarTheme}

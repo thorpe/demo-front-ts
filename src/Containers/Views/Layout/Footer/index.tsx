@@ -7,13 +7,13 @@ class Footer extends React.Component {
     this.state = {
       selectedTab: 'redTab',
       hidden: false,
-      fullScreen: false
+      fullScreen: false,
     }
   }
 
   render() {
     return (
-      <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0, border: '1px solid red' } : { height: 400 }}>
+      <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
         <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" hidden={this.state.hidden}>
           <TabBar.Item
             title="Life"
@@ -24,7 +24,7 @@ class Footer extends React.Component {
             badge={1}
             onPress={() => {
               this.setState({
-                selectedTab: 'blueTab'
+                selectedTab: 'blueTab',
               })
             }}
             data-seed="logId"
@@ -39,7 +39,7 @@ class Footer extends React.Component {
             selected={this.state.selectedTab === 'redTab'}
             onPress={() => {
               this.setState({
-                selectedTab: 'redTab'
+                selectedTab: 'redTab',
               })
             }}
             data-seed="logId1"
@@ -54,7 +54,7 @@ class Footer extends React.Component {
             selected={this.state.selectedTab === 'greenTab'}
             onPress={() => {
               this.setState({
-                selectedTab: 'greenTab'
+                selectedTab: 'greenTab',
               })
             }}
           >
@@ -67,7 +67,7 @@ class Footer extends React.Component {
             selected={this.state.selectedTab === 'yellowTab'}
             onPress={() => {
               this.setState({
-                selectedTab: 'yellowTab'
+                selectedTab: 'yellowTab',
               })
             }}
           >

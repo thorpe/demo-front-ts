@@ -17,8 +17,6 @@ const GuestSiderMenu: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProp
   const { routerStore } = useRootStore()
 
   const onClickLogin = () => {
-    // globalStore.toggleSideBarCollapsed(true)
-    // globalStore.toggleLoginCollapsed(false)
     routerStore.replace('login')
   }
 

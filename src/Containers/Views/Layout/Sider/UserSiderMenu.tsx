@@ -45,9 +45,6 @@ const Scash = (
   </MoneyStyle>
 )
 
-// import SiderMenu, { SiderMenuProps } from '@ant-design/pro-layout/lib/SiderMenu/SiderMenu';
-// import SiderMenu from './SiderMenu'
-
 export interface UserSiderMenuProps {
   onClose: () => void
   userInfo: UserInfo

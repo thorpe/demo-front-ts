@@ -99,10 +99,11 @@ export class GlobalStore extends StoreExt {
 
   @action
   toggleSideBarCollapsed = (collapsed: boolean) => {
+    alert('dsf')
     this.sideBarCollapsed = collapsed
     localStorage.setItem(LOCALSTORAGE_KEYS.SIDE_BAR_COLLAPSED, this.sideBarCollapsed ? '1' : '0')
 
-    this.updateSomethingPopup()
+    // this.updateSomethingPopup()
   }
 
   @action

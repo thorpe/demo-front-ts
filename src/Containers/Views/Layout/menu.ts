@@ -42,6 +42,8 @@ export const menu: RouteMenu[] = [
     name: 'SocketDebugger',
     icon: ClubPotalIco,
     component: 'SocketDebugger',
+    locale: 'menu.sider.search-club',
+    signedin: false,
     exact: true,
   },
   {
@@ -50,6 +52,8 @@ export const menu: RouteMenu[] = [
     name: 'Users',
     icon: ClubPotalIco,
     component: 'Users',
+    locale: 'menu.sider.search-club',
+    signedin: false,
     exact: true,
   },
   {
@@ -58,6 +62,8 @@ export const menu: RouteMenu[] = [
     name: 'Test',
     icon: ClubPotalIco,
     component: 'Test',
+    locale: 'menu.sider.search-club',
+    signedin: false,
     exact: true,
   },
 ]

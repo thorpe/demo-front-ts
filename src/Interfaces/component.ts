@@ -1,5 +1,5 @@
 import { BigInteger }  from 'big-integer'
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 
 export interface Schema$ClubPortal {
   id?: string
@@ -38,7 +38,7 @@ export interface Schema$AttendanceUnit {
 export namespace IClubPortals {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     items?: Schema$ClubPortal[]
   }
 }
@@ -49,7 +49,7 @@ export namespace IClubPortals {
 export namespace IHotMatch {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     items?: Schema$HotMatch[]
     emblemPrefix?: string
   }
@@ -61,7 +61,7 @@ export namespace IHotMatch {
 export namespace ILiveScore {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }
 
 /**
@@ -70,7 +70,7 @@ export namespace ILiveScore {
 export namespace IGiftbox {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     openEnabled?: boolean
     nextOpenDate?: Date
   }
@@ -79,7 +79,7 @@ export namespace IGiftbox {
 export namespace IOpenGiftbox {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     giftboxId?: number
     giftboxDesc?: string
   }
@@ -91,7 +91,7 @@ export namespace IOpenGiftbox {
 export namespace IAttendance {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     title?: string
     desc?: string
     startOfMonth?: Date
@@ -103,7 +103,7 @@ export namespace IAttendance {
 export namespace ICheckAttendance {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     date?: Date,
     hitCount?: number,
     enableAttendance?: boolean
@@ -116,7 +116,7 @@ export namespace ICheckAttendance {
 export namespace IMyInfo {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     money?: number
     cash?: number
     heart?: number

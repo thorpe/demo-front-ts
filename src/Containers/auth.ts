@@ -1,16 +1,17 @@
-import { Schema$ResponseBase, Schema$UserInfo } from '../interface/common'
+import { SchemaResponseBase, SchemaUserInfo } from '@interfaces/common'
 
 /**
  * /auth/signin
  */
+
 export namespace ISignin {
   export interface Params {
     username: string
     password: string
   }
 
-  export interface Schema extends Schema$ResponseBase {
-    user?: Schema$UserInfo
+  export interface Schema extends SchemaResponseBase {
+    user?: SchemaUserInfo
   }
 }
 
@@ -20,5 +21,5 @@ export namespace ISignin {
 export namespace ILogout {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }

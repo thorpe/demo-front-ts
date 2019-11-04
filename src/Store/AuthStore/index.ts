@@ -5,13 +5,13 @@ import { clone, isString } from 'lodash'
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 // import { initialUserInfo, syncUserInfo } from './syncUserInfo'
-import { Schema$UserInfo, Schema$MemberInfo } from '@interfaces/common'
-import { ISignin } from '@protocols/auth'
+import { SchemaUserInfo, SchemaMemberInfo } from '@interfaces/common'
+import { ISignin } from '@containers/auth'
 import { routerStore, globalStore } from '@store/index'
 
 export type LoginParams = ISignin.Params
-export type UserInfo = Schema$UserInfo
-export type MemberInfo = Schema$MemberInfo
+export type UserInfo = SchemaUserInfo
+export type MemberInfo = SchemaMemberInfo
 
 export class AuthStore extends StoreExt {
   /**
@@ -52,7 +52,7 @@ export class AuthStore extends StoreExt {
   @action
   logout = async () => {
     try {
-      await this.api.auth.logout({})
+      await this.api.auth.login({})
       await this.reset()
       // routerStore.replace('/login')
     } catch (err) {
@@ -74,7 +74,7 @@ export class AuthStore extends StoreExt {
   fetchUser = async () => {
     try {
       console.log('authStore.fetchUser')
-      const res = await this.api.user.getUserInfo({})
+      const res = await this.api.user.getUsers({})
       if (!res) {
         return
       }

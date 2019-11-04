@@ -1,4 +1,4 @@
-export function formatNumber(src: number | string | undefined) {
+export function formatNumber(src: number | string | undefined): string {
   const value = String(src || 0)
   const list = value.split('.')
   const prefix = list[0].charAt(0) === '-' ? '-' : ''
@@ -14,7 +14,7 @@ export function formatNumber(src: number | string | undefined) {
   return `${prefix}${result}${list[1] ? `.${list[1]}` : ''}`
 }
 
-export function formatSimpleNumber(src: number | string | undefined) {
+export function formatSimpleNumber(src: number | string | undefined): string {
   return formatNumber(src)
 }
 

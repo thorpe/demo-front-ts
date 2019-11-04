@@ -1,4 +1,4 @@
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 
 export interface Schema$BettorList {
   id?: string
@@ -28,13 +28,13 @@ export namespace IBettor {
     message?: string
   }
 
-  export interface listSchema extends Schema$ResponseBase {
+  export interface listSchema extends SchemaResponseBase {
     code?: number
     message?: string
     data?: Schema$BettorList[]
   }
 
-  export interface successSchema extends Schema$ResponseBase {
+  export interface successSchema extends SchemaResponseBase {
     code?: number
     message?: string
   }

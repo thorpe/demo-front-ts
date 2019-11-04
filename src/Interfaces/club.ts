@@ -1,5 +1,5 @@
-import { Schema$ResponseBase, Schema$ClubInfo } from '../interface/common'
-import { Schema$Outcome } from './game'
+import { SchemaResponseBase, SchemaClubInfo } from '@interfaces/common'
+import { Schema$Outcome } from '@interfaces/game'
 
 /**
  * /club/list
@@ -7,8 +7,8 @@ import { Schema$Outcome } from './game'
 export namespace IClubList {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
-    items?: Schema$ClubInfo[]
+  export interface Schema extends SchemaResponseBase {
+    items?: SchemaClubInfo[]
   }
 }
 

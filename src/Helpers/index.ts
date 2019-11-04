@@ -6,9 +6,9 @@ import { cloneDeep } from 'lodash'
  * @export
  * @param {string} name
  * @param {string} value
- * @param {number} [expiredays=365]
+ * @param {number} [expireDays=365]
  */
-export function setCookie(name: string, value: string, expireDays = 365) {
+export function setCookie(name: string, value: string, expireDays = 365): void {
   const exDate = new Date()
   exDate.setDate(exDate.getDate() + expireDays)
   document.cookie = `${name}=${escape(value)};expires=${exDate.toUTCString()}`
@@ -21,7 +21,7 @@ export function setCookie(name: string, value: string, expireDays = 365) {
  * @param {string} name
  * @returns
  */
-export function getCookie(name: string) {
+export function getCookie(name: string): string {
   if (document.cookie.length > 0) {
     let cStart = document.cookie.indexOf(name + '=')
     if (cStart !== -1) {
@@ -42,7 +42,7 @@ export function getCookie(name: string) {
  * @export
  * @param {string} name
  */
-export function clearCookie(name: string) {
+export function clearCookie(name: string): void {
   setCookie(name, '')
 }
 

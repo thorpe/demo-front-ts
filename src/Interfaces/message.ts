@@ -1,4 +1,4 @@
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 import { schema_item_def } from '../../models/game/item_def'
 import { schema_pick_purchase } from '../../models/shard-user/pick-purchase'
 import { schema_pickster } from '../../models/dedicated/pickster'
@@ -35,7 +35,7 @@ export namespace IMessagePagination {
     offset: number
     limit: number
   }
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     limit: number
     total: number
   }
@@ -58,7 +58,7 @@ export namespace IReadMessages {
     messageId?: string
     all?: boolean
   }
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }
 
 export namespace IDeleteMessages {
@@ -67,7 +67,7 @@ export namespace IDeleteMessages {
     all?: boolean
     dir?: number
   }
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }
 
 export namespace ISendMessage {
@@ -76,7 +76,7 @@ export namespace ISendMessage {
     title?: string
     content?: string
   }
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }
 
 export namespace IReceiveItem {
@@ -85,5 +85,5 @@ export namespace IReceiveItem {
     all?: boolean
     dir?: number
   }
-  export interface Schema extends Schema$ResponseBase {}
+  export interface Schema extends SchemaResponseBase {}
 }

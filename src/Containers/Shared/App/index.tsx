@@ -14,7 +14,7 @@ import { ThemeProvider } from 'emotion-theming'
 
 
 import DarkTheme from '@themes/dark.theme'
-import { HideAni, ShowPopoverAni, ModalHeightAni, mq, mqMin } from 'Styles/base.style'
+import { HideAni, ShowPopoverAni, ModalHeightAni, mq, mqMin } from '@styles/base.style'
 import IntlWrapper from './IntlWrapper'
 import Provider from './Provider'
 

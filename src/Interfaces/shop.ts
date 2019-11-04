@@ -1,4 +1,4 @@
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 
 export interface Schema$PeriodicPrice {
   period: number
@@ -23,7 +23,7 @@ export interface Schema$Product {
 export namespace IShopInfo {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     imgPrefix: string
     items: Schema$Product[]
   }

@@ -1,5 +1,5 @@
-import { Schema$ResponseBase } from '../interface/common'
-import { Schema$Outcome } from './game'
+import { SchemaResponseBase } from '@interfaces/common'
+import { Schema$Outcome } from '@interfaces/game'
 
 export enum SEARCH_BET_LIST_STATE {
   ALL = 0,
@@ -109,7 +109,7 @@ export namespace IBetting {
     order?: LIST_ORDER
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     limit: number
     total: number
     items: Schema$BettorBetRecord[]

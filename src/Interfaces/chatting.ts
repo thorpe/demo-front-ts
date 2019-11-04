@@ -1,4 +1,4 @@
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 
 export interface Schema$ChattingList {
   chatType?: string
@@ -20,7 +20,7 @@ export namespace IChatting {
     content?: string
   }
 
-  export interface listSchema extends Schema$ResponseBase {
+  export interface listSchema extends SchemaResponseBase {
     code?: number
     message?: string
     data?: Schema$ChattingList[]

@@ -1,6 +1,6 @@
-import { Schema$ResponseBase, Schema$UserInfo, Schema$MemberInfo } from '../interface/common'
+import { SchemaResponseBase, SchemaUserInfo, SchemaMemberInfo } from '@interfaces/common'
 
-export interface Schema$UserInfoDetailsItems {
+export interface SchemaUserInfoDetailsItems {
   code?: string
   name?: string
   value?: number
@@ -37,31 +37,31 @@ export interface Schema$UserMessage {
 export namespace IUserInfo {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     sid?: string
-    user?: Schema$UserInfo
-    member?: Schema$MemberInfo
+    user?: SchemaUserInfo
+    member?: SchemaMemberInfo
   }
 }
 
 export namespace IUsers {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
-    users?: Schema$MemberInfo[]
+  export interface Schema extends SchemaResponseBase {
+    users?: SchemaMemberInfo[]
     total?: number
   }
 }
 
 export namespace IUserInfoDetails {
   export interface Params {}
-  export interface Schema extends Schema$ResponseBase {
-    user?: Schema$UserInfo
+  export interface Schema extends SchemaResponseBase {
+    user?: SchemaUserInfo
     hitMaxRate?: number
     hitMaxMoney?: number
     changeNickItem?: number
-    sport?: Schema$UserInfoDetailsItems[]
-    matchup?: Schema$UserInfoDetailsItems[]
+    sport?: SchemaUserInfoDetailsItems[]
+    matchup?: SchemaUserInfoDetailsItems[]
   }
 }
 
@@ -69,7 +69,7 @@ export namespace IUserItems {
   export interface Params {
     propertyId?: number
   }
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     character?: number
     items?: Schema$UserItem[]
   }
@@ -79,7 +79,7 @@ export namespace IUserUseItem {
   export interface Params {
     itemId?: string
   }
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     itemCode?: number
   }
 }
@@ -87,7 +87,7 @@ export namespace IUserUseItem {
 export namespace INotices {
   export interface Params {}
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     notices?: any
   }
 }
@@ -96,7 +96,7 @@ export namespace IUserNick {
   export interface Params {
     nick?: string
   }
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     nick?: string
   }
 }
@@ -123,7 +123,7 @@ export namespace IUserClubMessages {
     id?: string
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     items?: Schema$UserMessage[]
   }
 }

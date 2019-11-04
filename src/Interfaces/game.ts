@@ -1,6 +1,6 @@
 import { IsString, IsInt, IsNumber } from 'class-validator'
 
-import { Schema$ResponseBase, Schema$ClubInfo } from '../interface/common'
+import { SchemaResponseBase, SchemaClubInfo } from '@interfaces/common'
 import { BET_TYPE_ON, MATCHUP_CATEGORY, BET_CALL_TYPE } from '../../../protocol/Generated/ts/GameCommon'
 import {
   Schema$MatchupBase,
@@ -12,8 +12,8 @@ import {
   Schema$MatchupMetaOutcome,
   Schema$MatchupMetaMarket,
   Schema$MatchupMetaMatchStatus,
-} from '../interface/matchup'
-import { Schema$ClubRules } from '../interface/rules'
+} from '@interfaces/matchup'
+import { Schema$ClubRules } from '@interfaces/rules'
 
 export interface Schema$Outcome {
   type: string
@@ -57,8 +57,8 @@ export namespace IJoinClub {
     ownerId?: string
   }
 
-  export interface Schema extends Schema$ResponseBase {
-    club: Schema$ClubInfo
+  export interface Schema extends SchemaResponseBase {
+    club: SchemaClubInfo
   }
 }
 
@@ -70,8 +70,8 @@ export namespace IMatchupClub {
     clubId?: string
   }
 
-  export interface Schema extends Schema$ResponseBase {
-    club: Schema$ClubInfo
+  export interface Schema extends SchemaResponseBase {
+    club: SchemaClubInfo
     rules: Schema$ClubRules
   }
 }
@@ -95,7 +95,7 @@ export namespace IMatchupItems {
     limit?: number
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     emblemPrefix: string
     metaSports: Schema$MatchupMetaSport[]
     metaCategories: Schema$MatchupMetaCategory[]
@@ -118,8 +118,8 @@ export namespace IBet {
     pickId: number
   }
 
-  export interface Schema extends Schema$ResponseBase {
-    club?: Schema$ClubInfo
+  export interface Schema extends SchemaResponseBase {
+    club?: SchemaClubInfo
   }
 }
 
@@ -132,7 +132,7 @@ export namespace IMatchupFilters {
     sportId?: number
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     major: Schema$MatchupFilter[]
     minor: Schema$MatchupFilter[]
     metaCategories: Schema$MatchupMetaCategory[]
@@ -148,7 +148,7 @@ export namespace IMajorTournaments {
     tournamentIds?: string[]
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     emblemPrefix: string
     metaSports: Schema$MatchupMetaSport[]
     metaCategories: Schema$MatchupMetaCategory[]
@@ -165,7 +165,7 @@ export namespace IUpdateMatchupItems {
     data: { [id: string]: string[] }
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     matches: Schema$MatchupMarket[]
   }
 }

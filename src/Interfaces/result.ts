@@ -1,6 +1,6 @@
 import { IsString, IsInt } from 'class-validator'
 
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 import {
   Schema$MatchupBase,
   Schema$MatchupMetaSport,
@@ -9,7 +9,7 @@ import {
   Schema$MatchupMetaTeam,
   Schema$MatchupMetaMarket,
   Schema$MatchupMetaOutcome,
-} from '../interface/matchup'
+} from '@interfaces/matchup'
 
 export interface Schema$ResultOutcome {
   id: string
@@ -38,7 +38,7 @@ export namespace IPreMatchResult {
     orderId?: string
   }
 
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     emblemPrefix: string
     metaSports: Schema$MatchupMetaSport[]
     metaCategories: Schema$MatchupMetaCategory[]

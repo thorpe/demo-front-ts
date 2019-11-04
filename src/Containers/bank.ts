@@ -1,5 +1,5 @@
-import { Schema$ResponseBase } from '../interface/common'
-import { Schema$ClubBetRecord } from './club'
+import { SchemaResponseBase } from '@interfaces/common'
+import { Schema$ClubBetRecord } from '@interfaces/club'
 
 export interface Schema$RecordUserAsset {
   id?: string
@@ -25,7 +25,7 @@ export interface Schema$RecordUserMoney extends Schema$RecordUserAsset {
  */
 export namespace IAssets {
   export interface Params {}
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     money?: number
     cash?: number
     heart?: number
@@ -37,7 +37,7 @@ export namespace IAssetsHistory {
     offset: number
     limit: number
   }
-  export interface Schema extends Schema$ResponseBase {
+  export interface Schema extends SchemaResponseBase {
     limit: number
     total: number
   }

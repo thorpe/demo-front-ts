@@ -1,4 +1,4 @@
-import { Schema$ResponseBase } from '../interface/common'
+import { SchemaResponseBase } from '@interfaces/common'
 
 export enum PICK_LIST_ORDER {
     ASCENDING = 0,
@@ -51,7 +51,7 @@ export namespace IPickList {
       order: number     // PICK_LIST_ORDER
     }
   
-    export interface Schema extends Schema$ResponseBase {
+    export interface Schema extends SchemaResponseBase {
       limit: number
       total: number
       items: Schema$Pick[]

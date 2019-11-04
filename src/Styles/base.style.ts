@@ -1,6 +1,7 @@
 import { css, keyframes } from '@emotion/core'
 import styled, { ThemeProps, Theme } from '@themes/theme'
 
+
 export const FontXLarge = '2.0rem'
 export const FontTitle = '1.6rem'
 export const FontLarge = '1.4rem'
@@ -70,7 +71,6 @@ export const mqH = breakpointsH.map(bp => `@media (max-height: ${bp}px)`)
 export const mqMinH = breakpointsH.map(bp => `@media (min-height: ${bp}px)`)
 
 // /////////////////////////////////////////// button /////////////////////////////////////////////
-// 공통 버튼 스타일
 export const ButtonStyles = (props: ThemeProps) =>
   css`
     z-index: 1;
@@ -376,13 +376,6 @@ export const Point = styled.span`
   }
 `
 
-// button 공통
-// export const Btn = css({
-//   border: 'none',
-//   lineHeight: '2rem',
-//   boxShadow: 'none',
-// })
-
 // /////////////////////////////////////////// Tab /////////////////////////////////////////////
 export const TabWrap = styled.section`
   width: 100vw;
@@ -550,14 +543,6 @@ export const OzTabWrap = styled.section`
     }
   }
 `
-// const TabAni = keyframes`{
-//   0% {
-//     opacity: 0.2;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }`
 export const ChildTabWrap = styled.div`
   display: block;
   width: 100%;

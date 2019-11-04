@@ -11,7 +11,8 @@ import PageLoading from '@components/PageLoading'
 import Error from '@components/Error'
 import { Theme } from '@themes/theme'
 import { ThemeProvider } from 'emotion-theming'
-// import WhiteTheme from 'themes/white.theme'
+
+
 import DarkTheme from '@themes/dark.theme'
 import { HideAni, ShowPopoverAni, ModalHeightAni, mq, mqMin } from 'Styles/base.style'
 import IntlWrapper from './IntlWrapper'

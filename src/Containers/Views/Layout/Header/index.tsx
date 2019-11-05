@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { observer } from 'mobx-react'
 import { Popover, List } from 'antd'
 import { Badge } from 'antd-mobile'
@@ -33,7 +33,7 @@ const Message = (
   </IconStyle>
 )
 
-function Header() {
+const Header: React.FC = props => {
   const { globalStore, authStore, routerStore } = useRootStore()
   const [alertBtn, setalertBtn] = useState('')
   const [alertBtnColor, setAlertBtnColor] = useState('alert')
@@ -135,8 +135,6 @@ function Header() {
       </div>,
     )
   }
-
-  console.log('render Header')
 
   return (
     <MainHeader>

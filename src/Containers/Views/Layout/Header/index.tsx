@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import React, { Fragment, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { observer } from 'mobx-react'
 import { Popover, List } from 'antd'
 import { Badge } from 'antd-mobile'
@@ -9,8 +9,8 @@ import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
 
 // icon
-import { MenuIco, MessageIco } from '@shared/Icon/MenuIcon'
-import { LogoIco } from '@shared/Icon/LogoIcon'
+import { MenuIco, MessageIco } from '@shared/../../../../Components/Icon/MenuIcon'
+import { LogoIco } from '@shared/../../../../Components/Icon/LogoIcon'
 
 // css
 import { Button } from '@styles/base.style'
@@ -33,7 +33,7 @@ const Message = (
   </IconStyle>
 )
 
-const Header: React.FC = props => {
+function Header() {
   const { globalStore, authStore, routerStore } = useRootStore()
   const [alertBtn, setalertBtn] = useState('')
   const [alertBtnColor, setAlertBtnColor] = useState('alert')
@@ -141,14 +141,16 @@ const Header: React.FC = props => {
     )
   }
 
+  console.log('render Header')
+
   return (
-    <Header>
+    <MainHeader>
       <Button onClick={() => globalStore.toggleSideBarCollapsed(false)} css={MenuBtnStyle}>
         {Menu}
       </Button>
       <a href="/#/home">{AdvLogo}</a>
       {rightContent}
-    </Header>
+    </MainHeader>
   )
 }
 

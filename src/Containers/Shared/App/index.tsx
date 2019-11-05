@@ -192,9 +192,7 @@ const GlobalStyle = (theme: Theme) => css`
       color: ${theme.color.disabled};
     }
   }
-  /* .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    color: ${theme.color.primary};
-  } */
+
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):active,
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):first-child {
     border: none !important;
@@ -678,6 +676,9 @@ function App() {
             <HashRouter>
               <Switch>
                 <Route exact path="/login" component={Login} />
+                <Route path="/login2" component={Login} />
+                <Route path="/login3" component={Login} />
+                <Route path="/login4" component={Login} />
                 <Route path="/" component={PrimaryLayout} />
                 <Route component={Error} />
               </Switch>

@@ -4,7 +4,7 @@ import { filter } from 'lodash'
 import PageLoading from '@components/PageLoading'
 import {
   ClubPortalIco,
-} from '@shared/Icon/MenuIcon'
+} from '@shared/../../../Components/Icon/MenuIcon'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 

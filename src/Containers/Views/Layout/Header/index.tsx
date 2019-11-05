@@ -9,8 +9,8 @@ import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
 
 // icon
-import { MenuIco, MessageIco } from '@shared/../../../../Components/Icon/MenuIcon'
-import { LogoIco } from '@shared/../../../../Components/Icon/LogoIcon'
+import { MenuIco, MessageIco } from '@components/Icon/MenuIcon'
+import { LogoIco } from '@components/Icon/LogoIcon'
 
 // css
 import { Button } from '@styles/base.style'
@@ -117,8 +117,6 @@ function Header() {
 
           <a href="/#/my-info"></a>
         </span>
-        {/* <NoticeIconView/> */}
-        {/* <SelectLang className={styles.action} key="selectlang" /> */}
       </div>,
     )
   } else if (signedin === false) {
@@ -128,15 +126,12 @@ function Header() {
           primary
           key="guest"
           onClick={() => {
-            // globalStore.toggleLoginCollapsed(false)
             routerStore.replace('login')
           }}
           css={LoginBtnStyle}
         >
           {intl.get('component.login')}
         </Button>
-        {}
-        {}
       </div>,
     )
   }

@@ -23,6 +23,8 @@ module.exports = {
 
     "@typescript-eslint/no-empty-interface": "off",
 
+    "react/jsx-key": "off",
+
 
     // git 에서 (CRLF)windows 스타일로 줄바꿈 셋팅되어 있음
     //'linebreak-style': ['error', 'windows'],

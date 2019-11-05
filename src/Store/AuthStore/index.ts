@@ -4,12 +4,12 @@ import { clone, isString } from 'lodash'
 
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
-// import { initialUserInfo, syncUserInfo } from './syncUserInfo'
+
 import { SchemaUserInfo, SchemaMemberInfo } from '@interfaces/common'
-import { ISignin } from '@containers/auth'
+import { authInterface } from '@interfaces/authInterface'
 import { routerStore, globalStore } from '@store/index'
 
-export type LoginParams = ISignin.Params
+export type loginParams = authInterface.loginParams
 export type UserInfo = SchemaUserInfo
 export type MemberInfo = SchemaMemberInfo
 
@@ -29,13 +29,9 @@ export class AuthStore extends StoreExt {
   @observable
   signedin: boolean = undefined
 
-  //   constructor() {
-  //     super()
-  //     reaction(() => this.userInfo, syncUserInfo)
-  //   }
 
   @action
-  login = async (params: LoginParams) => {
+  login = async (params: loginParams) => {
     try {
       const res = await this.api.auth.login(params)
       const { user } = res
@@ -44,7 +40,6 @@ export class AuthStore extends StoreExt {
       globalStore.toggleSideBarCollapsed(true)
       routerStore.replace('/')
     } catch (err) {
-      // console.error(err)
       await this.reset()
     }
   }
@@ -54,7 +49,6 @@ export class AuthStore extends StoreExt {
     try {
       await this.api.auth.login({})
       await this.reset()
-      // routerStore.replace('/login')
     } catch (err) {
       console.error(err)
     }
@@ -83,9 +77,6 @@ export class AuthStore extends StoreExt {
       this.setMember(member)
       localStorage.setItem(LOCALSTORAGE_KEYS.USERINFO, JSON.stringify(user))
     } catch (err) {
-      // if (err.message !== 'Unauthorized') {
-      //   Message.error(err.message || 'error!')
-      // }
       await this.reset()
     }
   }

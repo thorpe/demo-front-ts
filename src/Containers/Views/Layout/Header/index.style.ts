@@ -41,8 +41,8 @@ export const MainHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 40px;
-  height: 40px;
+  min-height: 45px;
+  height: 45px;
   padding: 8px 20px;
   line-height: 2rem;
   background: ${props => props.theme.color.headerBg};

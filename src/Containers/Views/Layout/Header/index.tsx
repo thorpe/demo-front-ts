@@ -1,149 +1,33 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
-import React, { Fragment, useState } from 'react'
+import { jsx } from '@emotion/core'
+import React from 'react'
 import { observer } from 'mobx-react'
-import { Popover, List } from 'antd'
-import { Badge } from 'antd-mobile'
-import intl from 'react-intl-universal'
+import { NavBar, Icon } from 'antd-mobile'
 
 import useRootStore from '@store/useRootStore'
 
-// icon
-import { MenuIco, MessageIco } from '@components/Icon/MenuIcon'
 import { LogoIco } from '@components/Icon/LogoIcon'
 
-// css
-import { Button } from '@styles/base.style'
-import { MenuBtnStyle, MenuStyle, LogoStyle, MainHeader, right, LoginBtnStyle, HeaderIcoStyle, IconStyle, BadgeStyle, ListWrap } from './index.style'
-
-const Menu = (
-  <MenuStyle>
-    <MenuIco />
-  </MenuStyle>
-)
-const AdvLogo = (
-  <LogoStyle>
-    <LogoIco />
-  </LogoStyle>
-)
-
-const Message = (
-  <IconStyle className="message">
-    <MessageIco />
-  </IconStyle>
-)
 
 const Header: React.FC = props => {
-  const { globalStore, authStore, routerStore } = useRootStore()
-  const [alertBtn, setalertBtn] = useState('')
-  const [alertBtnColor, setAlertBtnColor] = useState('alert')
-  const onClickAlertBtn = async () => {
-    if (alertBtn === 'click') {
-      setalertBtn('')
-      setAlertBtnColor('alert')
-    } else {
-      setalertBtn('click')
-      setAlertBtnColor('alert click')
-    }
-  }
+  const { globalStore } = useRootStore()
 
-  const { signedin } = authStore
-  const [visiblePopover, setVisiblePopover] = useState(false)
-  const onShowPopover = () => {
-    setVisiblePopover(true)
-  }
-  const PopoverSource = []
-  const PopoverList = [
-    <Fragment>
-      <Button
-        className="alert-bakcground"
-        onClick={() => {
-          onClickAlertBtn()
-          setVisiblePopover(false)
-        }}
-      />
-
-      <ListWrap className="popover">
-        <List
-          bordered
-          dataSource={PopoverSource}
-          renderItem={item => <List.Item>{item}</List.Item>}
-        />
-      </ListWrap>
-    </Fragment>,
+  const TestTest = [
+    <NavBar
+      mode="dark"
+      icon={<Icon type="left" />}
+      onLeftClick={() => globalStore.toggleSideBarCollapsed(false)}
+      rightContent={[
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} onClick={() => globalStore.toggleSideBarCollapsed(false)} />,
+        <Icon key="1" type="ellipsis" onClick={() => globalStore.toggleSideBarCollapsed(false)} />,
+      ]}
+    ><LogoIco /></NavBar>,
   ]
 
-  const rightContent = []
-  if (signedin === true) {
-    const noticeButtonClass = css({
-      display: 'inline-block',
-      lineHeight: '3.5rem',
-      cursor: 'pointer',
-      transition: 'all 0.3s',
-    })
-    rightContent.push(
-      <div key="rightContent" css={right}>
-        <span css={[noticeButtonClass, { opened: true }]}>
-          <Button
-            css={HeaderIcoStyle}
-            style={{ top: '-1px' }}
-            onClick={() => {
-              globalStore.toggleMessageCollapsed(false)
-            }}
-          >
-            {Message}
-            <Badge text={1} overflowCount={99} css={BadgeStyle} />
-          </Button>
-
-          <Popover
-            visible={visiblePopover}
-            className="alert"
-            placement="bottom"
-            content={PopoverList}
-            trigger="click"
-          >
-            <Button
-              css={HeaderIcoStyle}
-              style={{ top: '3px' }}
-              onClick={() => {
-                onShowPopover()
-                onClickAlertBtn()
-              }}
-              className={alertBtnColor}
-            >
-
-            </Button>
-          </Popover>
-
-          <a href="/#/my-info"></a>
-        </span>
-      </div>,
-    )
-  } else if (signedin === false) {
-    rightContent.push(
-      <div key="rightContent" css={right}>
-        <Button
-          primary
-          key="guest"
-          onClick={() => {
-            routerStore.replace('login')
-          }}
-          css={LoginBtnStyle}
-        >
-          {intl.get('component.login')}
-        </Button>
-      </div>,
-    )
-  }
-
   return (
-    <MainHeader>
-      <Button onClick={() => globalStore.toggleSideBarCollapsed(false)} css={MenuBtnStyle}>
-        {Menu}
-      </Button>
-      <a href="/#/home">{AdvLogo}</a>
-      {rightContent}
-    </MainHeader>
+    <div css={{ 'z-index': 99 }}>
+      {TestTest}
+    </div>
   )
 }
 

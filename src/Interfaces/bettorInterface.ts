@@ -12,7 +12,7 @@ export interface Schema$BettorList {
  * /user/user
  */
 
-export namespace IBettor {
+export namespace bettorInterface {
   export interface SearchParams {
     nick?: string
   }

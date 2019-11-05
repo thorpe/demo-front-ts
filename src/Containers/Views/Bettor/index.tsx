@@ -10,8 +10,8 @@ import { observer } from 'mobx-react'
 import { useOnMount } from '@helpers/reactExt'
 
 // img
-import BettorImg from '@assets/images/icon/bettor_icon/oddsmakerIcon.png'
-import ClearIco from '@assets/images/icon/login_icon/login_clear_icon.png'
+import BettorImg from '@assets/Images/icon/bettor_icon/oddsmakerIcon.png'
+import ClearIco from '@assets/Images/icon/login_icon/login_clear_icon.png'
 
 // css
 import {

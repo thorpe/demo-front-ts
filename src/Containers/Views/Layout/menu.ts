@@ -4,13 +4,13 @@ import { filter } from 'lodash'
 import PageLoading from '@components/PageLoading'
 import {
   ClubPortalIco,
-} from '@shared/../../../Components/Icon/MenuIcon'
+} from '@components/Icon/MenuIcon'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 
 export const asynchronousComponents = {
   SocketDebugger: loadComponent(() => import('@views/SocketDebugger')),
-  Users: loadComponent(() => import('@views/Users')),
+  Users: loadComponent(() => import('@views/Test')),
 
   Test: loadComponent(() => import('@views/Test')),
   Bettor: loadComponent(() => import('@views/Bettor')),

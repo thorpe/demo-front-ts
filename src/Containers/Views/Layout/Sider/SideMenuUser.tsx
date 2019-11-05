@@ -29,7 +29,7 @@ export interface UserSiderMenuProps {
   userInfo: UserInfo
 }
 
-const UserSiderMenu: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) => {
+const SideMenuUser: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) => {
   const { onClose, userInfo } = props
   const { nick = 'Unknown', job, money, heart, cash } = userInfo
 
@@ -100,4 +100,4 @@ const UserSiderMenu: React.FC<UserSiderMenuProps> = (props: UserSiderMenuProps) 
   )
 }
 
-export default UserSiderMenu
+export default SideMenuUser

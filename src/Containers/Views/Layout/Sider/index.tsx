@@ -9,9 +9,10 @@ import { Button, mq } from '@styles/base.style'
 import styled, { Theme } from '@themes/theme'
 import { DrawerWrap, SiderStyle } from './index.style'
 
-import GuestSiderMenu from './GuestSiderMenu'
-import UserSiderMenu from './UserSiderMenu'
-import SiderMenu from './Menu'
+import SideMenuWarp from './SideMenuWarp'
+import SideMenuGuest from './SideMenuGuest'
+import SideMenuUser from './SideMenuUser'
+
 
 // css
 const LogoutBtnWrap = styled.div`
@@ -86,26 +87,12 @@ const Sider: React.FC<{}> = props => {
       >
         승부사 공식 카페
       </a>
-      {/* <Button style={{ width: '100%', margin: '10px 0' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>
-       {NaverCafeIco}
-       승부사 공식 카페
-       </Button> */}
       <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>
         도움말
       </a>
       <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>
         설정
       </a>
-      {/* <span>
-       <Icon type="bulb" />
-       {intl.get('menu.sider.switch-theme')}
-       </span>
-       <Switch
-       checkedChildren="dark"
-       unCheckedChildren="light"
-       checked={sideBarTheme === 'dark'}
-       onChange={val => changeSiderTheme(val ? 'dark' : 'light')}
-       /> */}
     </div>
   )
 
@@ -134,8 +121,8 @@ const Sider: React.FC<{}> = props => {
         collapsed={sideBarCollapsed}
         css={SiderStyle}
       >
-        {signedin === true ? <UserSiderMenu {...contentProps} /> : <GuestSiderMenu {...contentProps} />}
-        <SiderMenu />
+        {signedin === true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+        <SideMenuWarp />
       </Layout.Sider>
       {!sideBarCollapsed && SubButton}
       {signedin && Logout}

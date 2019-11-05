@@ -12,7 +12,7 @@ interface GuestSiderMenuProps {
   onClose: () => void
 }
 
-const GuestSiderMenu: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps) => {
+const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps) => {
   const { onClose } = props
   const { routerStore } = useRootStore()
 
@@ -42,4 +42,4 @@ const GuestSiderMenu: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProp
   )
 }
 
-export default GuestSiderMenu
+export default SideMenuGuest

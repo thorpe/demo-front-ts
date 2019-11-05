@@ -6,10 +6,10 @@ import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 import { SchemaUserInfo, SchemaMemberInfo } from '@interfaces/common'
-import { authInterface } from '@interfaces/authInterface'
+import { AuthInterface } from '@interfaces/authInterface'
 import { routerStore, globalStore } from '@store/index'
 
-export type loginParams = authInterface.loginParams
+export type loginParams = AuthInterface.loginParams
 export type UserInfo = SchemaUserInfo
 export type MemberInfo = SchemaMemberInfo
 

@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
-import { IBettor, Schema$BettorList } from "@interfaces/bettor"
+import { BettorInterface, Schema$BettorList } from "@interfaces/bettorInterface"
 
 import { extend } from 'lodash'
 import { message } from "antd"
@@ -26,7 +26,7 @@ export class BettorStore extends StoreExt {
 
 
   @action
-  getList = async (params: IBettor.SearchParams = {}) => {
+  getList = async (params: BettorInterface.SearchParams = {}) => {
     try {
       const {data} = await this.api.bettor.getList(params)
       this.bettors = data
@@ -43,7 +43,7 @@ export class BettorStore extends StoreExt {
   }
 
   @action
-  doSendHeart = async (params: IBettor.SendHeartParams = {}) => {
+  doSendHeart = async (params: BettorInterface.SendHeartParams = {}) => {
     try {
       await this.api.bettor.doSendHeart(params)
       message.info('하트 보내기 성공')
@@ -53,7 +53,7 @@ export class BettorStore extends StoreExt {
   }
 
   @action
-  doSendMessage = async (params: IBettor.SendMessageParams = {}) => {
+  doSendMessage = async (params: BettorInterface.SendMessageParams = {}) => {
     try {
       await this.api.bettor.doSendHeart(params)
       message.info('메세지 보내기 성공')

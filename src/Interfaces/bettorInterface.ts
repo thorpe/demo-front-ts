@@ -1,4 +1,4 @@
-import { SchemaResponseBase } from '@interfaces/common'
+import { SchemaResponseBase } from '@interfaces/commonInterface'
 
 export interface Schema$BettorList {
   id?: string
@@ -12,7 +12,7 @@ export interface Schema$BettorList {
  * /user/user
  */
 
-export namespace bettorInterface {
+export namespace BettorInterface {
   export interface SearchParams {
     nick?: string
   }

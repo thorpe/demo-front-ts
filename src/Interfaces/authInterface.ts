@@ -1,11 +1,11 @@
-import { SchemaResponseBase } from '@interfaces/common'
+import { SchemaResponseBase } from '@interfaces/commonInterface'
 
 
 /**
  * /user/user
  */
 
-export namespace authInterface {
+export namespace AuthInterface {
   export interface loginParams {
     account?: string
     password?: string

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
-const Error = () => (
-  <div>
+const Error: React.FC = (props) => (
+  <Fragment>
     <div>😭</div>
     <p>Ooooops!</p>
     <p>This page does not exist anymore.</p>
-  </div>
+  </Fragment>
 )
 
 export default Error

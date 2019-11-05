@@ -10,7 +10,6 @@ import { ThemeProvider } from 'emotion-theming'
 
 
 import * as store from '@store/index'
-import LayoutLoading from '@views/Layout/LayoutLoading'
 import PageLoading from '@components/PageLoading'
 import Error from '@components/Error'
 import { Theme } from '@themes/theme'
@@ -25,12 +24,12 @@ const hashHistory = createHashHistory()
 const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const PrimaryLayout = Loadable({
-  loader: () => import(/* webpackChunkName: "home" */ '@views/Layout'),
-  loading: LayoutLoading,
+  loader: () => import('@views/Layout'),
+  loading: PageLoading,
 })
 
 const Login = Loadable({
-  loader: () => import(/* webpackChunkName: "login" */ '@views/Login'),
+  loader: () => import( '@views/Login'),
   loading: PageLoading,
 })
 
@@ -49,9 +48,6 @@ const GlobalStyle = (theme: Theme) => css`
   }
 
   #app {
-    /* 서랍 메뉴 클릭시 아이콘 및 메뉴명이 뜨는 문제 때문에 임시로 처리 */
-    z-index: 9999;
-
     display: flex;
     position: relative;
     width: 100%;

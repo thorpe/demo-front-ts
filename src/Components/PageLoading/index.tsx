@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Spin } from 'antd'
 
-import styles from './index.scss'
+import { LoadSpin } from '@styles/base.style'
 
-function PageLoading() {
+const PageLoading: React.FC = (props) => {
   return (
-    <div className={styles.pageLoading}>
-      <Spin className={styles.spin} />
-    </div>
+    <Fragment css={LoadSpin}>
+      <Spin tip="Loading..."></Spin>
+    </Fragment>
   )
 }
 

@@ -904,6 +904,7 @@ export const ModalButtonStyle = css`
 // /////////////////////////////////////////// LoadSpin /////////////////////////////////////////////
 export const LoadSpinWrap = styled.div`
   text-align: center;
+  height: 235px;
 `
 export const Loaded = styled.div`
   position: relative;

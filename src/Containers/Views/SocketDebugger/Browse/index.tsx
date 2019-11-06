@@ -10,13 +10,14 @@ import useRootStore from '@store/useRootStore'
 import { useOnMount } from '@helpers/reactExt'
 import Message from './Message'
 
-function Browse() {
+const Browse: React.FC = props => {
+
   const { socketStore } = useRootStore()
 
   const vList = React.useRef<VList>(null)
   const measureCache = new CellMeasurerCache({
     fixedWidth: true,
-    minHeight: 43
+    minHeight: 43,
   })
 
   function handleMessagesChanged(len: number) {
@@ -38,7 +39,7 @@ function Browse() {
     const item = socketStore.messages[index]
     return (
       <CellMeasurer cache={measureCache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
-        <Message style={style} message={item}/>
+        <Message style={style} message={item} />
       </CellMeasurer>
     )
   }

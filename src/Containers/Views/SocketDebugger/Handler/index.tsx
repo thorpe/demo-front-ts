@@ -5,7 +5,7 @@ import DataFormat from './DataFormat'
 import Connect from './Connect'
 import Send from './Send'
 
-function Handler() {
+const Handler: React.FC = props => {
     return (
         <div >
             <div >

@@ -3,6 +3,7 @@ import { BettorStore } from '@store/bettorStore'
 import { AuthStore } from '@store/authStore'
 import { GlobalStore } from '@store/globalStore'
 import { RouterStore } from '@store/routerStore'
+import { SocketStore } from '@store/socketStore'
 
 declare global {
   interface RouterStore extends _RouterStore {
@@ -14,5 +15,6 @@ export interface RootStore {
   authStore: AuthStore
   bettorStore: BettorStore
   routerStore: RouterStore
+  socketStore: SocketStore
 }
 

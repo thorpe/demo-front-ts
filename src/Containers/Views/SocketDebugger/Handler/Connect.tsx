@@ -1,24 +1,25 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { message, Input, Button, Checkbox } from 'antd'
+import { message, Input, Checkbox } from 'antd'
+import { Button } from 'antd-mobile'
 
 import styles from './index.scss'
 import useRootStore from '@store/useRootStore'
-import { socketConnect, socketDisconnect } from '@services/Websocket'
+import { socketConnect } from '@services/Websocket'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
-function Connect() {
+const Connect: React.FC = props => {
   const { socketStore } = useRootStore()
 
   const [url, setUrl] = React.useState(localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_URL))
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     setUrl(value)
     localStorage.setItem(LOCALSTORAGE_KEYS.SOCKET_URL, value)
   }
 
-  function handleConnect() {
+  const handleConnect = async () => {
     alert('2')
     if (!url) {
       message.destroy()
@@ -29,25 +30,18 @@ function Connect() {
   }
 
   return (
-    <div >
-      <div >
+    <div css={{ 'z-index': 1000000  }}>
+      <div>
         <Input value={url} onChange={handleChange} />
         {socketStore.isSocketIO && (
           <Checkbox disabled={socketStore.socketIsConnected} className={styles.checkbox} checked={socketStore.notSupportPolling} onChange={e => socketStore.setNotSupportPolling(e.target.checked)}>
             no polling
           </Checkbox>
         )}
-        <Button  type="primary" onClick={handleConnect} disabled={socketStore.socketIsConnected}>
+        <Button type="primary" onClick={() => handleConnect()}>
           connect
         </Button>
-        <Button  type="danger" onClick={socketDisconnect} disabled={!socketStore.socketIsConnected}>
-          disconnect
-        </Button>
       </div>
-      <blockquote className={styles.tips}>
-        protocol//ip or domain:host (example:{' '}
-        {socketStore.isSocketIO ? 'wss://showcase.jackple.com' : 'ws://127.0.0.1:3001'})
-      </blockquote>
     </div>
   )
 }

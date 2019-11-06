@@ -303,8 +303,7 @@ export const ContentWrap = styled.section`
   position: relative;
   display: block;
   height: auto;
-  margin: 7px 0;
-  margin-bottom: 40px;
+  margin: 7px 0 40px 0;
   padding: 10px 17px;
   background: ${props => props.theme.color.contentsBg};
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
@@ -345,6 +344,7 @@ export const TxtLeft = css`
 export const TxtRight = css({
   textAlign: 'right'
 })
+
 export const Left = css`
   float: left;
   text-align: left;

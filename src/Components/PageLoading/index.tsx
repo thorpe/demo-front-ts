@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Spin } from 'antd'
 
 import { LoadSpinWrap } from '@styles/base.style'
 
 const PageLoading: React.FC = (props) => {
   return (
-    <Fragment css={LoadSpinWrap}>
+    <div css={LoadSpinWrap}>
       <Spin />
-    </Fragment>
+    </div>
   )
 }
 

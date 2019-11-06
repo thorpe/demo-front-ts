@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React from 'react'
-import { observer } from 'mobx-react'
+import React  from 'react'
 import { NavBar, Icon } from 'antd-mobile'
 
 import useRootStore from '@store/useRootStore'
@@ -31,4 +30,4 @@ const Header: React.FC = props => {
   )
 }
 
-export default observer(Header)
+export default Header

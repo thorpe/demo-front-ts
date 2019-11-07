@@ -6,7 +6,7 @@ import { observer } from 'mobx-react'
 import Error from '@components/Error'
 import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
-import Sider from './Sider'
+import LeftMenu from './Sider'
 import Footer from './Footer'
 import { socketConnect } from '@services/Websocket'
 import { useOnMount } from '@helpers/reactExt'
@@ -19,13 +19,11 @@ const PrimaryLayout: React.FC = props => {
     socketConnect('http://localhost:8080')
     socketStore.clearMessages()
   }
-
   useOnMount(handleConnect)
-
 
   return (
     <Fragment>
-      <Sider />
+      <LeftMenu />
       <Header />
       <Router>
         <Switch>

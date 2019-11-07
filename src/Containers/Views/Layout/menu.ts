@@ -16,6 +16,7 @@ export const asynchronousComponents = {
   Bettor: loadComponent(() => import('@views/Bettor')),
   List: loadComponent(() => import('@views/List')),
   Login: loadComponent(() => import('@views/Login')),
+  Toast: loadComponent(() => import('@views/Toast')),
 }
 
 // all routers key
@@ -34,6 +35,7 @@ export interface RouteMenu {
   locale?: string
   invisible?: boolean
 }
+
 export interface MenuInTree extends RouteMenu {
   children?: MenuInTree[]
 }
@@ -78,7 +80,7 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.search-club',
     signedin: false,
     exact: true,
-  },{
+  }, {
     id: '5',
     path: '/list',
     name: 'List',
@@ -87,7 +89,7 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.search-club',
     signedin: false,
     exact: true,
-  },{
+  }, {
     id: '6',
     path: '/login',
     name: 'Login',
@@ -96,7 +98,16 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.search-club',
     signedin: false,
     exact: true,
-  },
+  }, {
+    id: '7',
+    path: '/toast',
+    name: 'Toast',
+    icon: ClubPortalIco,
+    component: 'Toast',
+    locale: 'menu.sider.search-club',
+    signedin: false,
+    exact: true,
+  }
 ]
 
 

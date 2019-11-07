@@ -247,7 +247,7 @@ export const MatchButton = styled.button`
 export const Btn = css({
   border: 'none',
   lineHeight: '2rem',
-  boxShadow: 'none'
+  boxShadow: 'none',
 })
 
 // input 공통
@@ -336,13 +336,13 @@ export const SiderMenuTitle = styled.h1`
 
 // Text 정렬
 export const TxtCenter = css({
-  textAlign: 'center'
+  textAlign: 'center',
 })
 export const TxtLeft = css`
   text-align: left;
 `
 export const TxtRight = css({
-  textAlign: 'right'
+  textAlign: 'right',
 })
 
 export const Left = css`
@@ -361,7 +361,7 @@ export const LetterSpace = (props: ThemeProps) => css`
 export const TxtLimit = css({
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis'
+  textOverflow: 'ellipsis',
 })
 const PointStyle = (props: ThemeProps) => css`
   position: relative;
@@ -815,7 +815,7 @@ export const TitleBar = css({
   background: '$TP-color',
   marginBottom: '15px !important',
   lineHeight: '3.2rem !important',
-  boxShadow: 'none !important'
+  boxShadow: 'none !important',
 })
 
 export const TitleStyle = css({
@@ -824,8 +824,8 @@ export const TitleStyle = css({
 
   span: {
     fontWeight: 500,
-    fontSize: '$title'
-  }
+    fontSize: '$title',
+  },
 })
 
 export const BtnTit = css({
@@ -836,8 +836,8 @@ export const BtnTit = css({
 
   span: {
     position: 'relative',
-    top: '-0.5px'
-  }
+    top: '-0.5px',
+  },
 })
 
 export const Rotate = keyframes`

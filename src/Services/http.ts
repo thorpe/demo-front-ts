@@ -33,8 +33,8 @@ const methods: Method[] = ['get', 'post', 'put', 'delete', 'options']
 
 let authTimer: NodeJS.Timer = null
 
-const isSuccess = res => res.errCode === 0
-const resFormat = res => res.response || res.data || {}
+const isSuccess = res => res.code === 200
+const resFormat = res => res || {}
 
 methods.forEach(v => {
   http[v] = (url: string, data: object, baseUrl?: string) => {

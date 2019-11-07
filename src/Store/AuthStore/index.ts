@@ -1,30 +1,26 @@
 import { observable, action, computed } from 'mobx'
 
-import { clone, isString } from 'lodash'
+import { clone } from 'lodash'
 
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
-import { SchemaUserInfo, SchemaMemberInfo } from '@interfaces/common'
+import { SchemaUserInfo } from '@interfaces/commonInterface'
 import { AuthInterface } from '@interfaces/authInterface'
 import { routerStore, globalStore } from '@store/index'
 
 export type loginParams = AuthInterface.loginParams
 export type UserInfo = SchemaUserInfo
-export type MemberInfo = SchemaMemberInfo
+
 
 export class AuthStore extends StoreExt {
+
   /**
-   * 用户信息
    *
-   * @type {UserInfo}
-   * @memberof AuthStore
    */
   @observable
   userInfo: UserInfo = {}
 
-  @observable
-  memberInfo?: MemberInfo
 
   @observable
   signedin: boolean = undefined
@@ -34,9 +30,9 @@ export class AuthStore extends StoreExt {
   login = async (params: loginParams) => {
     try {
       const res = await this.api.auth.login(params)
-      const { user } = res
-      this.setUser(user)
-      localStorage.setItem(LOCALSTORAGE_KEYS.USERINFO, JSON.stringify(user))
+      // const { user } = res
+      this.setUser(true)
+      localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res))
       globalStore.toggleSideBarCollapsed(true)
       routerStore.replace('/')
     } catch (err) {
@@ -59,7 +55,6 @@ export class AuthStore extends StoreExt {
   @action
   reset = async () => {
     this.setUser({})
-    this.setMember(undefined)
     localStorage.removeItem(LOCALSTORAGE_KEYS.USERINFO)
     globalStore.toggleSideBarCollapsed(true)
   }
@@ -72,20 +67,18 @@ export class AuthStore extends StoreExt {
       if (!res) {
         return
       }
-      const { user, member } = res
+      const { user } = res
       this.setUser(user)
-      this.setMember(member)
-      localStorage.setItem(LOCALSTORAGE_KEYS.USERINFO, JSON.stringify(user))
+      localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(user))
     } catch (err) {
       await this.reset()
     }
   }
 
   @action
-  setUser = (userInfo: UserInfo): UserInfo => {
-    this.userInfo = userInfo
-    this.signedin = isString(userInfo.id)
-    return userInfo
+  setUser = async (userId) => {
+    this.signedin = userId
+    return userId
   }
 
   @action
@@ -96,12 +89,6 @@ export class AuthStore extends StoreExt {
     user.heart = update.heart || user.heart
     this.userInfo = user
     return user
-  }
-
-  @action
-  setMember = (memberInfo: MemberInfo): MemberInfo => {
-    this.memberInfo = memberInfo
-    return memberInfo
   }
 
   @computed

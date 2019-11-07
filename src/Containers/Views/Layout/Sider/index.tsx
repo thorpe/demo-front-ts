@@ -11,7 +11,8 @@ import { DrawerWrap, SiderStyle } from './index.style'
 
 import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
-import SideMenuUser from './SideMenuUser'
+// import SideMenuUser from './SideMenuUser'
+import SideMenuTest from './SideMenuTest'
 
 
 // css
@@ -121,7 +122,7 @@ const Sider: React.FC<{}> = props => {
         collapsed={sideBarCollapsed}
         css={SiderStyle}
       >
-        {signedin === true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+        {signedin === true ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
         <SideMenuWarp />
       </Layout.Sider>
       {!sideBarCollapsed && SubButton}

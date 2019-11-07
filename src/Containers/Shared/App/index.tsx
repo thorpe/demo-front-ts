@@ -35,13 +35,6 @@ const Login = Loadable({
 
 
 const GlobalStyle = (theme: Theme) => css`
-  html,
-  body {
-    position: relative;
-    z-index: -1;
-    width: 100%;
-    height: 100% - 100px;
-  }
   .ant-layout,
   .ant-layout-content {
     background: ${theme.color.lowestBg} !important;
@@ -53,22 +46,6 @@ const GlobalStyle = (theme: Theme) => css`
     width: 100%;
     height: 100%;
     flex-direction: column;
-  }
-
-  /* 서랍 메뉴 클릭시 아이콘 및 메뉴명이 뜨는 문제 때문에 임시로 처리 */
-  .ant-drawer,
-  .ant-modal-mask,
-  .ant-modal-wrap,
-  .am-modal-mask,
-  .am-modal-wrap,
-  .ant-popover,
-  .ant-dropdown,
-  .ant-back-top,
-  .ant-select-dropdown {
-    z-index: 10000 !important;
-  }
-  .ant-message {
-    z-index: 10001 !important;
   }
 
   /* font 설정 */
@@ -88,6 +65,10 @@ const GlobalStyle = (theme: Theme) => css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100% - 100px;    
   }
   input,
   label,

@@ -14,7 +14,6 @@ import { SideBarTheme, GlobalStore } from '@store/globalStore'
 import styled from '@themes/theme'
 import { mq } from '@styles/base.style'
 
-// import menu, { IMenu, IMenuInTree } from './../menu'
 import menus, { filterMenus, RouteMenu, MenuInTree } from '../menu'
 
 const MenuItemContainer = styled.div`
@@ -142,6 +141,7 @@ class SiderMenu extends React.Component<SiderMenuProps> {
     const { history } = this.props.routerStore
     const selectedMenu = menus.find(item => String(item.id) === key)
     if (selectedMenu) {
+      alert(signedin)
       if (selectedMenu.signedin === true && signedin === false) {
         // message.info('로그인이 필요합니다.')
         this.props.toggleLoginCollapsed(false)

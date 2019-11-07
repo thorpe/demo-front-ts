@@ -12,7 +12,7 @@ interface GuestSiderMenuProps {
   onClose: () => void
 }
 
-const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps) => {
+const SideMenuTest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps) => {
   const { onClose } = props
   const { routerStore } = useRootStore()
 
@@ -29,7 +29,7 @@ const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps
           </Button>
           <div css={LoginWrap}>
             <span css={MemberType}>비회원</span>
-            <SiderMenuTitle>로그인이 필요합니다11.</SiderMenuTitle>
+            <SiderMenuTitle>로그인이 sfsfsdfsf.</SiderMenuTitle>
             <Button primary onClick={onClickLogin} css={{ width: '100%', height: 30 }}>
               {intl.get('component.login')}
             </Button>
@@ -42,4 +42,4 @@ const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps
   )
 }
 
-export default SideMenuGuest
+export default SideMenuTest

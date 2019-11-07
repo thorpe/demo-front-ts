@@ -12,7 +12,7 @@ const Header: React.FC = props => {
   const { globalStore } = useRootStore()
 
   const TestTest = [
-    <NavBar
+    <NavBar style={{ position: 'fixed', width: '100%', top: 0 }}
       mode="dark"
       icon={<Icon type="left" />}
       onLeftClick={() => globalStore.toggleSideBarCollapsed(false)}

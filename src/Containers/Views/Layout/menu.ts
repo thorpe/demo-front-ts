@@ -14,6 +14,8 @@ export const asynchronousComponents = {
 
   Test: loadComponent(() => import('@views/Test')),
   Bettor: loadComponent(() => import('@views/Bettor')),
+  List: loadComponent(() => import('@views/List')),
+  Login: loadComponent(() => import('@views/Login')),
 }
 
 // all routers key
@@ -54,7 +56,7 @@ export const menu: RouteMenu[] = [
     icon: ClubPortalIco,
     component: 'Users',
     locale: 'menu.sider.search-club',
-    signedin: false,
+    signedin: true,
     exact: true,
   },
   {
@@ -73,6 +75,24 @@ export const menu: RouteMenu[] = [
     name: 'Test',
     icon: ClubPortalIco,
     component: 'Bettor',
+    locale: 'menu.sider.search-club',
+    signedin: false,
+    exact: true,
+  },{
+    id: '5',
+    path: '/list',
+    name: 'List',
+    icon: ClubPortalIco,
+    component: 'List',
+    locale: 'menu.sider.search-club',
+    signedin: false,
+    exact: true,
+  },{
+    id: '6',
+    path: '/login',
+    name: 'Login',
+    icon: ClubPortalIco,
+    component: 'Login',
     locale: 'menu.sider.search-club',
     signedin: false,
     exact: true,

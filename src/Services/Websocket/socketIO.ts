@@ -127,7 +127,7 @@ class Socket {
     })
 
     this.socket.on('*', pkg => {
-      console.log('on all socket callback: ', pkg)
+      console.log('on all socket callback12121212: ', pkg)
       if (pkg && pkg.data instanceof Array && pkg.data.length > 1) {
         const event = pkg.data[0]
         const data = pkg.data[1]

@@ -89,7 +89,7 @@ interface SiderMenuProps {
   sideBarTheme: SideBarTheme
   navOpenKeys: string[]
   setOpenKeys: (openKeys: string[]) => void
-  signedin: boolean
+  signedin: object
   userInfo: UserInfo
   routerStore: RouterStore
   globalStore: GlobalStore
@@ -141,7 +141,7 @@ class SiderMenu extends React.Component<SiderMenuProps> {
     const { history } = this.props.routerStore
     const selectedMenu = menus.find(item => String(item.id) === key)
     if (selectedMenu) {
-      alert(signedin)
+
       if (selectedMenu.signedin === true && signedin === false) {
         // message.info('로그인이 필요합니다.')
         this.props.toggleLoginCollapsed(false)

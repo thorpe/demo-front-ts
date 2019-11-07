@@ -37,6 +37,7 @@ const Browse: React.FC = props => {
 
   function renderItem({ index, key, parent, style }: ListRowProps) {
     const item = socketStore.messages[index]
+
     return (
       <CellMeasurer cache={measureCache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
         <Message style={style} message={item} />

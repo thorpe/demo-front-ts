@@ -23,7 +23,7 @@ export class AuthStore extends StoreExt {
 
 
   @observable
-  signedin: boolean = undefined
+  signedin: object = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
 
 
   @action
@@ -31,7 +31,7 @@ export class AuthStore extends StoreExt {
     try {
       const res = await this.api.auth.login(params)
       // const { user } = res
-      this.setUser(true)
+      this.setUser(res)
       localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res))
       globalStore.toggleSideBarCollapsed(true)
       routerStore.replace('/')
@@ -55,8 +55,9 @@ export class AuthStore extends StoreExt {
   @action
   reset = async () => {
     this.setUser({})
-    localStorage.removeItem(LOCALSTORAGE_KEYS.USERINFO)
+    localStorage.removeItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
     globalStore.toggleSideBarCollapsed(true)
+    routerStore.replace('/')
   }
 
   @action
@@ -76,9 +77,9 @@ export class AuthStore extends StoreExt {
   }
 
   @action
-  setUser = async (userId) => {
-    this.signedin = userId
-    return userId
+  setUser = async (res) => {
+    this.signedin = res
+    return res
   }
 
   @action
@@ -93,7 +94,7 @@ export class AuthStore extends StoreExt {
 
   @computed
   get isSignedIn() {
-    return this.signedin === true
+    return this.signedin === JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
   }
 }
 

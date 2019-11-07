@@ -122,7 +122,7 @@ const Sider: React.FC<{}> = props => {
         collapsed={sideBarCollapsed}
         css={SiderStyle}
       >
-        {signedin === true ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+        {signedin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
         <SideMenuWarp />
       </Layout.Sider>
       {!sideBarCollapsed && SubButton}

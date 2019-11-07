@@ -653,9 +653,6 @@ function App() {
             <HashRouter>
               <Switch>
                 <Route exact path="/login" component={Login} />
-                <Route path="/login2" component={Login} />
-                <Route path="/login3" component={Login} />
-                <Route path="/login4" component={Login} />
                 <Route path="/" component={PrimaryLayout} />
                 <Route component={Error} />
               </Switch>

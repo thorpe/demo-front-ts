@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import intl from 'react-intl-universal'
 import { find } from 'lodash'
-import { LocaleProvider } from 'antd'
+import { LocaleProvider } from 'antd-mobile'
 import { Locale } from 'antd/lib/locale-provider'
 import { useOnMount } from '@helpers/reactExt'
 import { COOKIE_KEYS } from '@constants/index'
@@ -37,9 +37,9 @@ export default function IntlWrapper({ children }: Props) {
 
   return (
     <LocaleProvider locale={antDesignLocaleData}>
-      <React.Fragment>
+      <Fragment>
         {children}
-      </React.Fragment>
+      </Fragment>
     </LocaleProvider>
   )
 }

@@ -13,6 +13,7 @@ const Dialog: React.FC = props => {
     return <Fragment />
   }
 
+
   const {
     type,
     title,

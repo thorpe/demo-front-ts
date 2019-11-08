@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import React, { Fragment } from 'react'
-import { observer } from 'mobx-react'
+
 import useRootStore from '@store/useRootStore'
 import { Modal } from 'antd-mobile'
 import { DialogType } from '@store/globalStore'
@@ -9,6 +9,7 @@ import { DialogType } from '@store/globalStore'
 const Dialog: React.FC = props => {
   const { globalStore } = useRootStore()
   const { currentDialog } = globalStore
+
   if (!currentDialog) {
     return <Fragment />
   }
@@ -73,4 +74,4 @@ const Dialog: React.FC = props => {
   )
 }
 
-export default observer(Dialog)
+export default Dialog

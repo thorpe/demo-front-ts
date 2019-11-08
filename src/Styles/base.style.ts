@@ -302,12 +302,12 @@ export const Title = styled.h1`
 export const ContentWrap = styled.section`
   position: relative;
   display: block;
-  height: auto;
-  margin: 7px 0 40px 0;
-  padding: 10px 17px;
+  top:45px;
+  margin: 0;
+  padding: 0;
   background: ${props => props.theme.color.contentsBg};
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-  /* border: 1px solid red; */
+  height: calc(100% - 95px) !important;
+  overflow:scroll;
 `
 export const ContentTitle = styled.h2`
   position: relative;
@@ -904,10 +904,12 @@ export const ModalButtonStyle = css`
 // /////////////////////////////////////////// LoadSpin /////////////////////////////////////////////
 export const LoadSpinWrap = styled.div`
   text-align: center;
-  height: 235px;
+  height: 100%;
 `
 export const Loaded = styled.div`
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
   width: 100%;
   height: 35px;
   display: block;
@@ -927,16 +929,23 @@ export const Loaded = styled.div`
   }
 `
 const SpinAni = keyframes`
-50% {
-    transform: rotate(360deg) scale(0.9);
-    border-width: 3.5px;
+  0% {
+      transform: rotate(360deg) scale(1);
+      border-width: 3px;
+    }
+  50% {
+    transform: rotate(720deg) scale(1);
+    border-width: 4px;
   }
   100% {
-    transform: rotate(720deg) scale(1);
-    border-width: 3px;
-  }
+      transform: rotate(1040deg) scale(1);
+      border-width: 3px;
+    }  
 `
 export const LoadSpin = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   display: block;
   margin: 0 auto;
   width: 3rem;

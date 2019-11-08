@@ -1,10 +1,8 @@
 import React from 'react'
 
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile'
-
-function showToast() {
-  Toast.info('This is a toast tips !!!', 1)
-}
+import { ContentWrap, Title, TitleWrap } from '@styles/base.style'
+import { action } from 'mobx'
 
 function showToastNoMask() {
   Toast.info('Toast without mask !!!', 2, null, false)
@@ -35,6 +33,14 @@ const customIcon = () => (
 )
 
 class ToastExample extends React.Component {
+
+  @action
+  TestTest = () => {
+    Toast.info('This is a toast tips !!!', 1)
+  }
+
+
+
   componentDidMount() {
     Toast.loading('Loading...', 30, () => {
       console.log('Load complete !!!')
@@ -42,30 +48,39 @@ class ToastExample extends React.Component {
 
     setTimeout(() => {
       Toast.hide()
-    }, 3000)
+    }, 1000)
   }
 
   render() {
     return (
-      <WingBlank>
-        <WhiteSpace />
-        <Button onClick={showToast}>text only</Button>
-        <WhiteSpace />
-        <Button onClick={showToastNoMask}>without mask</Button>
-        <WhiteSpace />
-        <Button onClick={() => Toast.info(customIcon(), 1)}>
-          cumstom icon
-        </Button>
-        <WhiteSpace />
-        <Button onClick={successToast}>success</Button>
-        <WhiteSpace />
-        <Button onClick={failToast}>fail</Button>
-        <WhiteSpace />
-        <Button onClick={offline}>network failure</Button>
-        <WhiteSpace />
-        <Button onClick={loadingToast}>loading</Button>
-        <WhiteSpace />
-      </WingBlank>
+      <ContentWrap>
+        <TitleWrap>
+          <Title>12121212</Title>
+        </TitleWrap>
+
+        <WingBlank>
+          <WhiteSpace />
+          <WhiteSpace />
+          <WhiteSpace />
+          <WhiteSpace />
+          <Button type="primary" onClick={this.TestTest}>text only</Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={showToastNoMask}>without mask</Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={() => Toast.info(customIcon(), 1)}>
+            cumstom icon
+          </Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={successToast}>success</Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={failToast}>fail</Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={offline}>network failure</Button>
+          <WhiteSpace />
+          <Button type="primary" onClick={loadingToast}>loading</Button>
+          <WhiteSpace />
+        </WingBlank>
+      </ContentWrap>
     )
   }
 }

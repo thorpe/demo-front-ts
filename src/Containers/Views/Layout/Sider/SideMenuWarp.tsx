@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx } from '@emotion/core'
 import React from 'react'
 import { observer } from 'mobx-react'
 import { computed } from 'mobx'
@@ -8,79 +8,13 @@ import pathToRegexp from 'path-to-regexp'
 import intl from 'react-intl-universal'
 import { RootConsumer } from '@shared/App/Provider'
 import { arrayToTree, queryArray } from '@helpers/index'
-import { UserInfo } from '@store/authStore'
 import { SideBarTheme, GlobalStore } from '@store/globalStore'
 // css
-import styled from '@themes/theme'
-import { mq } from '@styles/base.style'
+import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
+
 
 import menus, { filterMenus, RouteMenu, MenuInTree } from '../menu'
 
-const MenuItemContainer = styled.div`
-  padding: 32px 0 10px;
-  ${mq[0]} {
-    padding: 20px 0 0;
-  }
-`
-const MenuItemWrap = styled.div`
-  .ant-menu-inline,
-  .ant-menu-vertical,
-  .ant-menu-vertical-left {
-    border: none;
-  }
-  .ant-menu {
-    .ant-menu-item {
-      display: inline-block;
-      width: 25%;
-      height: 50px;
-      padding: 0 !important;
-      margin: 0 0 26px !important;
-      text-align: center;
-      line-height: 2.2rem;
-      ${mq[0]} {
-        margin: 0 0 20px !important;
-      }
-      &::after {
-        display: none;
-      }
-      svg path {
-        color: ${props => props.theme.color.themeTxt};
-        fill: ${props => props.theme.color.themeTxt};
-      }
-      svg {
-        display: block;
-        margin: 0 auto;
-      }
-      p {
-        font-size: ${props => props.theme.font.small};
-        color: ${props => props.theme.color.detail};
-      }
-    }
-    .ant-menu-item-selected {
-      background: ${props => props.theme.color.TP} !important;
-      p,
-      svg path {
-        color: ${props => props.theme.color.primary};
-        fill: ${props => props.theme.color.primary};
-      }
-    }
-  }
-`
-
-const IconStyle = css`
-  padding: 0 20px;
-  margin: 0 20px;
-  svg {
-    position: relative;
-    width: 32px;
-    height: 32px;
-    margin-right: 15px;
-    ${mq[0]} {
-      width: 25px;
-      height: 25px;
-    }
-  }
-`
 
 interface SiderMenuProps {
   toggleLoginCollapsed: (collapsed: boolean) => void
@@ -90,7 +24,6 @@ interface SiderMenuProps {
   navOpenKeys: string[]
   setOpenKeys: (openKeys: string[]) => void
   signedin: object
-  userInfo: UserInfo
   routerStore: RouterStore
   globalStore: GlobalStore
 }
@@ -127,6 +60,9 @@ class SiderMenu extends React.Component<SiderMenuProps> {
   }
 
   showModalMenu = (selectedMenu: RouteMenu) => {
+
+    console.log('-0----------------------')
+    console.log(selectedMenu.namespace)
     if (selectedMenu.namespace === 'message') {
       this.props.globalStore.toggleMessageCollapsed(false)
     } else if (selectedMenu.namespace === 'giftbox') {
@@ -259,7 +195,6 @@ function Wrapper() {
           routerStore={routerStore}
           globalStore={globalStore}
           signedin={authStore.signedin}
-          userInfo={authStore.userInfo}
           sideBarCollapsed={globalStore.sideBarCollapsed}
           sideBarTheme={globalStore.sideBarTheme}
           navOpenKeys={globalStore.navOpenKeys}

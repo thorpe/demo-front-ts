@@ -12,7 +12,3 @@ export enum LOCALSTORAGE_KEYS {
   DATA_FORMAT = 'dataFormat',
   NOT_SUPPORT_POLLING = 'notSupportPolling'
 }
-
-export const LOGIN_CATEGORY = ['user', 'admin']
-
-export const GITHUB_LINK = 'https://github.com/thorpe'

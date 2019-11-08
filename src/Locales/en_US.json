@@ -12,5 +12,8 @@
   "menu.sider.bettor" : "베터",
   "menu.sider.test" : "테스트",
   "menu.sider.users" : "유저",
-  "menu.sider.socket" : "소켓"
+  "menu.sider.socket" : "소켓",
+  "menu.sider.dialog" : "dialog",
+  "menu.sider.popup" : "popup",
+  "menu.sider.modal" : "modal"
 }

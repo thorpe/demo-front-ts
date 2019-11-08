@@ -160,11 +160,6 @@ export class GlobalStore extends StoreExt {
   updateSomethingPopup = () => {
     this.somethingPopup =
       !this.sideBarCollapsed ||
-      // !this.collapsedLogin ||
-      !this.collapsedEvent ||
-      !this.collapsedAttendance ||
-      !this.collapsedGiftbox ||
-      !this.collapsedMessage ||
       !!this.currentDialog
   }
 

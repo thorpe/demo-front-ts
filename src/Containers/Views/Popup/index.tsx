@@ -1,8 +1,13 @@
 import React from 'react'
-import { observer } from 'mobx-react'
 import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
+import useRootStore from '@store/useRootStore'
 
-const Test: React.FC = () => {
+
+const Popup: React.FC = () => {
+
+  const { routerStore } = useRootStore()
+  console.log('==============')
+  console.log(routerStore.location.pathname)
 
   return (
     <ContentWrap>
@@ -57,4 +62,4 @@ const Test: React.FC = () => {
   )
 }
 
-export default observer(Test)
+export default Popup

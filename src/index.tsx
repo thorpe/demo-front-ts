@@ -12,6 +12,7 @@ registerServiceWorker()
 configure({ enforceActions: 'observed' })
 
 const render = (Component: React.ComponentType) => {
+  console.log('1')
   ReactDOM.render(
     <Component>
       <div>11--------------</div>

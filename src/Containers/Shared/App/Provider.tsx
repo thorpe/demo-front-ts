@@ -18,5 +18,8 @@ export const RootContext = createContext<RootStore>(null)
 export const RootConsumer = ({ children }: ChildrenProps<RootStore>) => <Observer>{() => children(store)}</Observer>
 
 export default function Provider({ children }: { children?: React.ReactNode }) {
+  console.log('3--------------------------------------------')
+  console.log(children)
+  console.log({ ...store })
   return <RootContext.Provider value={{ ...store }}>{children}</RootContext.Provider>
 }

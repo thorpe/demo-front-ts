@@ -10,7 +10,7 @@ import { ThemeProvider } from 'emotion-theming'
 
 
 import * as store from '@store/index'
-import PageLoading from '@components/PageLoading'
+import PageLoading from '@components/Loading'
 import Error from '@components/Error'
 import { Theme } from '@themes/theme'
 import DarkTheme from '@themes/dark.theme'
@@ -644,6 +644,9 @@ const GlobalStyle = (theme: Theme) => css`
 `
 
 function App() {
+
+  console.log('2')
+
   return (
     <ThemeProvider theme={DarkTheme}>
       <Provider>

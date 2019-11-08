@@ -1,7 +1,7 @@
 import Loadable from 'react-loadable'
 import { filter } from 'lodash'
 
-import PageLoading from '@components/PageLoading'
+import PageLoading from '@components/Loading'
 import {
   ClubPortalIco,
 } from '@components/Icon/MenuIcon'
@@ -9,7 +9,7 @@ import {
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 
 export const asynchronousComponents = {
-  SocketDebugger: loadComponent(() => import('@views/SocketDebugger')),
+  SocketDebugger: loadComponent(() => import('@views/Socket')),
   Users: loadComponent(() => import('@views/Test')),
 
   Test: loadComponent(() => import('@views/Test')),
@@ -17,6 +17,9 @@ export const asynchronousComponents = {
   List: loadComponent(() => import('@views/List')),
   Login: loadComponent(() => import('@views/Login')),
   Toast: loadComponent(() => import('@views/Toast')),
+  Dialog: loadComponent(() => import('@views/Dialog')),
+  Popup: loadComponent(() => import('@views/Popup')),
+  Modal: loadComponent(() => import('@views/Modal')),
 }
 
 // all routers key
@@ -107,7 +110,33 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.toast',
     signedin: false,
     exact: true,
-  }
+  }, {
+    id: '9',
+    path: '/dialog',
+    name: 'Dialog',
+    icon: ClubPortalIco,
+    component: 'Dialog',
+    locale: 'menu.sider.dialog',
+    signedin: false,
+    exact: true,
+  }, {
+    id: '10',
+    path: '/popup',
+    name: 'Popup',
+    icon: ClubPortalIco,
+    component: 'Popup',
+    locale: 'menu.sider.popup',
+    signedin: false,
+    exact: true,
+  }, {
+    id: '11',
+    name: 'Modal',
+    icon: ClubPortalIco,
+    namespace: 'event',
+    locale: 'menu.sider.modal',
+    signedin: false,
+    exact: true,
+  },
 ]
 
 

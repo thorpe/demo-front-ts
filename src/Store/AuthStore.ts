@@ -61,7 +61,6 @@ export class AuthStore extends StoreExt {
   @action
   fetchUser = async () => {
     try {
-      console.log('authStore.fetchUser')
       const res = await this.api.user.getUsers({})
       if (!res) {
         return

@@ -1,4 +1,4 @@
-import { SchemaResponseBase } from '@interfaces/commonInterface'
+import { CommonInterface } from '@interfaces/CommonInterface'
 
 
 /**
@@ -12,13 +12,8 @@ export namespace AuthInterface {
   }
 
 
-  export interface listSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
+  export interface listSchema extends CommonInterface.ResponseBase {
+    aaa?: number
   }
 
-  export interface successSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
-  }
 }

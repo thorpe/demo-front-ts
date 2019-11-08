@@ -4,12 +4,9 @@ export enum COOKIE_KEYS {
 
 export enum LOCALSTORAGE_KEYS {
   ACCESS_TOKEN = 'access_token',
-  USERINFO = 'userInfo',
   NAV_OPEN_KEYS = 'navOpenKeys',
   SIDE_BAR_THEME = 'sideBarTheme',
   SIDE_BAR_COLLAPSED = 'sideBarCollapsed',
-  // about socket
-  SOCKET_URL = 'socketUrl',
   SOCKET_TYPE = 'socketType',
   SOCKET_IO_EVENTS = 'socketIOEvents',
   DATA_FORMAT = 'dataFormat',

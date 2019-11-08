@@ -1,24 +1,22 @@
-import { SchemaResponseBase } from '@interfaces/commonInterface'
-
 
 /**
  * /user/user
  */
 
 export namespace UserInterface {
-  export interface loginParams {
-    account?: string
-    password?: string
+
+  export interface SchemaUserInfo {
+    id?: string
+    cash?: number
+    mileage?: number
+    point?: number
+    money?: number
+    heart?: number
+    job?: number
+    nick?: string
+    avatar?: string
+    present_box_openedAt?: Date
+    clubId?: string
   }
 
-
-  export interface listSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
-  }
-
-  export interface successSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
-  }
 }

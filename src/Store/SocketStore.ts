@@ -3,6 +3,7 @@ import { observable, action, computed } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 import { SOCKER_TYPES, DATA_FORMATS } from '@constants/socket'
+import { SocketInterface } from '@interfaces/SocketInterface'
 
 /**
  * socket debugger store
@@ -12,16 +13,19 @@ import { SOCKER_TYPES, DATA_FORMATS } from '@constants/socket'
  * @extends {StoreExt}
  */
 export class SocketStore extends StoreExt {
+
   @observable
-  socketType: ISocketStore.SocketType =
-    (localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_TYPE) as ISocketStore.SocketType) || SOCKER_TYPES[0]
+  socketType: SocketInterface.SocketType = (localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_TYPE) as SocketInterface.SocketType) || SOCKER_TYPES[0]
+
   @observable
-  dataFormat: ISocketStore.DataFormatType =
-    (localStorage.getItem(LOCALSTORAGE_KEYS.DATA_FORMAT) as ISocketStore.DataFormatType) || DATA_FORMATS[0]
+  dataFormat: SocketInterface.DataFormatType = (localStorage.getItem(LOCALSTORAGE_KEYS.DATA_FORMAT) as SocketInterface.DataFormatType) || DATA_FORMATS[0]
+
   @observable
   socketIsConnected = false
+
   @observable
-  messages: ISocketStore.Message[] = []
+  messages: SocketInterface.Message[] = []
+
   @observable
   notSupportPolling: boolean = localStorage.getItem(LOCALSTORAGE_KEYS.NOT_SUPPORT_POLLING) === 'true'
 
@@ -31,12 +35,12 @@ export class SocketStore extends StoreExt {
   }
 
   @action
-  setSocketType = (type: ISocketStore.SocketType) => {
+  setSocketType = (type: SocketInterface.SocketType) => {
     this.socketType = type
   }
 
   @action
-  setDataFormat = (dataFormat: ISocketStore.DataFormatType) => {
+  setDataFormat = (dataFormat: SocketInterface.DataFormatType) => {
     this.dataFormat = dataFormat
   }
 
@@ -51,7 +55,7 @@ export class SocketStore extends StoreExt {
   }
 
   @action
-  addMessage = (message: ISocketStore.Message) => {
+  addMessage = (message: SocketInterface.Message) => {
     if (!message.time) {
       message.time = new Date().getTime()
     }
@@ -60,7 +64,6 @@ export class SocketStore extends StoreExt {
 
   @action
   setNotSupportPolling = (val: boolean) => {
-    alert('1212')
     this.notSupportPolling = val
     localStorage.setItem(LOCALSTORAGE_KEYS.NOT_SUPPORT_POLLING, String(val))
   }

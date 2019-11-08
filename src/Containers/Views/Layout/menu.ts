@@ -20,6 +20,7 @@ export const asynchronousComponents = {
   Dialog: loadComponent(() => import('@views/Dialog')),
   Popup: loadComponent(() => import('@views/Popup')),
   Modal: loadComponent(() => import('@views/Modal')),
+  Carousel: loadComponent(() => import('@views/Carousel')),
 }
 
 // all routers key
@@ -130,13 +131,23 @@ export const menu: RouteMenu[] = [
     exact: true,
   }, {
     id: '11',
+    path: '/modal',
     name: 'Modal',
     icon: ClubPortalIco,
-    namespace: 'message',
+    component: 'Modal',
     locale: 'menu.sider.modal',
     signedin: false,
     exact: true,
-  },
+  }, {
+    id: '12',
+    path: '/carousel',
+    name: 'Carousel',
+    icon: ClubPortalIco,
+    component: 'Carousel',
+    locale: 'menu.sider.carousel',
+    signedin: false,
+    exact: true,
+  }
 ]
 
 

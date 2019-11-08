@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
-
+import React from 'react'
+import { LoadSpinWrap } from '@styles/base.style'
 const Splash: React.FC = (props) => {
   return (
-    <Fragment>
+    <LoadSpinWrap>
       <div>sdfsdf</div>
       <div>sdfsdf</div>
       <div>sdfsdf</div>
@@ -19,7 +19,7 @@ const Splash: React.FC = (props) => {
       <div>sdfsdf</div>
       <div>sdfsdf</div>
       <div>sdfsdf</div>
-    </Fragment>
+    </LoadSpinWrap>
   )
 }
 

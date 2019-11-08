@@ -132,7 +132,7 @@ export const menu: RouteMenu[] = [
     id: '11',
     name: 'Modal',
     icon: ClubPortalIco,
-    namespace: 'event',
+    namespace: 'message',
     locale: 'menu.sider.modal',
     signedin: false,
     exact: true,

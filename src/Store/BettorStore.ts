@@ -1,13 +1,13 @@
 import { action, observable } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
-import { BettorInterface, Schema$BettorList } from "@interfaces/bettorInterface"
+import { BettorInterface } from "@interfaces/BettorInterface"
 
 import { extend } from 'lodash'
 import { message } from "antd"
 
 
-export type betterList = Schema$BettorList
-export type betterTrackItem = Schema$BettorList
+export type betterList = BettorInterface.SchemaBettorList
+export type betterTrackItem =  BettorInterface.SchemaBettorList
 
 
 export class BettorStore extends StoreExt {

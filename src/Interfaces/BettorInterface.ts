@@ -1,18 +1,19 @@
 import { CommonInterface } from '@interfaces/CommonInterface'
 
-export interface Schema$BettorList {
-  id?: string
-  nick?: string
-  job?: string
-  level?: string
-}
-
 
 /**
  * /user/user
  */
 
 export namespace BettorInterface {
+
+  export interface SchemaBettorList {
+    id?: string
+    nick?: string
+    job?: string
+    level?: string
+  }
+
   export interface SearchParams {
     nick?: string
   }
@@ -29,7 +30,7 @@ export namespace BettorInterface {
   }
 
   export interface listSchema extends CommonInterface.ResponseBase {
-    data?: Schema$BettorList[]
+    data?: SchemaBettorList[]
   }
 
   export interface successSchema extends CommonInterface.ResponseBase {

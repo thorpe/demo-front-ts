@@ -1,5 +1,6 @@
 import { observable, action, runInAction } from 'mobx'
 import { PaginationConfig } from 'antd/lib/pagination'
+import { UserInterface } from '@interfaces/UserInterface'
 
 import { StoreExt } from '@helpers/reactExt'
 
@@ -45,7 +46,6 @@ export class UserStore extends StoreExt {
     try {
       const res = await this.api.user.getUsers({ pageIndex: this.pageIndex, pageSize: this.pageSize })
       runInAction('SET_USER_LIST', () => {
-        this.users = res.users
         this.total = res.total
       })
     } catch (err) {
@@ -55,11 +55,11 @@ export class UserStore extends StoreExt {
     })
   }
 
-  createUser = async (user: IUserStore.IUser) => {
+  createUser = async (user: UserInterface.UserInfo) => {
     await this.api.user.createUser(user)
   }
 
-  modifyUser = async (user: IUserStore.IUser) => {
+  modifyUser = async (user: UserInterface.UserInfo) => {
     await this.api.user.modifyUser(user)
   }
 

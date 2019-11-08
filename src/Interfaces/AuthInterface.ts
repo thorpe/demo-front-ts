@@ -6,6 +6,7 @@ import { CommonInterface } from '@interfaces/CommonInterface'
  */
 
 export namespace AuthInterface {
+
   export interface loginParams {
     account?: string
     password?: string

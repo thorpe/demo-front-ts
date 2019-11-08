@@ -1,16 +1,14 @@
 import { observable, action, computed } from 'mobx'
 
-import { clone } from 'lodash'
-
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
-import { SchemaUserInfo } from '@interfaces/commonInterface'
+import { UserInterface } from '@interfaces/UserInterface'
 import { AuthInterface } from '@interfaces/authInterface'
 import { routerStore, globalStore } from '@store/index'
 
 export type loginParams = AuthInterface.loginParams
-export type UserInfo = SchemaUserInfo
+export type UserInfo = UserInterface.UserInfo
 
 
 export class AuthStore extends StoreExt {
@@ -19,7 +17,7 @@ export class AuthStore extends StoreExt {
    *
    */
   @observable
-  userInfo: UserInfo = {}
+  userInfo: {}
 
 
   @observable
@@ -82,15 +80,6 @@ export class AuthStore extends StoreExt {
     return res
   }
 
-  @action
-  updateUser = (update: UserInfo): UserInfo => {
-    const user = clone(this.userInfo)
-    user.money = update.money || user.money
-    user.cash = update.cash || user.cash
-    user.heart = update.heart || user.heart
-    this.userInfo = user
-    return user
-  }
 
   @computed
   get isSignedIn() {

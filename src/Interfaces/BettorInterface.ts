@@ -1,4 +1,4 @@
-import { SchemaResponseBase } from '@interfaces/commonInterface'
+import { CommonInterface } from '@interfaces/CommonInterface'
 
 export interface Schema$BettorList {
   id?: string
@@ -28,14 +28,10 @@ export namespace BettorInterface {
     message?: string
   }
 
-  export interface listSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
+  export interface listSchema extends CommonInterface.ResponseBase {
     data?: Schema$BettorList[]
   }
 
-  export interface successSchema extends SchemaResponseBase {
-    code?: number
-    message?: string
+  export interface successSchema extends CommonInterface.ResponseBase {
   }
 }

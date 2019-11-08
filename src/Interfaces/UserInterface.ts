@@ -1,3 +1,4 @@
+import { CommonInterface } from '@interfaces/CommonInterface'
 
 /**
  * /user/user
@@ -5,7 +6,7 @@
 
 export namespace UserInterface {
 
-  export interface SchemaUserInfo {
+  export interface UserInfo  extends CommonInterface.ResponseBase {
     id?: string
     cash?: number
     mileage?: number

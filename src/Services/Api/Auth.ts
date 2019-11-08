@@ -1,4 +1,4 @@
-import http from '@services/http'
+import http from '@services/Http'
 
 export default {
   login(data: any): Promise<any> {

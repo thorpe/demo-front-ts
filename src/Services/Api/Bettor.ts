@@ -1,4 +1,4 @@
-import http from '@services/http'
+import http from '@services/Http'
 import { BettorInterface } from "@interfaces/bettorInterface"
 
 export default {

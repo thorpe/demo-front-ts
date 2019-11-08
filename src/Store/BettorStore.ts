@@ -12,7 +12,6 @@ export type betterTrackItem = Schema$BettorList
 
 export class BettorStore extends StoreExt {
 
-
   bettors: betterList[]
 
   @observable

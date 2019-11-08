@@ -2,7 +2,7 @@ import { Locale } from 'antd/lib/locale-provider'
 
 export enum LOCALES_KEYS {
   EN_US = 'en-US',
-  ZH_CN = 'zh-CN'
+  KO_KR = 'ko-KR'
 }
 
 export const SUPPOER_LOCALES = [
@@ -12,7 +12,7 @@ export const SUPPOER_LOCALES = [
   },
   {
     name: 'korean',
-    value: LOCALES_KEYS.ZH_CN
+    value: LOCALES_KEYS.KO_KR
   }
 ]
 
@@ -23,11 +23,11 @@ export interface LocaleResponse {
 
 export function getLocaleLoader(locale: string): Promise<LocaleResponse> {
   switch (locale) {
-    case LOCALES_KEYS.ZH_CN:
+    case LOCALES_KEYS.KO_KR:
       return new Promise(async resolve => {
-        const loc = await import(/* webpackChunkName: "zh-CN" */ './zh_CN.json').then(m => m.default)
+        const loc = await import(/* webpackChunkName: "zh-CN" */ './ko_KR.json').then(m => m.default)
         const antdLoc = await import(
-          /* webpackChunkName: "antd-zh-CN" */ 'antd/lib/locale-provider/zh_CN'
+          /* webpackChunkName: "antd-zh-CN" */ 'antd/lib/locale-provider/ko_KR'
           ).then(m => m.default)
         resolve({ localeData: loc, antdLocaleData: antdLoc })
       })

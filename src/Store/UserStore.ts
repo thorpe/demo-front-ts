@@ -11,14 +11,7 @@ export class UserStore extends StoreExt {
    */
   @observable
   getUsersloading = false
-  /**
-   * 用户列表
-   *
-   * @type {IUserStore.IUser[]}
-   * @memberof UserStore
-   */
-  @observable
-  users: IUserStore.IUser[] = []
+
   /**
    * table pageIndex
    *

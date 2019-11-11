@@ -200,6 +200,13 @@ const GlobalStyle = (theme: Theme) => css`
       }
     }
   }
+  
+  .club-info {
+    .ant-drawer-content .ant-drawer-wrapper-body .ant-drawer-header {
+        border-bottom: none;
+        }
+  }
+    
   /* popup contents scroll되도록 */
   .ant-drawer-wrapper-body {
     height: calc(100vh - 0.01px);

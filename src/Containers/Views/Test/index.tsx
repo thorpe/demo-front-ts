@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { observer } from 'mobx-react'
 import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
+import { Drawer } from 'antd'
+
+import ClubInfoPopUp from '../Popup/ClubInfo'
+import intl from 'react-intl-universal'
+import { Button } from 'antd-mobile'
 
 const Test: React.FC = () => {
+  const [clubVisible, setClubVisible] = useState(false)
+  const doOpenShowDetail = () => {
+    setClubVisible(true)
+  }
+
+  const doCloseShowDetail = () => {
+    setClubVisible(null)
+  }
+
 
   return (
     <ContentWrap>
@@ -10,49 +24,23 @@ const Test: React.FC = () => {
         <Title>Test</Title>
       </TitleWrap>
 
-      <div>1sdfsdfsdf1sfsdfsdf</div>
-      <div>2sdfsdfsdf2sfsdfsdf</div>
-      <div>3sdfsdfsdf3sfsdfsdf</div>
-      <div>4sdfsdfsdf4sfsdfsdf</div>
-      <div>5sdfsdfsdf4sfsdfsdf</div>
-      <div>6sdfsdfsdf4sfsdfsdf</div>
-      <div>7sdfsdfsdf4sfsdfsdf</div>
-      <div>8sdfsdfsdf4sfsdfsdf</div>
-      <div>9sdfsdfsdf4sfsdfsdf</div>
-      <div>10sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>sdfsdfsdf4sfsdfsdf</div>
-      <div>1 sdfsdfsdf4sfsdfsdf</div>
-      <div>2 sdfsdfsdf4sfsdfsdf</div>
-      <div>3 sdfsdfsdf4sfsdfsdf</div>
-      <div>4 sdfsdfsdf4sfsdfsdf</div>
-      <div>5 sdfsdfsdf4sfsdfsdf</div>
-      <div>6 sdfsdfsdf4sfsdfsdf</div>
-      <div>7 sdfsdfsdf4sfsdfsdf</div>
+
+      <Button type="primary" onClick={doOpenShowDetail}>popup</Button>
+
+      <Drawer
+        title={intl.get('component.club-info')}
+        placement="bottom"
+        height="100%"
+        onClose={doCloseShowDetail}
+        visible={clubVisible}
+        style={{ textAlign: 'center', borderBottom: 'none !important' }}
+        bodyStyle={{ padding: '0' }}
+        className="club-info"
+      >
+        <ClubInfoPopUp />
+      </Drawer>
+
+
     </ContentWrap>
   )
 }

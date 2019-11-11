@@ -30,7 +30,7 @@ const Test: React.FC = () => {
       <Drawer
         title={intl.get('component.club-info')}
         placement="bottom"
-        height="100%"
+        height="80%"
         onClose={doCloseShowDetail}
         visible={clubVisible}
         style={{ textAlign: 'center', borderBottom: 'none !important' }}

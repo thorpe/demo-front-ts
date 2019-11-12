@@ -12,13 +12,13 @@ import useRootStore from '@store/useRootStore'
 
 const Test: React.FC = () => {
 
-  const { testStore, socketStore } = useRootStore()
+  const { testStore } = useRootStore()
 
   const [clubVisible, setClubVisible] = useState(false)
   const doOpenShowDetail = () => {
     setClubVisible(true)
   }
-  
+
   const doIncrement = () => {
     testStore.doIncrement()
   }
@@ -42,7 +42,8 @@ const Test: React.FC = () => {
 
       <div>
         Counter: {testStore.count} <br />
-        Counter: {socketStore.test} <br />
+        Counter: {testStore.totalPrice} <br />
+        Counter: {testStore.doTotal} <br />
         <Button type="primary" onClick={doIncrement}> + </Button>
         <WhiteSpace />
         <Button type="primary" onClick={doDecrement}> - </Button>

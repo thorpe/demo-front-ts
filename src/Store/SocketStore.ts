@@ -27,9 +27,6 @@ export class SocketStore extends StoreExt {
   messages: SocketInterface.Message[] = []
 
   @observable
-  test = ""
-
-  @observable
   notSupportPolling: boolean = localStorage.getItem(LOCALSTORAGE_KEYS.NOT_SUPPORT_POLLING) === 'true'
 
   @computed
@@ -62,10 +59,6 @@ export class SocketStore extends StoreExt {
     if (!message.time) {
       message.time = new Date().getTime()
     }
-    this.test = message.data.message
-    console.log("--------------")
-    console.log(this.test)
-    console.log(message)
     this.messages.push(message)
   }
 

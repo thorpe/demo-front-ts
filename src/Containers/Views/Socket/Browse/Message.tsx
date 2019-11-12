@@ -3,8 +3,6 @@ import { observer, useLocalStore } from 'mobx-react'
 import moment from 'moment'
 import { Tag } from 'antd'
 
-import styles from './index.scss'
-
 function Message({ message, style }: any) {
     const selfStore = useLocalStore(() => ({
         get time() {
@@ -34,13 +32,13 @@ function Message({ message, style }: any) {
         }
     }))
     return (
-        <div className={styles.message} style={style}>
-            <div className={styles.messageHeader} style={{ marginBottom: !!selfStore.content ? 5 : 0 }}>
+        <div  style={style}>
+            <div  style={{ marginBottom: !!selfStore.content ? 5 : 0 }}>
                 {message.event && <Tag color="#f50">{message.event}</Tag>}
                 <Tag color={selfStore.color}>{selfStore.fromText}</Tag>
                 <span>{selfStore.time}22</span>
             </div>
-            <div className={styles.content}>{selfStore.content}11</div>
+            <div >{selfStore.content}11</div>
         </div>
     )
 }

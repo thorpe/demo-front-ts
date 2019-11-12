@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import React, { Fragment, useState } from 'react'
 
-import { TitleWrap, Title, Button } from '@styles/base.style'
+import { TitleWrap, Title, Button, ContentWrap } from '@styles/base.style'
 import useRootStore from '@store/useRootStore'
 
 import { Input, List, message } from 'antd'
@@ -74,7 +74,7 @@ const BettorFind: React.FC = props => {
   )
 
   return (
-    <Fragment>
+    <ContentWrap>
       <TitleWrap>
         <Title>12121212</Title>
       </TitleWrap>

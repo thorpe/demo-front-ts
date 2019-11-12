@@ -61,8 +61,7 @@ class SiderMenu extends React.Component<SiderMenuProps> {
 
   showModalMenu = (selectedMenu: RouteMenu) => {
 
-    console.log('-0----------------------')
-    console.log(selectedMenu.namespace)
+
     if (selectedMenu.namespace === 'message') {
       this.props.globalStore.toggleMessageCollapsed(false)
     } else if (selectedMenu.namespace === 'giftbox') {
@@ -79,12 +78,8 @@ class SiderMenu extends React.Component<SiderMenuProps> {
     if (selectedMenu) {
 
       if (selectedMenu.signedin === true && signedin === false) {
-        // message.info('로그인이 필요합니다.')
         this.props.toggleLoginCollapsed(false)
       } else if (selectedMenu.namespace && selectedMenu.namespace.length) {
-        // contorl by globalStore collasped popup
-        // const name = intl.get(selectedMenu.locale)
-        // message.info(`${name} 는 준비중입니다.`)
         this.showModalMenu(selectedMenu)
       } else if (selectedMenu.path && selectedMenu.path !== this.currentRoute) {
         history.push(selectedMenu.path)

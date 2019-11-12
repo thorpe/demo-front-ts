@@ -14,7 +14,7 @@ class ListExample extends React.Component {
     return (
       <ContentWrap>
         <TitleWrap>
-          <Title>List</Title>
+          <Title>List Title</Title>
         </TitleWrap>
 
         <List renderHeader={() => 'Basic Style'} className="my-list">
@@ -96,6 +96,56 @@ class ListExample extends React.Component {
               <option value="2" disabled>Unable to select</option>
               <option value="3">option 3</option>
             </select>
+          </Item>
+        </List>
+        <List renderHeader={() => 'Text Wrapping'} className="my-list">
+          <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
+          <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+          <Item extra="extra content" multipleLine align="top" wrap>
+            Multiple line and long text will wrap. Long Text Long Text Long Text
+          </Item>
+          <Item extra="no arrow" arrow="empty" className="spe" wrap>
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
+          </Item>
+        </List>
+        <List renderHeader={() => 'Text Wrapping'} className="my-list">
+          <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
+          <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+          <Item extra="extra content" multipleLine align="top" wrap>
+            Multiple line and long text will wrap. Long Text Long Text Long Text
+          </Item>
+          <Item extra="no arrow" arrow="empty" className="spe" wrap>
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
+          </Item>
+        </List>
+        <List renderHeader={() => 'Text Wrapping'} className="my-list">
+          <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
+          <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+          <Item extra="extra content" multipleLine align="top" wrap>
+            Multiple line and long text will wrap. Long Text Long Text Long Text
+          </Item>
+          <Item extra="no arrow" arrow="empty" className="spe" wrap>
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
+          </Item>
+        </List>
+        <List renderHeader={() => 'Text Wrapping'} className="my-list">
+          <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
+          <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+          <Item extra="extra content" multipleLine align="top" wrap>
+            Multiple line and long text will wrap. Long Text Long Text Long Text
+          </Item>
+          <Item extra="no arrow" arrow="empty" className="spe" wrap>
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
+          </Item>
+        </List>
+        <List renderHeader={() => 'Text Wrapping'} className="my-list">
+          <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>
+          <Item wrap>Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text</Item>
+          <Item extra="extra content" multipleLine align="top" wrap>
+            Multiple line and long text will wrap. Long Text Long Text Long Text
+          </Item>
+          <Item extra="no arrow" arrow="empty" className="spe" wrap>
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
           </Item>
         </List>
       </ContentWrap>)

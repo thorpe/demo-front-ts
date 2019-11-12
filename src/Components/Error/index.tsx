@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { ContentWrap, Title, TitleWrap } from '@styles/base.style'
 
 const Error: React.FC = (props) => (
-  <Fragment>
+  <ContentWrap>
+    <TitleWrap>
+      <Title>Test</Title>
+    </TitleWrap>
+
     <div>😭</div>
     <p>Ooooops!</p>
     <p>This page does not exist anymore.</p>
-  </Fragment>
+  </ContentWrap>
 )
 
 export default Error

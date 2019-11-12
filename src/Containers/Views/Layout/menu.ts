@@ -18,7 +18,6 @@ export const asynchronousComponents = {
   Login: loadComponent(() => import('@views/Login')),
   Toast: loadComponent(() => import('@views/Toast')),
   Dialog: loadComponent(() => import('@views/Dialog')),
-  Popup: loadComponent(() => import('@views/Popup')),
   Modal: loadComponent(() => import('@views/Modal')),
   Carousel: loadComponent(() => import('@views/Carousel')),
 }
@@ -118,15 +117,6 @@ export const menu: RouteMenu[] = [
     icon: ClubPortalIco,
     component: 'Dialog',
     locale: 'menu.sider.dialog',
-    signedin: false,
-    exact: true,
-  }, {
-    id: '10',
-    path: '/popup',
-    name: 'Popup',
-    icon: ClubPortalIco,
-    component: 'Popup',
-    locale: 'menu.sider.popup',
     signedin: false,
     exact: true,
   }, {

@@ -35,7 +35,7 @@ class Socket {
       reconnectionDelay: 1000,
       reconnection: true,
       reconnectionAttempts: 5,
-      transports
+      transports,
     })
 
     patch(this.socket)
@@ -45,7 +45,7 @@ class Socket {
       (_, r) => {
         this.socket.close()
         r.dispose()
-      }
+      },
     )
 
     this.socket.on('reconnect', attemptNumber => {
@@ -53,7 +53,7 @@ class Socket {
       socketStore.addMessage({
         event: 'reconnect',
         from: 'console',
-        data: text
+        data: text,
       })
     })
 
@@ -64,7 +64,7 @@ class Socket {
       socketStore.addMessage({
         event: 'disconnect',
         from: 'console',
-        data: text
+        data: text,
       })
     })
 
@@ -73,7 +73,7 @@ class Socket {
       socketStore.addMessage({
         event: 'connect_timeout',
         from: 'console',
-        data: text
+        data: text,
       })
     })
 
@@ -83,7 +83,7 @@ class Socket {
       socketStore.addMessage({
         event: 'connect_error',
         from: 'console',
-        data: text
+        data: text,
       })
       console.warn(err)
     })
@@ -95,7 +95,7 @@ class Socket {
       socketStore.addMessage({
         event: 'error',
         from: 'console',
-        data: text
+        data: text,
       })
       console.warn(err)
     })
@@ -106,7 +106,7 @@ class Socket {
       socketStore.addMessage({
         event: 'connect',
         from: 'console',
-        data: text
+        data: text,
       })
     })
 
@@ -114,7 +114,7 @@ class Socket {
       socketStore.addMessage({
         event: 'ping',
         from: 'browser',
-        data: null
+        data: null,
       })
     })
 
@@ -122,7 +122,7 @@ class Socket {
       socketStore.addMessage({
         event: 'pong',
         from: 'server',
-        data: null
+        data: null,
       })
     })
 
@@ -134,7 +134,7 @@ class Socket {
         socketStore.addMessage({
           event,
           from: 'server',
-          data
+          data,
         })
       }
     })
@@ -168,6 +168,6 @@ export function send(event: string, data: any) {
   socketStore.addMessage({
     event,
     from: 'browser',
-    data
+    data,
   })
 }

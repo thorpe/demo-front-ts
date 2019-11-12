@@ -5,7 +5,6 @@ import { AutoSizer } from 'react-virtualized/dist/es/AutoSizer'
 import { CellMeasurerCache, CellMeasurer } from 'react-virtualized/dist/es/CellMeasurer'
 import { List as VList, ListRowProps } from 'react-virtualized/dist/es/List'
 
-import styles from './index.scss'
 import useRootStore from '@store/useRootStore'
 import { useOnMount } from '@helpers/reactExt'
 import Message from './Message'
@@ -47,7 +46,7 @@ const Browse: React.FC = props => {
 
   const rowCount = socketStore.messages.length
   return (
-    <div className={styles.browse}>
+    <div >
       <AutoSizer>
         {({ width, height }) => (
           <VList

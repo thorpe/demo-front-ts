@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 
 import useRootStore from '@store/useRootStore'
 import { Modal } from 'antd-mobile'
-import { DialogType } from '@store/globalStore'
+import { DialogType } from '@store/GlobalStore'
 
 const Dialog: React.FC = props => {
   const { globalStore } = useRootStore()

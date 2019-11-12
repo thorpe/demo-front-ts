@@ -89,7 +89,7 @@ const BettorFind: React.FC = props => {
       </SearchWrap>
       {betterList}
 
-    </Fragment>
+    </ContentWrap>
   )
 }
 

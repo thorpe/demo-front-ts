@@ -129,35 +129,6 @@ export const CloseBtn = (theme: Theme) =>
     background: ${theme.color.TP};
     border: none;
     box-shadow: none;
-    &::before {
-      position: absolute;
-      top: 16.5px;
-      left: 15px;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: ${theme.color.TP};
-      border: none;
-      border-left: 2px solid ${theme.color.themeTxt};
-      border-radius: 0;
-      transform: rotate(45deg);
-      opacity: 1;
-      animation: none;
-      content: '';
-    }
-    &::after {
-      position: absolute;
-      top: 3.5px;
-      right: 5px;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: ${theme.color.TP};
-      border-left: 2px solid ${theme.color.themeTxt};
-      transform: rotate(-45deg);
-      opacity: 1;
-      content: '';
-    }
   `
 export const CloseBtnTxt = css({
   position: 'absolute',

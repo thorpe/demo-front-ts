@@ -2,18 +2,16 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Layout, Drawer, message } from 'antd'
+import { Drawer, Toast } from 'antd-mobile'
 import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
 import { Button, mq } from '@styles/base.style'
 import styled, { Theme } from '@themes/theme'
-import { DrawerWrap, SiderStyle } from './index.style'
+
 
 import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
-// import SideMenuUser from './SideMenuUser'
 import SideMenuTest from './SideMenuTest'
-
 
 // css
 const LogoutBtnWrap = styled.div`
@@ -44,7 +42,8 @@ const LogoutBtn = (theme: Theme) => css`
 const SubBtnWrapStyle = (theme: Theme) => css`
   position: relative;
   display: flex;
-  width: 100%;
+  width: 80%;
+  height:100%;
   padding: 0 30px;
   background: ${theme.color.contentsBg};
   align-items: center;
@@ -61,10 +60,10 @@ const SubBtnStyle = (theme: Theme) => css`
   border-radius: 4px;
 `
 
-// function Sider() {
+
 const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
-  const { sideBarCollapsed, sideBarTheme } = globalStore
+  const { sideBarCollapsed } = globalStore
   const { signedin, userInfo } = authStore
 
   const onClose = () => {
@@ -77,8 +76,19 @@ const Sider: React.FC<{}> = props => {
     onClose,
   }
 
-  const SubButton = (
+  const Logout = (
+    <LogoutBtnWrap>
+      <Button primary onClick={authStore.logout} css={LogoutBtn}>
+        {intl.get('component.logout')}
+      </Button>
+    </LogoutBtnWrap>
+  )
+
+  const sidebar = (
     <div css={SubBtnWrapStyle}>
+
+      {signedin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      <SideMenuWarp />
       <a
         href="https://cafe.naver.com/adventureronline"
         target="_blank"
@@ -88,45 +98,33 @@ const Sider: React.FC<{}> = props => {
       >
         승부사 공식 카페
       </a>
-      <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>
+      <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => Toast.info('test', 1)}>
         도움말
       </a>
-      <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => message.info('준비중')}>
+      <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => Toast.info('test', 1)}>
         설정
       </a>
+      <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={onClose}>
+        닫기
+      </a>
+      {Logout}
     </div>
   )
 
-  const Logout = (
-    <LogoutBtnWrap>
-      <Button primary onClick={authStore.logout} css={LogoutBtn}>
-        {intl.get('component.logout')}
-      </Button>
-    </LogoutBtnWrap>
-  )
 
   return (
     <Drawer
-      css={DrawerWrap}
-      visible={!sideBarCollapsed}
-      placement="left"
-      onClose={onClose}
-      maskClosable
-      closable={false}
+      className="my-drawer"
+      style={{
+        overflow: 'auto',
+        height: '100%',
+        paddingBottom: '108px',
+      }}
+      sidebar={sidebar}
+      contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+      open={!sideBarCollapsed}
+      onOpenChange={onClose}
     >
-      <Layout.Sider
-        width="100%"
-        trigger={null}
-        theme={sideBarTheme}
-        collapsible
-        collapsed={sideBarCollapsed}
-        css={SiderStyle}
-      >
-        {signedin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
-        <SideMenuWarp />
-      </Layout.Sider>
-      {!sideBarCollapsed && SubButton}
-      {signedin && Logout}
     </Drawer>
   )
 }

@@ -648,6 +648,7 @@ const GlobalStyle = (theme: Theme) => css`
   .am-grid .am-flexbox {
     background-color: ${theme.color.contentsBg};
   }
+ 
 `
 
 function App() {

@@ -29,7 +29,7 @@ const Header: React.FC = props => {
   ]
 
   return (
-    <div css={{ 'z-index': 99 }}>
+    <div>
       {TestTest}
     </div>
   )

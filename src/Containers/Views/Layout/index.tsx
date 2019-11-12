@@ -1,13 +1,13 @@
 import React from 'react'
 import { Fragment } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import { observer } from 'mobx-react'
+
 
 import Error from '@components/Error'
 import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
 import LeftMenu from './Sider'
-import Footer from './Footer'
+// import Footer from './Footer'
 import { socketConnect } from '@services/Websocket'
 import { useOnMount } from '@helpers/reactExt'
 import useRootStore from '@store/useRootStore'
@@ -43,9 +43,9 @@ const PrimaryLayout: React.FC = props => {
           <Route component={Error} />
         </Switch>
       </Router>
-      <Footer />
+      {/*<Footer />*/}
     </Fragment>
   )
 }
 
-export default observer(PrimaryLayout)
+export default PrimaryLayout

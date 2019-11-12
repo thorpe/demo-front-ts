@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import React, { Fragment } from 'react'
 import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
+import { Icon, Grid } from 'antd-mobile';
 
 // css
 import { Button, SiderMenuTitle } from '@styles/base.style'
@@ -25,7 +26,7 @@ const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps
       <div key="user">
         <div css={Guest}>
           <Button onClick={onClose} css={CloseBtn}>
-            <p css={CloseBtnTxt}>닫기</p>
+            <Icon type='cross' />
           </Button>
           <div css={LoginWrap}>
             <span css={MemberType}>비회원</span>

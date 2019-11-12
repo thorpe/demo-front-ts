@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { TabBar } from 'antd-mobile'
+import useRootStore from '@store/useRootStore'
 
 
 const Footer: React.FC = props => {
-
+  const { routerStore } = useRootStore()
   const [selectedTab, setSelectedTab] = useState('blueTab')
 
-  const doChangeTab = async (inputTab) => {
+  const doChangeTab = async (inputTab, path) => {
     setSelectedTab(inputTab)
+    routerStore.replace(path)
   }
 
   return (
@@ -20,7 +22,7 @@ const Footer: React.FC = props => {
           selectedIcon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }} />}
           selected={selectedTab === 'blueTab'}
           badge={1}
-          onPress={() => doChangeTab('blueTab')}
+          onPress={() => doChangeTab('blueTab','test')}
           data-seed='logId'
         >
         </TabBar.Item>
@@ -31,7 +33,7 @@ const Footer: React.FC = props => {
           key='Koubei'
           badge={'new'}
           selected={selectedTab === 'redTab'}
-          onPress={() => doChangeTab('redTab')}
+          onPress={() => doChangeTab('redTab','test')}
           data-seed='logId1'
         >
         </TabBar.Item>
@@ -42,7 +44,7 @@ const Footer: React.FC = props => {
           key='Friend'
           dot
           selected={selectedTab === 'greenTab'}
-          onPress={() => doChangeTab('greenTab')}
+          onPress={() => doChangeTab('greenTab','test')}
         >
         </TabBar.Item>
         <TabBar.Item
@@ -51,7 +53,7 @@ const Footer: React.FC = props => {
           title='My'
           key='my'
           selected={selectedTab === 'yellowTab'}
-          onPress={() => doChangeTab('yellowTab')}
+          onPress={() => doChangeTab('yellowTab','test')}
         >
         </TabBar.Item>
       </TabBar>

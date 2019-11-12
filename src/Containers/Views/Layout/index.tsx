@@ -7,7 +7,7 @@ import Error from '@components/Error'
 import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
 import LeftMenu from './Sider'
-// import Footer from './Footer'
+import Footer from './Footer'
 import { socketConnect } from '@services/Websocket'
 import { useOnMount } from '@helpers/reactExt'
 import useRootStore from '@store/useRootStore'
@@ -28,6 +28,8 @@ const PrimaryLayout: React.FC = props => {
       <Router>
         <Switch>
           {menu.map(m => {
+            console.log("11111111")
+            console.log(m)
             if (!m.path) {
               return null
             }
@@ -43,7 +45,7 @@ const PrimaryLayout: React.FC = props => {
           <Route component={Error} />
         </Switch>
       </Router>
-      {/*<Footer />*/}
+      <Footer />
     </Fragment>
   )
 }

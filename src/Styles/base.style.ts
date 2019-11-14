@@ -335,6 +335,9 @@ export const SiderMenuTitle = styled.h1`
 `
 
 // Text 정렬
+
+
+
 export const TxtCenter = css({
   textAlign: 'center',
 })

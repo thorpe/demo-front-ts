@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 
 import { TitleWrap, Title, Button, ContentWrap } from '@styles/base.style'
 import useRootStore from '@store/useRootStore'

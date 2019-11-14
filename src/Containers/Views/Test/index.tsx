@@ -10,6 +10,7 @@ import ClubInfoPopUp from '../Popup/ClubInfo'
 import { Button } from 'antd-mobile'
 import useRootStore from '@store/useRootStore'
 
+
 const Test: React.FC = () => {
 
   const { testStore } = useRootStore()
@@ -34,6 +35,15 @@ const Test: React.FC = () => {
   }
 
 
+
+  const doOpenPopup = () => {
+    window.name = 'parentForm'
+    const opts = 'width=525, height=648, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no'
+    window.open('#/popup2', 'PAY_POPUP_' + new Date().getTime(), opts)
+    window.focus()
+  }
+
+
   return (
     <ContentWrap>
       <TitleWrap>
@@ -41,7 +51,6 @@ const Test: React.FC = () => {
       </TitleWrap>
 
       <div>
-        Counter: {testStore.count} <br />
         Counter: {testStore.totalPrice} <br />
         Counter: {testStore.doTotal} <br />
         <Button type="primary" onClick={doIncrement}> + </Button>
@@ -51,6 +60,10 @@ const Test: React.FC = () => {
       </div>
 
       <Button type="primary" onClick={doOpenShowDetail}>popup</Button>
+
+
+      <WhiteSpace />
+      <Button type="primary" onClick={doOpenPopup}>real popup</Button>
 
       <Drawer
         title='test title'

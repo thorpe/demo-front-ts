@@ -8,18 +8,18 @@ import menu, { asynchronousComponents } from './menu'
 import Header from './Header'
 import LeftMenu from './Sider'
 import Footer from './Footer'
-import { socketConnect } from '@services/Websocket'
-import { useOnMount } from '@helpers/reactExt'
-import useRootStore from '@store/useRootStore'
+// import { socketConnect } from '@services/Websocket'
+// import { useOnMount } from '@helpers/reactExt'
+// import useRootStore from '@store/useRootStore'
 
 const PrimaryLayout: React.FC = props => {
-  const { socketStore } = useRootStore()
+  // const { socketStore } = useRootStore()
 
-  const handleConnect = async () => {
-    socketConnect('http://localhost:8080')
-    socketStore.clearMessages()
-  }
-  useOnMount(handleConnect)
+  // const handleConnect = async () => {
+  //   socketConnect('http://localhost:8080')
+  //   socketStore.clearMessages()
+  // }
+  // useOnMount(handleConnect)
 
   return (
     <Fragment>

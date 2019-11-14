@@ -15,4 +15,5 @@ const render = (Component: React.ComponentType) => {
   )
 }
 
+
 render(App)

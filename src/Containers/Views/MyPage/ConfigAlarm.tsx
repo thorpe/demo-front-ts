@@ -3,12 +3,12 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
 
-const Dashboard: React.FC = () => {
+const MyPage: React.FC = () => {
 
   return (
     <ContentWrap>
       <TitleWrap>
-        <Title>Dashboard</Title>
+        <Title>Test</Title>
       </TitleWrap>
 
 
@@ -16,4 +16,4 @@ const Dashboard: React.FC = () => {
   )
 }
 
-export default observer(Dashboard)
+export default observer(MyPage)

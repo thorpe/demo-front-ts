@@ -22,7 +22,7 @@ const Footer: React.FC = props => {
           selectedIcon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }} />}
           selected={selectedTab === 'blueTab'}
           badge={1}
-          onPress={() => doChangeTab('blueTab','test')}
+          onPress={() => doChangeTab('blueTab','dashboard')}
           data-seed='logId'
         >
         </TabBar.Item>
@@ -33,7 +33,7 @@ const Footer: React.FC = props => {
           key='Koubei'
           badge={'new'}
           selected={selectedTab === 'redTab'}
-          onPress={() => doChangeTab('redTab','test')}
+          onPress={() => doChangeTab('redTab','category')}
           data-seed='logId1'
         >
         </TabBar.Item>
@@ -44,7 +44,7 @@ const Footer: React.FC = props => {
           key='Friend'
           dot
           selected={selectedTab === 'greenTab'}
-          onPress={() => doChangeTab('greenTab','test')}
+          onPress={() => doChangeTab('greenTab','search')}
         >
         </TabBar.Item>
         <TabBar.Item
@@ -53,7 +53,7 @@ const Footer: React.FC = props => {
           title='My'
           key='my'
           selected={selectedTab === 'yellowTab'}
-          onPress={() => doChangeTab('yellowTab','test')}
+          onPress={() => doChangeTab('yellowTab','my_page')}
         >
         </TabBar.Item>
       </TabBar>

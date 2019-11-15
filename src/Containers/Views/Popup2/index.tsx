@@ -4,6 +4,7 @@ import { Button } from 'antd-mobile'
 const Popup2: React.FC = props => {
 
   const doClosePopup = () => {
+    document.domain = "localhost"
     const targetWindow = window.opener
     targetWindow.testMethod({
       code: 'deliverResult',
@@ -12,6 +13,7 @@ const Popup2: React.FC = props => {
       mid: "mid_number",
       tid: "tid_number",
     })
+
     self.close()
   }
 

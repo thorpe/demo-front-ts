@@ -27,7 +27,8 @@
             "@styles/*": ["Styles/*"],
             "@views/*": ["Containers/Views/*"],
             "@shared/*": ["Containers/Shared/*"],
-            "@themes/*": ["Themes/*"]
+            "@themes/*": ["Themes/*"],
+            "@routes/*": ["Routes/*"]
         },
         "jsx": "react",
         "alwaysStrict": true,

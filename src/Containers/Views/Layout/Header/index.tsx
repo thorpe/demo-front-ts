@@ -8,7 +8,7 @@ import useRootStore from '@store/useRootStore'
 import { LogoIco } from '@components/Icon/LogoIcon'
 
 
-const Header: React.FC = props => {
+const Header: React.FC = () => {
 
   const { routerStore, globalStore } = useRootStore()
 
@@ -16,8 +16,9 @@ const Header: React.FC = props => {
   console.log(routerStore.location.pathname)
   console.log(routerStore)
 
-  const TestTest = [
+  const HeaderWarp = [
     <NavBar style={{ position: 'fixed', width: '100%', top: 0 }}
+            key="layout_header"
             mode="dark"
             icon={<Icon type="left" />}
             onLeftClick={() => globalStore.toggleSideBarCollapsed(false)}
@@ -30,7 +31,7 @@ const Header: React.FC = props => {
 
   return (
     <div>
-      {TestTest}
+      {HeaderWarp}
     </div>
   )
 }

@@ -11,7 +11,6 @@ const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading
 export const asynchronousComponents = {
   SocketDebugger: loadComponent(() => import('@views/Socket')),
   Users: loadComponent(() => import('@views/Test')),
-
   Test: loadComponent(() => import('@views/Test')),
   Bettor: loadComponent(() => import('@views/Bettor')),
   List: loadComponent(() => import('@views/List')),
@@ -27,6 +26,7 @@ export type AsynchronousComponentKeys = keyof typeof asynchronousComponents
 
 export interface RouteMenu {
   id: string
+  position: string
   exact: boolean
   pid?: number
   signedin?: boolean
@@ -46,6 +46,7 @@ export interface MenuInTree extends RouteMenu {
 export const menu: RouteMenu[] = [
   {
     id: '1',
+    position: 'footer',
     path: '/',
     name: 'Socket',
     icon: ClubPortalIco,
@@ -56,6 +57,7 @@ export const menu: RouteMenu[] = [
   },
   {
     id: '2',
+    position: 'footer',
     path: '/users',
     name: 'Users',
     icon: ClubPortalIco,
@@ -66,6 +68,7 @@ export const menu: RouteMenu[] = [
   },
   {
     id: '3',
+    position: 'left',
     path: '/test',
     name: 'Test',
     icon: ClubPortalIco,
@@ -76,6 +79,7 @@ export const menu: RouteMenu[] = [
   },
   {
     id: '4',
+    position: 'left',
     path: '/bettor',
     name: 'Test',
     icon: ClubPortalIco,
@@ -83,8 +87,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.bettor',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '5',
+    position: 'left',
     path: '/list',
     name: 'List',
     icon: ClubPortalIco,
@@ -92,8 +98,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.list',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '6',
+    position: 'left',
     path: '/login',
     name: 'Login',
     icon: ClubPortalIco,
@@ -101,8 +109,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.login',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '7',
+    position: 'left',
     path: '/toast',
     name: 'Toast',
     icon: ClubPortalIco,
@@ -110,8 +120,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.toast',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '9',
+    position: 'left',
     path: '/dialog',
     name: 'Dialog',
     icon: ClubPortalIco,
@@ -119,8 +131,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.dialog',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '11',
+    position: 'left',
     path: '/modal',
     name: 'Modal',
     icon: ClubPortalIco,
@@ -128,8 +142,10 @@ export const menu: RouteMenu[] = [
     locale: 'menu.sider.modal',
     signedin: false,
     exact: true,
-  }, {
+  },
+  {
     id: '12',
+    position: 'left',
     path: '/carousel',
     name: 'Carousel',
     icon: ClubPortalIco,

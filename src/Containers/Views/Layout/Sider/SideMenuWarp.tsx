@@ -9,11 +9,12 @@ import intl from 'react-intl-universal'
 import { RootConsumer } from '@shared/App/Provider'
 import { arrayToTree, queryArray } from '@helpers/index'
 import { SideBarTheme, GlobalStore } from '@store/globalStore'
+
 // css
 import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
 
 
-import menus, { filterMenus, RouteMenu, MenuInTree } from '../menu'
+import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/menu'
 
 
 interface SiderMenuProps {
@@ -60,14 +61,8 @@ class SiderMenu extends React.Component<SiderMenuProps> {
   }
 
   showModalMenu = (selectedMenu: RouteMenu) => {
-
-
     if (selectedMenu.namespace === 'message') {
       this.props.globalStore.toggleMessageCollapsed(false)
-    } else if (selectedMenu.namespace === 'giftbox') {
-      this.props.globalStore.toggleGiftBoxCollapsed(false)
-    } else if (selectedMenu.namespace === 'attendance') {
-      this.props.globalStore.toggleAttendanceCollapsed(false)
     }
   }
 
@@ -131,21 +126,23 @@ class SiderMenu extends React.Component<SiderMenuProps> {
     return map[key] || []
   }
 
-  getMenus = (menuTree: MenuInTree[]) => {
+  getSiderMenus = (menuTree: MenuInTree[]) => {
     return menuTree.map(item => {
-      return (
-        <Menu.Item key={String(item.id)} css={IconStyle}>
-          {item.icon && <item.icon />}
-          <p>{intl.get(item.locale)}</p>
-        </Menu.Item>
-      )
+      if (item.position == 'left') {
+        return (
+          <Menu.Item key={String(item.id)} css={IconStyle}>
+            {item.icon && <item.icon />}
+            <p>{intl.get(item.locale)}</p>
+          </Menu.Item>
+        )
+      }
     })
   }
 
   render() {
     this.levelMap = {}
     const { sideBarTheme } = this.props
-    const menuItems = this.getMenus(this.menuTree)
+    const menuItems = this.getSiderMenus(this.menuTree)
 
     let currentMenu: RouteMenu = null
     for (const item of menus) {

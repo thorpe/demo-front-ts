@@ -49,9 +49,9 @@ const Test: React.FC = () => {
 
   const doOpenPopup = () => {
     window.name = 'parentForm'
-    document.domain = "local-m.adventurer.co.kr"
+    document.domain = "localhost"
     const opts = 'width=525, height=648, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no'
-    window.open('/popup2', 'PAY_POPUP_' + new Date().getTime(), opts)
+    window.open('#/popup2', 'PAY_POPUP_' + new Date().getTime(), opts)
     window.focus()
   }
 

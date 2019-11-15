@@ -4,7 +4,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 import Error from '@components/Error'
-import menu, { asynchronousComponents } from './menu'
+import menu, { asynchronousComponents } from '@routes/menu'
 import Header from './Header'
 import LeftMenu from './Sider'
 import Footer from './Footer'

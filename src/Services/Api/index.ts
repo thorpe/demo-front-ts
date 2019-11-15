@@ -1,3 +1,3 @@
-export { default as auth } from './Auth'
-export { default as user } from './User'
-export { default as bettor } from './Bettor'
+export { default as auth } from './ApiAuth'
+export { default as user } from './ApiUser'
+export { default as bettor } from './ApiBettor'

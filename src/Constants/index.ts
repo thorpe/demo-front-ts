@@ -3,6 +3,7 @@ export enum COOKIE_KEYS {
 }
 
 export enum LOCALSTORAGE_KEYS {
+  USERID = 'user_id',
   ACCESS_TOKEN = 'access_token',
   NAV_OPEN_KEYS = 'navOpenKeys',
   SIDE_BAR_THEME = 'sideBarTheme',

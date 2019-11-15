@@ -28,8 +28,6 @@ const PrimaryLayout: React.FC = props => {
       <Router>
         <Switch>
           {menu.map(m => {
-            console.log("11111111")
-            console.log(m)
             if (!m.path) {
               return null
             }

@@ -19,7 +19,6 @@ export const RootConsumer = ({ children }: ChildrenProps<RootStore>) => <Observe
 
 export default function Provider({ children }: { children?: React.ReactNode }) {
   console.log('3--------------------------------------------')
-  console.log(children)
-  console.log({ ...store })
+  console.log('Container > Shared > App > Provider')
   return <RootContext.Provider value={{ ...store }}>{children}</RootContext.Provider>
 }

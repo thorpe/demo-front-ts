@@ -9,10 +9,9 @@ import { WhiteSpace } from 'antd-mobile'
 import ClubInfoPopUp from '../Popup/ClubInfo'
 import { Button } from 'antd-mobile'
 import useRootStore from '@store/useRootStore'
-
+import { Helmet } from 'react-helmet'
 
 const Test: React.FC = () => {
-
   const { testStore } = useRootStore()
 
   const [clubVisible, setClubVisible] = useState(false)
@@ -34,12 +33,25 @@ const Test: React.FC = () => {
     setClubVisible(null)
   }
 
+  const paymentSuccessMessage = (
+    <div>
+      <Helmet>
+        <script>{
+          `function testMethod(aaaa) {
+            console.log(aaaa.tid)
+          }`
+        }
+        </script>
+      </Helmet>
+    </div>)
+
 
 
   const doOpenPopup = () => {
     window.name = 'parentForm'
+    document.domain = "local-m.adventurer.co.kr"
     const opts = 'width=525, height=648, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no'
-    window.open('#/popup2', 'PAY_POPUP_' + new Date().getTime(), opts)
+    window.open('/popup2', 'PAY_POPUP_' + new Date().getTime(), opts)
     window.focus()
   }
 
@@ -49,8 +61,10 @@ const Test: React.FC = () => {
       <TitleWrap>
         <Title>Test</Title>
       </TitleWrap>
-
       <div>
+        {paymentSuccessMessage}
+
+
         Counter: {testStore.totalPrice} <br />
         Counter: {testStore.doTotal} <br />
         <Button type="primary" onClick={doIncrement}> + </Button>

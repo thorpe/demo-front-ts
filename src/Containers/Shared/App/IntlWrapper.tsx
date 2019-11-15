@@ -15,8 +15,6 @@ interface Props {
 
 
 export default function IntlWrapper({ children }: Props) {
-  console.log('4--------------------------------------------')
-  console.log(children)
   const [antDesignLocaleData, setAntDesignLocaleData] = React.useState<Locale>(null)
 
   function loadLocales():void {

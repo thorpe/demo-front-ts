@@ -40,7 +40,6 @@ class ToastExample extends React.Component {
   }
 
 
-
   componentDidMount() {
     Toast.loading('Loading...', 30, () => {
       console.log('Load complete !!!')

@@ -1,42 +1,46 @@
 import React from 'react'
 
-import { GoogleLoginButton } from 'ts-react-google-login-component'
 
-export class Login extends React.Component {
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login'
+import { ContentWrap, Title, TitleWrap } from '@styles/base.style'
+import { WhiteSpace } from 'antd-mobile'
 
-  preLoginTracking(): void {
-    console.log('Attemp to login with google')
-  }
+class GoogleLogin2 extends React.Component {
 
-  errorHandler(error: string): void {
-    // handle error if login got failed...
-    console.error(error)
-  }
+  render() {
 
-  responseGoogle(googleUser: gapi.auth2.GoogleUser): void {
-    const id_token = googleUser.getAuthResponse(true).id_token
-    const googleId = googleUser.getId()
-
-    console.log({ googleId })
-    console.log({ accessToken: id_token })
-    // Make user login in your system
-    // login success tracking...
-  }
-
-  render(): JSX.Element {
-    const clientConfig = { client_id: 'youappid' }
+    const responseGoogle = (response) => {
+      console.log('================================================')
+      console.log(response)
+    }
 
     return (
-      <div>
-        <GoogleLoginButton
-          buttonText='continue with google'
-          responseHandler={this.responseGoogle}
-          clientConfig={clientConfig}
-          preLogin={this.preLoginTracking}
-          failureHandler={this.errorHandler}
+      <ContentWrap>
+        <TitleWrap>
+          <Title>Test</Title>
+        </TitleWrap>
+
+        <GoogleLogin
+          clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
+          buttonText="LOGIN WITH GOOGLE"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
         />
-      </div>
+
+        <WhiteSpace />
+        <WhiteSpace />
+
+        <FacebookLogin
+          clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
+          buttonText="LOGIN WITH FACEBOOK"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+        />
+
+      </ContentWrap>
     )
   }
-
 }
+
+export default GoogleLogin2

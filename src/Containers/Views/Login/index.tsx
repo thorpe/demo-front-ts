@@ -1,21 +1,19 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { Fragment, useState, KeyboardEvent } from 'react'
+import React, { Fragment, useState, KeyboardEvent } from 'react'
 import { observer } from 'mobx-react'
-import { Drawer, Form, Input, Row, Col, message, Checkbox } from 'antd'
+import { Drawer, Form, Input, Row, Col, Checkbox } from 'antd'
 import { FormComponentProps } from 'antd/lib/form'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login'
 
 import useRootStore from '@store/useRootStore'
 import { useOnMount } from '@helpers/reactExt'
-// import { SerializedStyles } from '@emotion/serialize'
 import FindID from '@views/Popup/Login/FindID'
 import FindPW from '@views/Popup/Login/FindPW'
 
-// icon
-import GoogleIco from '@assets/Images/icon/login_icon/g_logo.png'
-// import IdIco from '@assets/Images/icon/login_icon/login_id.png'
-// import PasswordIco from '@assets/Images/icon/login_icon/login_pw.png'
+
 import ClearIco from '@assets/Images/icon/login_icon/login_clear_icon.png'
 import EyeIco from '@assets/Images/icon/login_icon/login_pw_eye.png'
 import EyeXIco from '@assets/Images/icon/login_icon/login_pw_eye_x.png'
@@ -42,10 +40,10 @@ import {
   LeftBtnStyle,
   LeftIconStyle,
   LoginTxt,
-  LoginImgStyle,
   LoginButtonStyle,
   Footer,
 } from './index.style'
+
 
 const NotAvailable = (
   <img
@@ -70,7 +68,6 @@ const Gambling = (
 )
 
 // icon
-const Google = <img key="google_logo" src={GoogleIco} alt="구글 로고" css={LoginImgStyle} />
 const Logo = (
   <LogoStyle>
     <LogoIco />
@@ -91,16 +88,9 @@ const Clear = <img key="login_clear_icon" src={ClearIco} alt="지우기 버튼" 
 const Eye = <img src={EyeIco} alt="비밀번호 보이기" css={[LeftIconStyle, { width: 20 }]} />
 const EyeX = <img key="login_pw_eye_x" src={EyeXIco} alt="비밀번호 감추기" css={[LeftIconStyle, { width: 20 }]} />
 const LoginImg = <img key="login_bg" src={LoginBg} alt="로그인 화면" css={LoginBgStyle} />
-// interface PopupLoginProps extends FormComponentProps {}
+
 
 function PopupLogin({ form }: FormComponentProps) {
-  // const [myStyle, setMyStyle] = useState({
-  //   fieldVisible: false,
-  //   fieldVisibles: false,
-  //   clearStyle: [Btn, InputBtn, ClearStyle],
-  //   clearStyles: [Btn, InputBtn, ClearStyle],
-  //   eyeStyles: [Btn, InputBtn, Eye],
-  // })
   const username = localStorage.getItem(LOCALSTORAGE_KEYS.USERID)
   const [visibleDetailId] = useState(false)
   const [visibleDetailPw, setVisibleDetailPw] = useState(false)
@@ -110,12 +100,13 @@ function PopupLogin({ form }: FormComponentProps) {
 
   const { authStore } = useRootStore()
 
+  const responseGoogle = (response) => {
+    console.log('================================================')
+    console.log(response)
+  }
 
 
   useOnMount(() => {
-    // form.setFieldsValue({ username: 'test1', password: '1234' })
-
-
     if (username) {
       form.setFieldsValue({ username: username })
     }
@@ -131,11 +122,10 @@ function PopupLogin({ form }: FormComponentProps) {
     authStore.login(values)
   }
 
-  // keyboard event와 form event 동시에 받을 수 있게 any 로 만듬
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+
   const handleSubmit = (e: React.SyntheticEvent<any, any>) => {
     e.preventDefault()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     form.validateFields((err: any, values: any) => {
       if (!err) {
         console.log('Received values of form: ', values)
@@ -148,9 +138,7 @@ function PopupLogin({ form }: FormComponentProps) {
     setVisibleDetailPw(false)
   }
 
-  // const { collapsedLogin } = globalStore
   const { getFieldDecorator } = form
-  // const visible = !collapsedLogin
 
   const togglePasswordField = e => {
     e.preventDefault()
@@ -161,7 +149,6 @@ function PopupLogin({ form }: FormComponentProps) {
     }
     setIsPasswordField(!isPassword)
   }
-  // /})
 
   return (
     <Fragment>
@@ -180,6 +167,8 @@ function PopupLogin({ form }: FormComponentProps) {
 
       <DrawerContent>
         {Logo}
+
+
         <Form
           onSubmit={handleSubmit}
           css={{
@@ -273,13 +262,13 @@ function PopupLogin({ form }: FormComponentProps) {
           <Form.Item>
             <Row type="flex" justify="space-around" css={{ margin: '25px 0 55px' }}>
               <Col>
-                <LoginTxt href={`${process.env.HOMEPAGE_MO}/#/find_id`}>아이디 찾기</LoginTxt>
+                <LoginTxt href='/#/find_username'>아이디 찾기</LoginTxt>
               </Col>
               <Col>
-                <LoginTxt href={`${process.env.HOMEPAGE_MO}/#/find_pw`}>비밀번호 찾기</LoginTxt>
+                <LoginTxt href='/#/find_password'>비밀번호 찾기</LoginTxt>
               </Col>
               <Col>
-                <LoginTxt href={`${process.env.HOMEPAGE_MO}/#/mb_join`} target="_blank">
+                <LoginTxt href='/#/register'>
                   회원가입
                 </LoginTxt>
               </Col>
@@ -293,9 +282,26 @@ function PopupLogin({ form }: FormComponentProps) {
               {Logo}
               승부사 ID 로그인
             </Button>
-            <Button
-              /* htmlType="submit" */
 
+            <Button primary
+                    css={{
+                      width: '100%',
+                      height: 40,
+                      color: '#696969',
+                      border: 'none',
+                      background: '#fff',
+                    }}
+            >
+              <GoogleLogin
+                clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
+                buttonText="LOGIN WITH GOOGLE"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+              >sdfsdf
+              </GoogleLogin>
+            </Button>
+
+            <FacebookLogin
               css={{
                 width: '100%',
                 height: 40,
@@ -303,16 +309,16 @@ function PopupLogin({ form }: FormComponentProps) {
                 border: 'none',
                 background: '#fff',
               }}
-              onClick={e => {
-                e.preventDefault()
-                message.info('준비중')
-              }}
-            >
-              {Google}
-              Google 로그인
-            </Button>
+              clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
+              buttonText="LOGIN WITH FACEBOOK"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+            />
+
           </Form.Item>
         </Form>
+
+
         <Footer>
           <p className="version">ver.0.0.1</p>
           <p>Copyright &copy; IVENTORY corp. ALL Rights Reserved.</p>

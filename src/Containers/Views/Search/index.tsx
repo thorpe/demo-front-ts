@@ -22,9 +22,9 @@ import {
 
 const { Search } = Input
 
-const GoodsSearchPopup: React.FC = props => {
+const GoodsSearchPopup: React.FC = () => {
 
-  const { goodsStore } = useRootStore()
+  const { goodsStore , testStore} = useRootStore()
 
   const [searchText, setSearchText] = useState('')
 

@@ -20,8 +20,8 @@ import EyeIco from '@assets/images/icon/login_icon/login_pw_eye.png'
 import EyeXIco from '@assets/images/icon/login_icon/login_pw_eye_x.png'
 
 // css
-import styled from 'themes/theme'
-import { Button, SecondaryButton } from 'styles/base.style'
+import styled from '@themes/theme'
+import { Button, SecondaryButton } from '@styles/base.style'
 import { DrawerContent, RightIcoStyle, Txt, Divide, LoginWrap, ForgotTxt, SignUp } from './index.style'
 
 const DrawerWrap = styled.div`

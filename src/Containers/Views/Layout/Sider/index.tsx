@@ -90,13 +90,13 @@ const Sider: React.FC<{}> = props => {
       {signedin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
-        href="https://cafe.naver.com/adventureronline"
+        href="https://www.cafe-latte.co.kr"
         target="_blank"
         rel="noopener noreferrer"
         css={SubBtnStyle}
         style={{ margin: '0 0 10px' }}
       >
-        승부사 공식 카페
+         공식 카페
       </a>
       <a href="/#" style={{ width: 'calc( 50% - 5px )' }} css={SubBtnStyle} onClick={() => Toast.info('test', 1)}>
         도움말

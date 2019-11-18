@@ -165,7 +165,7 @@ function PopupLogin({ form }: FormComponentProps) {
                 borderRadius: '4px !important',
               }}
             >
-              <span css={Txt}>승부사 온라인을 이용하려면 로그인이 필요합니다.</span>
+              <span css={Txt}> 온라인을 이용하려면 로그인이 필요합니다.</span>
               <Form.Item
                 css={theme => ({
                   position: 'relative',
@@ -252,7 +252,7 @@ function PopupLogin({ form }: FormComponentProps) {
                   // className='login-form-button'
                   css={{ width: '100%', height: '40px', marginTop: 20 }}
                 >
-                  승부사 ID 로그인
+                   ID 로그인
                 </Button>
                 <span css={[LoginWrap, { marginTop: 5 }]}>
                   <ForgotTxt href="#/" onClick={onClickShowIDDrawer}>

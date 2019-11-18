@@ -280,7 +280,7 @@ function PopupLogin({ form }: FormComponentProps) {
               css={LoginButtonStyle}
             >
               {Logo}
-              승부사 ID 로그인
+               ID 로그인
             </Button>
 
             <Button primary

@@ -5,13 +5,10 @@ import { CommonInterface } from '@interfaces/CommonInterface'
  * /user/user
  */
 
-export namespace GoodsInterface {
+export namespace InitialInterface {
 
-  export interface SchemaGoodsList {
+  export interface SchemaInitialList {
     id?: string
-    name?: string
-    code?: string
-    imageUrl?: string
     createdAt?: string
   }
 
@@ -22,7 +19,7 @@ export namespace GoodsInterface {
 
   export interface listSchema extends CommonInterface.ResponseBase {
     body?: {
-      body: SchemaGoodsList[]
+      body: SchemaInitialList[]
       count: number
     }
   }

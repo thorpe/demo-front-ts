@@ -13,6 +13,7 @@ export type goodsTrackItem =  GoodsInterface.SchemaGoodsList
 export class GoodsStore extends StoreExt {
 
   goods: goodsList[]
+  count: number
 
   @observable
   tracks: goodsTrackItem[]
@@ -21,14 +22,16 @@ export class GoodsStore extends StoreExt {
     super()
 
     this.goods = []
+    this.count = 0
   }
 
 
   @action
   getList = async (params: GoodsInterface.SearchParams = {}) => {
     try {
-      const {data} = await this.api.goods.getList(params)
-      this.goods = data
+      const { body } = await this.api.goods.getList(params)
+      this.goods = body.body
+      this.count = body.count
       const tracks = []
       for (const el of this.goods) {
         const track: goodsTrackItem = extend({}, el)

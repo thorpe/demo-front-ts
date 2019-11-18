@@ -1,12 +1,10 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx } from '@emotion/core'
 import React, { Fragment, useState, KeyboardEvent } from 'react'
 import { observer } from 'mobx-react'
 import { Drawer, Form, Input, Row, Col, Checkbox } from 'antd'
 import { FormComponentProps } from 'antd/lib/form'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
-import GoogleLogin from 'react-google-login'
-import FacebookLogin from 'react-facebook-login'
 
 import useRootStore from '@store/useRootStore'
 import { useOnMount } from '@helpers/reactExt'
@@ -17,22 +15,13 @@ import FindPW from '@views/Popup/Login/FindPW'
 import ClearIco from '@assets/Images/icon/login_icon/login_clear_icon.png'
 import EyeIco from '@assets/Images/icon/login_icon/login_pw_eye.png'
 import EyeXIco from '@assets/Images/icon/login_icon/login_pw_eye_x.png'
-import LoginBg from '@assets/Images/bg/login-bg.png'
 import { IDIco, PasswordIco } from '@components/Icon/LoginIcon'
 import { LogoIco } from '@components/Icon/LogoIcon'
 
-import NotAvailableImg from '@assets/Images/bg/splash-18.png'
-import GamblingImg from '@assets/Images/bg/splash-gambling.png'
 
 // css
 import { Button } from '@styles/base.style'
 import {
-  SplashWrap,
-  TxtWrap,
-  Txt,
-  ImgWrap,
-  LoginBgWrap,
-  LoginBgStyle,
   LogoStyle,
   DrawerContent,
   RightIcoStyle,
@@ -45,27 +34,7 @@ import {
 } from './index.style'
 
 
-const NotAvailable = (
-  <img
-    key="splash_-ot-vailable"
-    src={NotAvailableImg}
-    alt="청소년 이용 불가"
-    css={css`
-      width: 56px;
-      margin-right: 20px;
-    `}
-  />
-)
-const Gambling = (
-  <img
-    key="splash-gambling"
-    src={GamblingImg}
-    alt="사행성"
-    css={css`
-      width: 56px;
-    `}
-  />
-)
+
 
 // icon
 const Logo = (
@@ -87,7 +56,6 @@ const Password = (
 const Clear = <img key="login_clear_icon" src={ClearIco} alt="지우기 버튼" css={[LeftIconStyle, { width: 16 }]} />
 const Eye = <img src={EyeIco} alt="비밀번호 보이기" css={[LeftIconStyle, { width: 20 }]} />
 const EyeX = <img key="login_pw_eye_x" src={EyeXIco} alt="비밀번호 감추기" css={[LeftIconStyle, { width: 20 }]} />
-const LoginImg = <img key="login_bg" src={LoginBg} alt="로그인 화면" css={LoginBgStyle} />
 
 
 function PopupLogin({ form }: FormComponentProps) {
@@ -99,11 +67,6 @@ function PopupLogin({ form }: FormComponentProps) {
   const [checked, setChecked] = useState(username ? true : false)
 
   const { authStore } = useRootStore()
-
-  const responseGoogle = (response) => {
-    console.log('================================================')
-    console.log(response)
-  }
 
 
   useOnMount(() => {
@@ -152,22 +115,8 @@ function PopupLogin({ form }: FormComponentProps) {
 
   return (
     <Fragment>
-      <LoginBgWrap>{LoginImg}</LoginBgWrap>
-
-      <SplashWrap>
-        <TxtWrap>
-          <Txt>이 게임물은 청소년 이용불가 게임물로</Txt>
-          <Txt>18세 미만의 청소년은 이용할 수 없습니다.</Txt>
-        </TxtWrap>
-        <ImgWrap>
-          {NotAvailable}
-          {Gambling}
-        </ImgWrap>
-      </SplashWrap>
 
       <DrawerContent>
-        {Logo}
-
 
         <Form
           onSubmit={handleSubmit}
@@ -292,28 +241,9 @@ function PopupLogin({ form }: FormComponentProps) {
                       background: '#fff',
                     }}
             >
-              <GoogleLogin
-                clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
-                buttonText="LOGIN WITH GOOGLE"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-              >sdfsdf
-              </GoogleLogin>
             </Button>
 
-            <FacebookLogin
-              css={{
-                width: '100%',
-                height: 40,
-                color: '#696969',
-                border: 'none',
-                background: '#fff',
-              }}
-              clientId="1095365683657-l6mtfeiu2cr37a4j9cc83btcs2ujqkt4.apps.googleusercontent.com"
-              buttonText="LOGIN WITH FACEBOOK"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-            />
+
 
           </Form.Item>
         </Form>
@@ -321,7 +251,6 @@ function PopupLogin({ form }: FormComponentProps) {
 
         <Footer>
           <p className="version">ver.0.0.1</p>
-          <p>Copyright &copy; IVENTORY corp. ALL Rights Reserved.</p>
         </Footer>
       </DrawerContent>
 

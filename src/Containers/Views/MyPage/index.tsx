@@ -5,12 +5,9 @@ import { ContentWrap, Title, TitleWrap } from '@styles/base.style'
 const Item = List.Item
 const Brief = Item.Brief
 
-class MyPage extends React.Component {
-  state = {
-    disabled: false,
-  }
+const MyPage: React.FC = () => {
 
-  render() {
+
     return (
       <ContentWrap>
         <TitleWrap>
@@ -88,7 +85,6 @@ class MyPage extends React.Component {
         </List>
         <WhiteSpace />
       </ContentWrap>)
-  }
 }
 
 export default MyPage

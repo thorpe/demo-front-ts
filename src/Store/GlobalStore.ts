@@ -4,7 +4,7 @@ import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 import uuid from 'uuid'
 
-export type SideBarTheme = 'dark' | 'light'
+export type SideBarTheme = 'light' | 'dark'
 
 export enum DialogType {
   SINGLE,

@@ -4,7 +4,7 @@ import 'antd-mobile/dist/antd-mobile.css'
 
 import { ThemeProvider } from 'emotion-theming'
 import { Theme } from '@themes/theme'
-import DarkTheme from '@themes/dark.theme'
+import TamarsTheme from '@themes/tamars.theme'
 import IntlWrapper from './IntlWrapper'
 import Provider from './Provider'
 import Routers from '../../../Routes'
@@ -20,6 +20,7 @@ const GlobalStyle = (theme: Theme) => css`
   html {
     font-size: 10px;
   }
+  
   body {
     font-size: 1rem;
     font-weight: 600;
@@ -84,7 +85,7 @@ function App() {
   console.log(new Date() + 'Container > Shared > App > index')
 
   return (
-    <ThemeProvider theme={DarkTheme}>
+    <ThemeProvider theme={TamarsTheme}>
       <Provider>
         <Global styles={GlobalStyle} />
         <IntlWrapper>

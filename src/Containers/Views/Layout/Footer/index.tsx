@@ -16,7 +16,7 @@ const Footer: React.FC = props => {
     <div style={{ position: 'fixed', height: '50px', width: '100%', bottom: 0 }}>
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white">
         <TabBar.Item
-          title="Life"
+          title="홈"
           key="Life"
           icon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }} />}
           selectedIcon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }} />}
@@ -29,7 +29,7 @@ const Footer: React.FC = props => {
         <TabBar.Item
           icon={<div style={{ width: '22px', height: '22px', background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }} />}
           selectedIcon={<div style={{ width: '22px', height: '22px', background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }} />}
-          title='Koubei'
+          title='카테고리'
           key='Koubei'
           badge={'new'}
           selected={selectedTab === 'redTab'}
@@ -40,7 +40,7 @@ const Footer: React.FC = props => {
         <TabBar.Item
           icon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }} />}
           selectedIcon={<div style={{ width: '22px', height: '22px', background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }} />}
-          title='Friend'
+          title='검색'
           key='Friend'
           dot
           selected={selectedTab === 'greenTab'}
@@ -50,7 +50,7 @@ const Footer: React.FC = props => {
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-          title='My'
+          title='마이페이지'
           key='my'
           selected={selectedTab === 'yellowTab'}
           onPress={() => doChangeTab('yellowTab','my_page')}

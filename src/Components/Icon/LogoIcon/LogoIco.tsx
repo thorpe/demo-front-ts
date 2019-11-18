@@ -17,9 +17,9 @@ export default class LogoIco extends PureComponent {
       <Fragment>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60.198"
-          height="77.223"
-          viewBox="0 0 60.198 77.223"
+          width="80.198"
+          height="100.223"
+          viewBox="0 0 80.198 100.223"
           css={Color}
           id="logo-icon"
         >

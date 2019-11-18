@@ -25,21 +25,6 @@ export type Theme = {
     disabled: string
     disabledBg: string
     important: string
-    win: string
-    lose: string
-    loseMoney: string
-    handicap: string
-    underover: string
-    hit: string
-    miss: string
-    specialCase: string
-    on: string
-    etc: string
-    up: string
-    down: string
-    rateUp: string
-    rateDown: string
-    chattingBg: string
   }
   border: {
     default: string

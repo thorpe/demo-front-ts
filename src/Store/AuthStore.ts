@@ -4,7 +4,7 @@ import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
 import { UserInterface } from '@interfaces/UserInterface'
-import { AuthInterface } from '@interfaces/authInterface'
+import { AuthInterface } from '@interfaces/AuthInterface'
 import { routerStore, globalStore } from '@store/index'
 
 export type loginParams = AuthInterface.loginParams

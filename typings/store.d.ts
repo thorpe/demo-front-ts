@@ -1,10 +1,10 @@
 import { RouterStore as _RouterStore } from 'mobx-react-router'
-import { BettorStore } from '@store/bettorStore'
-import { AuthStore } from '@store/authStore'
-import { GlobalStore } from '@store/globalStore'
-import { RouterStore } from '@store/routerStore'
-import { SocketStore } from '@store/socketStore'
-import { TestStore } from '@store/testStore'
+import { AuthStore } from '@store/AuthStore'
+import { GlobalStore } from '@store/GlobalStore'
+import { RouterStore } from '@store/RouterStore'
+import { SocketStore } from '@store/SocketStore'
+import { TestStore } from '@store/TestStore'
+import { GoodsStore } from '@store/GoodStore'
 
 declare global {
   interface RouterStore extends _RouterStore {
@@ -14,9 +14,9 @@ declare global {
 export interface RootStore {
   globalStore: GlobalStore
   authStore: AuthStore
-  bettorStore: BettorStore
   routerStore: RouterStore
   socketStore: SocketStore
   testStore: TestStore
+  goodStore: GoodsStore
 }
 

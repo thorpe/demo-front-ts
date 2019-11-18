@@ -1,34 +1,51 @@
-import { action, computed, observable } from 'mobx'
-
+import { action, observable } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
+import { GoodsInterface } from "@interfaces/GoodsInterface"
+
+import { extend } from 'lodash'
+import { message } from "antd"
 
 
-export class BannerStore extends StoreExt {
+export type goodsList = GoodsInterface.SchemaGoodsList
+export type goodsTrackItem =  GoodsInterface.SchemaGoodsList
 
-  /**
-   *
-   */
+
+export class GoodsStore extends StoreExt {
+
+  goods: goodsList[]
+
   @observable
-  private count = 1
+  tracks: goodsTrackItem[]
 
-  @observable
-  totalPrice = 1110
+  constructor() {
+    super()
+
+    this.goods = []
+  }
+
 
   @action
-  doIncrement = () => {
-    this.count++
-  }
+  getList = async (params: GoodsInterface.SearchParams = {}) => {
+    try {
+      const {data} = await this.api.goods.getList(params)
+      this.goods = data
+      const tracks = []
+      for (const el of this.goods) {
+        const track: goodsTrackItem = extend({}, el)
+        tracks.push(track)
+      }
 
-  @computed
-  get doTotal() {
-    return this.count * 800
+      this.setGoods(tracks)
+    } catch (err) {
+      message.error(err.message)
+    }
   }
 
   @action
-  doDecrement = () => {
-    this.count--
+  setGoods = (tracks: goodsTrackItem[]): goodsTrackItem[] => {
+    this.tracks = tracks
+    return tracks
   }
-
 }
 
-export default new BannerStore()
+export default new GoodsStore()

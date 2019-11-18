@@ -34,11 +34,7 @@ const MyPage: React.FC = () => {
 
     return (
       <ContentWrap>
-        <TitleWrap>
-          <Title>List Title</Title>
-        </TitleWrap>
-
-
+        <WhiteSpace />
         <List>
           <Item arrow="horizontal" multipleLine onClick={() => {  routerStore.history.push(`/my_page/point_list`) }}>
             적립금 <Brief>subtitle</Brief>

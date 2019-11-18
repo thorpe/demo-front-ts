@@ -6,7 +6,7 @@ DEPLOYFILES=${DEPLOYNAME}.tar.gz
 SERVER=27.102.206.203
 
 # make compression
-cd dist/qa
+cd dist/dev
 tar -zcvf ${DEPLOYFILES} ./*
 
 # upload

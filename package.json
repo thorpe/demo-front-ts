@@ -10,6 +10,7 @@
     "lint": "eslint src --ext .ts,.tsx && stylelint \"./src/**/*.scss\"",
     "dev": "cross-env NODE_ENV=development APP_ENV=dev webpack-dev-server --config build/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
+    "build:dev": "cross-env APP_ENV=dev npm run build",
     "build:qa": "cross-env APP_ENV=qa npm run build",
     "build:prod": "cross-env APP_ENV=prod npm run build"
   },

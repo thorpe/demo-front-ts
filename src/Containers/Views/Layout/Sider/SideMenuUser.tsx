@@ -8,7 +8,7 @@ import useRootStore from '@store/useRootStore'
 
 // css
 import { Button, TxtLimit } from '@styles/base.style'
-import { UserInfo } from '@store/authStore'
+import { UserInfo } from '@store/AuthStore'
 import {
   Brand,
   CloseBtn,

@@ -8,9 +8,12 @@ const MyPage: React.FC = () => {
   return (
     <ContentWrap>
       <TitleWrap>
-        <Title>Test</Title>
+        <Title>FAQ</Title>
       </TitleWrap>
 
+      <div>
+        FAQ
+      </div>
 
     </ContentWrap>
   )

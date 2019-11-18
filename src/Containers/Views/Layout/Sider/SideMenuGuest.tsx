@@ -3,11 +3,11 @@ import { jsx } from '@emotion/core'
 import React, { Fragment } from 'react'
 import intl from 'react-intl-universal'
 import useRootStore from '@store/useRootStore'
-import { Icon, Grid } from 'antd-mobile';
+import { Icon } from 'antd-mobile'
 
 // css
 import { Button, SiderMenuTitle } from '@styles/base.style'
-import { MenuContainer, MemberType, Guest, CloseBtn, CloseBtnTxt, LoginWrap } from './index.style'
+import { MenuContainer, MemberType, Guest, CloseBtn,  LoginWrap } from './index.style'
 
 interface GuestSiderMenuProps {
   onClose: () => void

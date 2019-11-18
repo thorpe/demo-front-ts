@@ -8,7 +8,7 @@ const MyPage: React.FC = () => {
   return (
     <ContentWrap>
       <TitleWrap>
-        <Title>Test</Title>
+        <Title>Order</Title>
       </TitleWrap>
 
 

@@ -24,9 +24,3 @@ fi
 
 
 ssh -p 22 -o StrictHostKeyChecking=no root@${SERVER} rm -rf /home/projects/tamars.co.kr/app.tamars.co.kr/public_html/${DEPLOYFILES}
-if [ $? -ne 0 ]; then
-    echo "file success"
-else
-
-    echo "file fail"
-fi

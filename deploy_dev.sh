@@ -10,14 +10,17 @@ cd dist/qa
 tar -zcvf ${DEPLOYFILES} ./*
 
 # upload
-scp -P 22 -o StrictHostKeyChecking=no ${DEPLOYFILES} root@${SERVER}:/home/projects/tamars.co.kr/app.market.co.kr/public_html
+scp -P 22 -o StrictHostKeyChecking=no ${DEPLOYFILES} root@${SERVER}:/home/projects/tamars.co.kr/app.tamars.co.kr/public_html
 
 # make decompression
-ssh -p 22 -o StrictHostKeyChecking=no root@${SERVER} tar xzf /users/projects/koangbok/app.market.co.kr/${DEPLOYFILES} -C /home/projects/tamars.co.kr/app.market.co.kr/public_html
+ssh -p 22 -o StrictHostKeyChecking=no root@${SERVER} tar xzf /home/projects/tamars.co.kr/app.tamars.co.kr/public_html/${DEPLOYFILES} -C /home/projects/tamars.co.kr/app.tamars.co.kr/public_html
 
 if [ $? -ne 0 ]; then
-    echo "success"
+    echo "upload success"
 else
 
-    echo "fail"
+    echo "upload fail"
 fi
+
+
+ssh -p 22 -o StrictHostKeyChecking=no root@${SERVER} rm -rf /home/projects/tamars.co.kr/app.tamars.co.kr/public_html/${DEPLOYFILES}

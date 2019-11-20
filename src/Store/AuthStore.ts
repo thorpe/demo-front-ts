@@ -28,9 +28,8 @@ export class AuthStore extends StoreExt {
   login = async (params: loginParams) => {
     try {
       const res = await this.api.auth.login(params)
-      // const { user } = res
-      this.setUser(res)
-      localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res))
+      this.setUser(res.body)
+      localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res.body))
       globalStore.toggleSideBarCollapsed(true)
       routerStore.replace('/')
     } catch (err) {

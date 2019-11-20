@@ -34,8 +34,6 @@ import {
 } from './index.style'
 
 
-
-
 // icon
 const Logo = (
   <LogoStyle>
@@ -86,7 +84,6 @@ function PopupLogin({ form }: FormComponentProps) {
   }
 
 
-
   const handleSubmit = (e: React.SyntheticEvent<any, any>) => {
     e.preventDefault()
     form.validateFields((err: any, values: any) => {
@@ -130,6 +127,23 @@ function PopupLogin({ form }: FormComponentProps) {
             transform: 'translate(0,-32%)',
           }}
         >
+          <Form.Item>
+            {getFieldDecorator('type', )(
+              <Input
+                // css="InputWrap"
+                prefix={Id}
+                placeholder="Type 입력해주세요."
+                onKeyDown={e => {
+                  if (e.keyCode === 13) {
+                    e.preventDefault()
+                  }
+                }}
+              />,
+            )}
+
+            <span className="line" />
+          </Form.Item>
+
           <Form.Item>
             {getFieldDecorator('username', {
               rules: [{ required: true, message: '아이디를 입력해주세요' }],
@@ -229,7 +243,7 @@ function PopupLogin({ form }: FormComponentProps) {
               css={LoginButtonStyle}
             >
               {Logo}
-               ID 로그인
+              ID 로그인
             </Button>
 
             <Button primary
@@ -244,7 +258,6 @@ function PopupLogin({ form }: FormComponentProps) {
             </Button>
 
 
-
           </Form.Item>
         </Form>
 
@@ -254,27 +267,8 @@ function PopupLogin({ form }: FormComponentProps) {
         </Footer>
       </DrawerContent>
 
-      <Drawer
-        title="아이디 찾기"
-        placement="bottom"
-        height="100%"
-        visible={visibleDetailId}
-        style={{ textAlign: 'center' }}
-        bodyStyle={{ padding: '0' }}
-      >
-        <FindID />
-      </Drawer>
-      <Drawer
-        title="비밀번호 찾기"
-        placement="bottom"
-        height="100%"
-        onClose={onClosePWDrawer}
-        visible={visibleDetailPw}
-        style={{ textAlign: 'center' }}
-        bodyStyle={{ padding: '0' }}
-      >
-        <FindPW />
-      </Drawer>
+      <Drawer title="아이디 찾기" placement="bottom" height="100%" visible={visibleDetailId} style={{ textAlign: 'center' }} bodyStyle={{ padding: '0' }}> <FindID /> </Drawer>
+      <Drawer title="비밀번호 찾기" placement="bottom" height="100%" onClose={onClosePWDrawer} visible={visibleDetailPw} style={{ textAlign: 'center' }} bodyStyle={{ padding: '0' }}> <FindPW /> </Drawer>
     </Fragment>
   )
 }

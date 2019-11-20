@@ -1,20 +1,22 @@
 import { CommonInterface } from '@interfaces/CommonInterface'
 
-
-/**
- * /user/user
- */
-
 export namespace AuthInterface {
 
   export interface loginParams {
+    type?: string
     account?: string
     password?: string
   }
 
 
   export interface listSchema extends CommonInterface.ResponseBase {
-    aaa?: number
+    body: {
+      access_tokne: string,
+      expired_in: number,
+      token_type: string,
+      refresh_token: string,
+    }
+
   }
 
 }

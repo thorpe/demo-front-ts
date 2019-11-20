@@ -64,7 +64,7 @@ const SubBtnStyle = (theme: Theme) => css`
 const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
   const { sideBarCollapsed } = globalStore
-  const { isLogin, userInfo } = authStore
+  const { isLogin } = authStore
 
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
@@ -72,7 +72,6 @@ const Sider: React.FC<{}> = props => {
 
   const contentProps = {
     ...props,
-    userInfo,
     onClose,
   }
 

@@ -13,21 +13,18 @@ export type UserInfo = UserInterface.UserInfo
 
 export class AuthStore extends StoreExt {
 
-  /**
-   *
-   */
   @observable
-  userInfo: {}
-
+  accessTokenInfo: {}
 
   @observable
-  signedin: object = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+  isLogin: object = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
 
 
   @action
   login = async (params: loginParams) => {
     try {
       const res = await this.api.auth.login(params)
+      this.setAccessTokenInfo(res.body)
       this.setUser(res.body)
       localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res.body))
       globalStore.toggleSideBarCollapsed(true)
@@ -74,14 +71,19 @@ export class AuthStore extends StoreExt {
 
   @action
   setUser = async (res) => {
-    this.signedin = res
+    this.isLogin = res
     return res
   }
 
+  @action
+  setAccessTokenInfo = async (res) => {
+    this.accessTokenInfo = res
+    return res
+  }
 
   @computed
   get isSignedIn() {
-    return this.signedin === JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+    return this.isLogin === JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
   }
 }
 

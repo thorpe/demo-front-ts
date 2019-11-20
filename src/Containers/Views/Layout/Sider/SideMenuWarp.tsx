@@ -24,7 +24,7 @@ interface SiderMenuProps {
   sideBarTheme: SideBarTheme
   navOpenKeys: string[]
   setOpenKeys: (openKeys: string[]) => void
-  signedin: object
+  isLogin: object
   routerStore: RouterStore
   globalStore: GlobalStore
 }
@@ -40,7 +40,7 @@ class SiderMenu extends React.Component<SiderMenuProps> {
 
   @computed
   get menuTree() {
-    // const { signedin = false } = this.props
+    // const { isLogin = false } = this.props
     const filteredMenu = filterMenus(true)
     const availableMenu = filteredMenu.filter((el: RouteMenu) => {
       return el.invisible !== true
@@ -67,12 +67,12 @@ class SiderMenu extends React.Component<SiderMenuProps> {
   }
 
   goto = ({ key }: { key: string }) => {
-    const { signedin = false } = this.props
+    const { isLogin = false } = this.props
     const { history } = this.props.routerStore
     const selectedMenu = menus.find(item => String(item.id) === key)
     if (selectedMenu) {
 
-      if (selectedMenu.signedin === true && signedin === false) {
+      if (selectedMenu.isLogin === true && isLogin === false) {
         this.props.toggleLoginCollapsed(false)
       } else if (selectedMenu.namespace && selectedMenu.namespace.length) {
         this.showModalMenu(selectedMenu)
@@ -186,7 +186,7 @@ function Wrapper() {
           toggleSideBarCollapsed={globalStore.toggleSideBarCollapsed}
           routerStore={routerStore}
           globalStore={globalStore}
-          signedin={authStore.signedin}
+          isLogin={authStore.isLogin}
           sideBarCollapsed={globalStore.sideBarCollapsed}
           sideBarTheme={globalStore.sideBarTheme}
           navOpenKeys={globalStore.navOpenKeys}

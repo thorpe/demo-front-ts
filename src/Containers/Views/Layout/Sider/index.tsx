@@ -64,7 +64,7 @@ const SubBtnStyle = (theme: Theme) => css`
 const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
   const { sideBarCollapsed } = globalStore
-  const { signedin, userInfo } = authStore
+  const { isLogin, userInfo } = authStore
 
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
@@ -87,7 +87,7 @@ const Sider: React.FC<{}> = props => {
   const sidebar = (
     <div css={SubBtnWrapStyle}>
 
-      {signedin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      {isLogin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
         href="https://www.cafe-latte.co.kr"

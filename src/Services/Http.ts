@@ -43,9 +43,8 @@ methods.forEach(v => {
     const axiosConfig: AxiosRequestConfig = {
       method: v,
       url,
-      baseURL: baseUrl || DEFAULT_CONFIG.baseURL,
+      baseURL: baseUrl || DEFAULT_CONFIG.baseURL
       // headers: { Authorization: `Bearer ${accessTokneInfo.access_token}` },
-      withCredentials: true,
     }
     const instance = axios.create(DEFAULT_CONFIG)
 

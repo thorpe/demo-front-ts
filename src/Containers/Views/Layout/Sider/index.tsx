@@ -11,7 +11,7 @@ import styled, { Theme } from '@themes/theme'
 
 import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
-import SideMenuTest from './SideMenuTest'
+import SideMenuUser from './SideMenuUser'
 
 // css
 const LogoutBtnWrap = styled.div`
@@ -72,6 +72,7 @@ const Sider: React.FC<{}> = props => {
 
   const contentProps = {
     ...props,
+    isLogin,
     onClose,
   }
 
@@ -86,7 +87,7 @@ const Sider: React.FC<{}> = props => {
   const sidebar = (
     <div css={SubBtnWrapStyle}>
 
-      {isLogin ? <SideMenuTest {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      {isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
         href="https://www.cafe-latte.co.kr"

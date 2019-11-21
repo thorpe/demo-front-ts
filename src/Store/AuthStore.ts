@@ -3,13 +3,10 @@ import { observable, action, computed } from 'mobx'
 import { StoreExt } from '@helpers/reactExt'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 
-import { UserInterface } from '@interfaces/UserInterface'
 import { AuthInterface } from '@interfaces/AuthInterface'
 import { routerStore, globalStore } from '@store/index'
 
 export type loginParams = AuthInterface.loginParams
-export type UserInfo = UserInterface.UserInfo
-
 
 export class AuthStore extends StoreExt {
 
@@ -17,28 +14,28 @@ export class AuthStore extends StoreExt {
   accessTokenInfo: {}
 
   @observable
-  isLogin: object = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+  isLogin: boolean
 
+  @observable
+  access_token: string
 
   @action
   login = async (params: loginParams) => {
     try {
       const res = await this.api.auth.login(params)
       this.setAccessTokenInfo(res.body)
-      this.setUser(res.body)
       localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res.body))
       globalStore.toggleSideBarCollapsed(true)
       routerStore.replace('/')
     } catch (err) {
-      await this.reset()
+      await this.doResetAccessTokenInfo()
     }
   }
 
   @action
   logout = async () => {
     try {
-      await this.api.auth.login({})
-      await this.reset()
+      await this.doResetAccessTokenInfo()
     } catch (err) {
       console.error(err)
     }
@@ -47,33 +44,12 @@ export class AuthStore extends StoreExt {
   }
 
   @action
-  reset = async () => {
-    this.setUser({})
+  doResetAccessTokenInfo = async () => {
     localStorage.removeItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
     globalStore.toggleSideBarCollapsed(true)
     routerStore.replace('/')
   }
 
-  @action
-  fetchUser = async () => {
-    try {
-      const res = await this.api.user.getUsers({})
-      if (!res) {
-        return
-      }
-      const { user } = res
-      this.setUser(user)
-      localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(user))
-    } catch (err) {
-      await this.reset()
-    }
-  }
-
-  @action
-  setUser = async (res) => {
-    this.isLogin = res
-    return res
-  }
 
   @action
   setAccessTokenInfo = async (res) => {
@@ -83,7 +59,22 @@ export class AuthStore extends StoreExt {
 
   @computed
   get isSignedIn() {
-    return this.isLogin === JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+    const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+    if (accessTokenInfo.access_token) {
+      return this.isLogin = true
+    } else {
+      return this.isLogin = false
+    }
+  }
+
+  @computed
+  get getAccessToken() {
+    const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+    if (accessTokenInfo.access_token) {
+      return this.access_token = accessTokenInfo.access_token
+    } else {
+      return this.access_token = null
+    }
   }
 }
 

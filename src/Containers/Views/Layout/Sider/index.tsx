@@ -13,6 +13,7 @@ import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
 import SideMenuUser from './SideMenuUser'
 
+
 // css
 const LogoutBtnWrap = styled.div`
   width: 100%;
@@ -64,15 +65,15 @@ const SubBtnStyle = (theme: Theme) => css`
 const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
   const { sideBarCollapsed } = globalStore
-  const { isLogin } = authStore
 
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
   }
 
+  console.log(authStore.isLogin)
+
   const contentProps = {
     ...props,
-    isLogin,
     onClose,
   }
 
@@ -87,7 +88,7 @@ const Sider: React.FC<{}> = props => {
   const sidebar = (
     <div css={SubBtnWrapStyle}>
 
-      {isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      {authStore.isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
         href="https://www.cafe-latte.co.kr"

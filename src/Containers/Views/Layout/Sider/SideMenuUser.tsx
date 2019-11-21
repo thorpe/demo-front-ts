@@ -14,10 +14,10 @@ interface GuestSiderMenuProps {
 
 const SideMenuTest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps) => {
   const { onClose } = props
-  const { routerStore } = useRootStore()
+  const {  authStore } = useRootStore()
 
-  const onClickLogin = () => {
-    routerStore.replace('login')
+  const onClickLogout = () => {
+    authStore.logout()
   }
 
   return (
@@ -30,7 +30,7 @@ const SideMenuTest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps)
           <div css={LoginWrap}>
             <span css={MemberType}>회원</span>
             <SiderMenuTitle>로그인이 되었습니다..</SiderMenuTitle>
-            <Button primary onClick={onClickLogin} css={{ width: '100%', height: 30 }}>
+            <Button primary onClick={onClickLogout} css={{ width: '100%', height: 30 }}>
               {intl.get('component.logout')}
             </Button>
           </div>

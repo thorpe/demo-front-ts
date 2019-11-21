@@ -26,6 +26,7 @@ export class AuthStore extends StoreExt {
       this.setAccessTokenInfo(res.body)
       localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res.body))
       globalStore.toggleSideBarCollapsed(true)
+      this.isLogin = true
       routerStore.replace('/')
     } catch (err) {
       await this.doResetAccessTokenInfo()
@@ -45,6 +46,7 @@ export class AuthStore extends StoreExt {
 
   @action
   doResetAccessTokenInfo = async () => {
+    this.isLogin = false
     localStorage.removeItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
     globalStore.toggleSideBarCollapsed(true)
     routerStore.replace('/')

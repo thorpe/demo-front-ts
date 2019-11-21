@@ -7,6 +7,7 @@ import useRootStore from '@store/useRootStore'
 // css
 import { Button, SiderMenuTitle } from '@styles/base.style'
 import { MenuContainer, MemberType, Guest, CloseBtn, CloseBtnTxt, LoginWrap } from './index.style'
+import { observer } from "mobx-react";
 
 interface GuestSiderMenuProps {
   onClose: () => void
@@ -41,4 +42,4 @@ const SideMenuTest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps)
   )
 }
 
-export default SideMenuTest
+export default observer(SideMenuTest)

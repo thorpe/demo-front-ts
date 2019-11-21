@@ -11,6 +11,7 @@ import Header from './Header'
 import LeftMenu from './Sider'
 import Footer from './Footer'
 import Dialog from '../Dialog'
+import { observer } from "mobx-react";
 
 // import { socketConnect } from '@services/Websocket'
 // import { useOnMount } from '@helpers/reactExt'
@@ -55,4 +56,4 @@ const PrimaryLayout: React.FC = props => {
   )
 }
 
-export default PrimaryLayout
+export default observer(PrimaryLayout)

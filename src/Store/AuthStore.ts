@@ -38,13 +38,14 @@ export class AuthStore extends StoreExt {
       console.error(err)
     }
 
-    routerStore.replace('/login')
+    routerStore.replace('/')
   }
 
   @action
   doResetAccessTokenInfo = async () => {
     localStorage.removeItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
     globalStore.toggleSideBarCollapsed(true)
+    globalStore.toLoginByLocalStorage()
     routerStore.replace('/')
   }
 

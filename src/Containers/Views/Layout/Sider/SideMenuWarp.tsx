@@ -8,29 +8,19 @@ import pathToRegexp from 'path-to-regexp'
 import intl from 'react-intl-universal'
 import { RootConsumer } from '@shared/App/Provider'
 import { arrayToTree, queryArray } from '@helpers/index'
-import { SideBarTheme, GlobalStore } from '@store/globalStore'
+import { SideBarTheme, GlobalStore } from '@store/GlobalStore'
 
 // css
 import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
 
 
 import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/menu'
+import { CommonInterface } from "@interfaces/CommonInterface"
 
 
-interface SiderMenuProps {
-  toggleLoginCollapsed: (collapsed: boolean) => void
-  toggleSideBarCollapsed: (collapsed: boolean) => void
-  sideBarCollapsed: boolean
-  sideBarTheme: SideBarTheme
-  navOpenKeys: string[]
-  setOpenKeys: (openKeys: string[]) => void
-  isLogin: object
-  routerStore: RouterStore
-  globalStore: GlobalStore
-}
 
 @observer
-class SiderMenu extends React.Component<SiderMenuProps> {
+class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
   private levelMap: NumberObject = {}
 
   @computed
@@ -51,20 +41,14 @@ class SiderMenu extends React.Component<SiderMenuProps> {
 
   @computed
   get menuProps() {
-    const { sideBarCollapsed, navOpenKeys } = this.props
+    const { sideBarCollapsed } = this.props
     return !sideBarCollapsed
       ? {
-        onOpenChange: this.onOpenChange,
-        openKeys: navOpenKeys,
+        onOpenChange: this.onOpenChange
       }
       : {}
   }
 
-  showModalMenu = (selectedMenu: RouteMenu) => {
-    if (selectedMenu.namespace === 'message') {
-      this.props.globalStore.toggleMessageCollapsed(false)
-    }
-  }
 
   goto = ({ key }: { key: string }) => {
     const { isLogin = false } = this.props
@@ -75,7 +59,6 @@ class SiderMenu extends React.Component<SiderMenuProps> {
       if (selectedMenu.isLogin === true && isLogin === false) {
         this.props.toggleLoginCollapsed(false)
       } else if (selectedMenu.namespace && selectedMenu.namespace.length) {
-        this.showModalMenu(selectedMenu)
       } else if (selectedMenu.path && selectedMenu.path !== this.currentRoute) {
         history.push(selectedMenu.path)
       }
@@ -84,17 +67,7 @@ class SiderMenu extends React.Component<SiderMenuProps> {
   }
 
   onOpenChange = (openKeys: string[]): void => {
-    const { navOpenKeys, setOpenKeys } = this.props
-    const latestOpenKey = openKeys.find(key => !navOpenKeys.includes(key))
-    const latestCloseKey = navOpenKeys.find(key => !openKeys.includes(key))
-    let nextOpenKeys = []
-    if (latestOpenKey) {
-      nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey)
-    }
-    if (latestCloseKey) {
-      nextOpenKeys = this.getAncestorKeys(latestCloseKey)
-    }
-    setOpenKeys(nextOpenKeys)
+
   }
 
   getPathArray = (array: RouteMenu[], current: RouteMenu): string[] => {
@@ -182,19 +155,16 @@ function Wrapper() {
     <RootConsumer>
       {({ routerStore, authStore, globalStore }) => (
         <SiderMenu
-          toggleLoginCollapsed={globalStore.toggleLoginCollapsed}
           toggleSideBarCollapsed={globalStore.toggleSideBarCollapsed}
           routerStore={routerStore}
           globalStore={globalStore}
-          isLogin={authStore.isLogin}
+          isLogin={globalStore.isLogin}
           sideBarCollapsed={globalStore.sideBarCollapsed}
           sideBarTheme={globalStore.sideBarTheme}
-          navOpenKeys={globalStore.navOpenKeys}
-          setOpenKeys={globalStore.setOpenKeys}
         />
       )}
     </RootConsumer>
   )
 }
 
-export default Wrapper
+export default observer(Wrapper)

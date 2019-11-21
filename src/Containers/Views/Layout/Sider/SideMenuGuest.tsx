@@ -8,6 +8,7 @@ import { Icon } from 'antd-mobile'
 // css
 import { Button, SiderMenuTitle } from '@styles/base.style'
 import { MenuContainer, MemberType, Guest, CloseBtn,  LoginWrap } from './index.style'
+import { observer } from "mobx-react";
 
 interface GuestSiderMenuProps {
   onClose: () => void
@@ -43,4 +44,4 @@ const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps
   )
 }
 
-export default SideMenuGuest
+export default observer(SideMenuGuest)

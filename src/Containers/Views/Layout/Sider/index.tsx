@@ -65,13 +65,10 @@ const SubBtnStyle = (theme: Theme) => css`
 
 const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
-  const { sideBarCollapsed } = globalStore
+  const { sideBarCollapsed, isLogin } = globalStore
 
-  // const onMountEvent = async () => {
-  //   await globalStore.localLoginByLocalStorage()
-  // }
-  //
-  // useOnMount(onMountEvent)
+  globalStore.toLoginByLocalStorage()
+
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
   }
@@ -92,7 +89,7 @@ const Sider: React.FC<{}> = props => {
   const sidebar = (
     <div css={SubBtnWrapStyle}>
 
-      {globalStore.isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      {isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
         href="https://www.cafe-latte.co.kr"

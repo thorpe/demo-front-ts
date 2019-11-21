@@ -16,13 +16,18 @@ const Header: React.FC = () => {
   console.log(routerStore.location.pathname)
   console.log(routerStore)
 
+  const doOpenSideBar = () => {
+    globalStore.toLoginByLocalStorage()
+    globalStore.toggleSideBarCollapsed(false)
+  }
+
 
   return (
     <NavBar style={{position: 'fixed', width: '100%', top: 0}}
             key="layout_header"
             mode="dark"
             icon={<Icon type="left"/>}
-            onLeftClick={() => globalStore.toggleSideBarCollapsed(false)}
+            onLeftClick={() => doOpenSideBar()}
             rightContent={[
               <Icon key="0" type="search" style={{marginRight: '16px'}} onClick={() => globalStore.toggleSideBarCollapsed(false)}/>,
               <Icon key="1" type="ellipsis" onClick={() => globalStore.toggleSideBarCollapsed(false)}/>,

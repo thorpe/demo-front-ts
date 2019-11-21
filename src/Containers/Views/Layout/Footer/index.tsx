@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { TabBar } from 'antd-mobile'
 import useRootStore from '@store/useRootStore'
+import { observer } from "mobx-react";
 
 
 const Footer: React.FC = props => {
@@ -62,4 +63,4 @@ const Footer: React.FC = props => {
 
 }
 
-export default Footer
+export default observer(Footer)

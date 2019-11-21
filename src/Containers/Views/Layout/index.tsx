@@ -1,13 +1,17 @@
 import React from 'react'
 import { Fragment } from 'react'
+import { BackTop } from 'antd'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 import Error from '@components/Error'
 import menu, { asynchronousComponents } from '@routes/menu'
+import ComponentPopup from '@views/Popup'
 import Header from './Header'
 import LeftMenu from './Sider'
 import Footer from './Footer'
+import Dialog from '../Dialog'
+
 // import { socketConnect } from '@services/Websocket'
 // import { useOnMount } from '@helpers/reactExt'
 // import useRootStore from '@store/useRootStore'
@@ -44,6 +48,9 @@ const PrimaryLayout: React.FC = props => {
         </Switch>
       </Router>
       <Footer />
+      <BackTop />
+      <ComponentPopup />
+      <Dialog />
     </Fragment>
   )
 }

@@ -12,6 +12,7 @@ import styled, { Theme } from '@themes/theme'
 import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
 import SideMenuUser from './SideMenuUser'
+import { useOnMount } from '@helpers/reactExt'
 
 
 // css
@@ -66,11 +67,14 @@ const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
   const { sideBarCollapsed } = globalStore
 
+  const onMountEvent = async () => {
+    await authStore.localLoginByLocalStorage()
+  }
+
+  useOnMount(onMountEvent)
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
   }
-
-  console.log(authStore.isLogin)
 
   const contentProps = {
     ...props,

@@ -19,6 +19,23 @@ export class AuthStore extends StoreExt {
   @observable
   access_token: string
 
+
+  @action
+  localLoginByLocalStorage = async () => {
+    try {
+      const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+      if (accessTokenInfo.access_token) {
+        this.isLogin = true
+      } else {
+        this.isLogin = false
+      }
+      globalStore.toggleSideBarCollapsed(true)
+      routerStore.replace('/')
+    } catch (err) {
+      await this.doResetAccessTokenInfo()
+    }
+  }
+
   @action
   login = async (params: loginParams) => {
     try {

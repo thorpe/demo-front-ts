@@ -45,55 +45,16 @@ export class GlobalStore extends StoreExt {
   @observable
   sideBarCollapsed = true
 
-  /**
-   * 테마
-   *
-   * @type {SideBarTheme}
-   * @memberof GlobalStore
-   */
-  @observable
-  sideBarTheme: SideBarTheme = (localStorage.getItem(LOCALSTORAGE_KEYS.SIDE_BAR_THEME) as SideBarTheme) || 'light'
-
-  /**
-   * 사이드 메뉴 오픈키
-   *
-   * @type {string[]}
-   * @memberof GlobalStore
-   */
-  @observable
-  navOpenKeys: string[] = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.NAV_OPEN_KEYS)) || []
-
-  /**
-   * 팝업 메뉴 접기
-   * @type {boolean}
-   * @memberof GlobalStore
-   */
-  @observable
-  collapsedEvent = true
-
-  @observable
-  collapsedAttendance = true
-
-  @observable
-  collapsedGiftbox = true
-
-  @observable
-  collapsedMessage = true
-
   @observable
   somethingPopup = false
 
   @observable
-  visibleChattingToast = false
+  currentDialog: DialogData
 
   dialogQueue: DialogQueue = []
 
-  @observable
-  currentDialog: DialogData
-
   constructor() {
     super()
-
     localStorage.setItem(LOCALSTORAGE_KEYS.SIDE_BAR_COLLAPSED, this.sideBarCollapsed ? '1' : '0')
   }
 
@@ -105,56 +66,6 @@ export class GlobalStore extends StoreExt {
     this.updateSomethingPopup()
   }
 
-  @action
-  changeSiderTheme = (theme: SideBarTheme) => {
-    this.sideBarTheme = theme
-    localStorage.setItem(LOCALSTORAGE_KEYS.SIDE_BAR_THEME, theme)
-  }
-
-  @action
-  setOpenKeys = (openKeys: string[]) => {
-    this.navOpenKeys = openKeys
-    localStorage.setItem(LOCALSTORAGE_KEYS.NAV_OPEN_KEYS, JSON.stringify(openKeys))
-  }
-
-  @action
-  toggleLoginCollapsed = (collapsed: boolean) => {
-    // this.collapsedLogin = collapsed
-    // localStorage.setItem('collapsedLogin', this.collapsedLogin ? '1' : '0')
-    // this.updateSomethingPopup()
-  }
-
-  @action
-  toggleEventCollapsed = (collapsed: boolean) => {
-    this.collapsedEvent = collapsed
-    localStorage.setItem('collapsedEvent', this.collapsedEvent ? '1' : '0')
-
-    this.updateSomethingPopup()
-  }
-
-  @action
-  toggleAttendanceCollapsed = (collapsed: boolean) => {
-    this.collapsedAttendance = collapsed
-    localStorage.setItem('collapsedAttendance', this.collapsedAttendance ? '1' : '0')
-
-    this.updateSomethingPopup()
-  }
-
-  @action
-  toggleGiftBoxCollapsed = (collapsed: boolean) => {
-    this.collapsedGiftbox = collapsed
-    localStorage.setItem('collapsedGiftbox', this.collapsedGiftbox ? '1' : '0')
-
-    this.updateSomethingPopup()
-  }
-
-  @action
-  toggleMessageCollapsed = (collapsed: boolean) => {
-    this.collapsedMessage = collapsed
-    localStorage.setItem('collapsedMessage', this.collapsedMessage ? '1' : '0')
-
-    this.updateSomethingPopup()
-  }
 
   @action
   updateSomethingPopup = () => {

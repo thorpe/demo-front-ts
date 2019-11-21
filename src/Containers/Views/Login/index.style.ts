@@ -89,7 +89,7 @@ export const DrawerContent = styled.div`
   opacity: 0;
   /* display: none; */
   animation: ${ShowAni} 0.3s ease-in-out forwards;
-  animation-delay: 4.5s;
+  animation-delay: 0.1s;
   .ant-form-item-control {
     position: relative;
     line-height: 3rem;

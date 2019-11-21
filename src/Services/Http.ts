@@ -2,6 +2,8 @@ import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios'
 import qs from 'qs'
 import { message } from 'antd'
 
+//import { accessTokneInfo } from '@store/SyncUserInfo'
+
 export interface AxiosRequestConfig extends _AxiosRequestConfig {
   startTime?: Date
 }
@@ -41,8 +43,9 @@ methods.forEach(v => {
     const axiosConfig: AxiosRequestConfig = {
       method: v,
       url,
-      baseURL: baseUrl || DEFAULT_CONFIG.baseURL
-      // headers: { Authorization: `Bearer ${userInfo.token}` }
+      baseURL: baseUrl || DEFAULT_CONFIG.baseURL,
+      // headers: { Authorization: `Bearer ${accessTokneInfo.access_token}` },
+      withCredentials: true,
     }
     const instance = axios.create(DEFAULT_CONFIG)
 

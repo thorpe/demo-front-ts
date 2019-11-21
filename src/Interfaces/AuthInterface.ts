@@ -10,13 +10,14 @@ export namespace AuthInterface {
 
 
   export interface listSchema extends CommonInterface.ResponseBase {
-    body: {
-      access_tokne: string,
-      expired_in: number,
-      token_type: string,
-      refresh_token: string,
-    }
+    body: AuthInterface.tokenSchema
 
   }
 
+  export interface tokenSchema  {
+    access_token: string,
+    expired_in: number,
+    token_type: string,
+    refresh_token: string,
+  }
 }

@@ -57,7 +57,7 @@ const EyeX = <img key="login_pw_eye_x" src={EyeXIco} alt="비밀번호 감추기
 
 
 function PopupLogin({ form }: FormComponentProps) {
-  const username = localStorage.getItem(LOCALSTORAGE_KEYS.USERID)
+  const username = localStorage.getItem(LOCALSTORAGE_KEYS.USER_ID)
   const [visibleDetailId] = useState(false)
   const [visibleDetailPw, setVisibleDetailPw] = useState(false)
   const [passwordField, setPasswordField] = useState('password')
@@ -76,9 +76,9 @@ function PopupLogin({ form }: FormComponentProps) {
   // functions
   const doLogin = (values) => {
     if (checked) {
-      localStorage.setItem(LOCALSTORAGE_KEYS.USERID, values.username)
+      localStorage.setItem(LOCALSTORAGE_KEYS.USER_ID, values.username)
     } else {
-      localStorage.removeItem(LOCALSTORAGE_KEYS.USERID)
+      localStorage.removeItem(LOCALSTORAGE_KEYS.USER_ID)
     }
     authStore.login(values)
   }

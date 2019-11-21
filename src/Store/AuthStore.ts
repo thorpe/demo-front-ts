@@ -13,28 +13,9 @@ export class AuthStore extends StoreExt {
   @observable
   accessTokenInfo: {}
 
-  @observable
-  isLogin: boolean
 
   @observable
   access_token: string
-
-
-  @action
-  localLoginByLocalStorage = async () => {
-    try {
-      const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
-      if (accessTokenInfo.access_token) {
-        this.isLogin = true
-      } else {
-        this.isLogin = false
-      }
-      globalStore.toggleSideBarCollapsed(true)
-      routerStore.replace('/')
-    } catch (err) {
-      await this.doResetAccessTokenInfo()
-    }
-  }
 
   @action
   login = async (params: loginParams) => {
@@ -43,7 +24,6 @@ export class AuthStore extends StoreExt {
       this.setAccessTokenInfo(res.body)
       localStorage.setItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN, JSON.stringify(res.body))
       globalStore.toggleSideBarCollapsed(true)
-      this.isLogin = true
       routerStore.replace('/')
     } catch (err) {
       await this.doResetAccessTokenInfo()
@@ -63,7 +43,6 @@ export class AuthStore extends StoreExt {
 
   @action
   doResetAccessTokenInfo = async () => {
-    this.isLogin = false
     localStorage.removeItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
     globalStore.toggleSideBarCollapsed(true)
     routerStore.replace('/')
@@ -74,16 +53,6 @@ export class AuthStore extends StoreExt {
   setAccessTokenInfo = async (res) => {
     this.accessTokenInfo = res
     return res
-  }
-
-  @computed
-  get isSignedIn() {
-    const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
-    if (accessTokenInfo.access_token) {
-      return this.isLogin = true
-    } else {
-      return this.isLogin = false
-    }
   }
 
   @computed

@@ -12,7 +12,7 @@ import styled, { Theme } from '@themes/theme'
 import SideMenuWarp from './SideMenuWarp'
 import SideMenuGuest from './SideMenuGuest'
 import SideMenuUser from './SideMenuUser'
-import { useOnMount } from '@helpers/reactExt'
+
 
 
 // css
@@ -67,11 +67,11 @@ const Sider: React.FC<{}> = props => {
   const { globalStore, authStore } = useRootStore()
   const { sideBarCollapsed } = globalStore
 
-  const onMountEvent = async () => {
-    await authStore.localLoginByLocalStorage()
-  }
-
-  useOnMount(onMountEvent)
+  // const onMountEvent = async () => {
+  //   await globalStore.localLoginByLocalStorage()
+  // }
+  //
+  // useOnMount(onMountEvent)
   const onClose = () => {
     globalStore.toggleSideBarCollapsed(true)
   }
@@ -92,7 +92,7 @@ const Sider: React.FC<{}> = props => {
   const sidebar = (
     <div css={SubBtnWrapStyle}>
 
-      {authStore.isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
+      {globalStore.isLogin == true ? <SideMenuUser {...contentProps} /> : <SideMenuGuest {...contentProps} />}
       <SideMenuWarp />
       <a
         href="https://www.cafe-latte.co.kr"

@@ -36,12 +36,10 @@ export interface DialogData extends DialogParams {
 export type DialogQueue = DialogData[]
 
 export class GlobalStore extends StoreExt {
-  /**
-   * 사이드메뉴 접기
-   *
-   * @type {boolean}
-   * @memberof GlobalStore
-   */
+
+  @observable
+  isLogin = false
+
   @observable
   sideBarCollapsed = true
 
@@ -56,6 +54,20 @@ export class GlobalStore extends StoreExt {
   constructor() {
     super()
     localStorage.setItem(LOCALSTORAGE_KEYS.SIDE_BAR_COLLAPSED, this.sideBarCollapsed ? '1' : '0')
+    this.toLoginByLocalStorage()
+  }
+
+  @action
+  toLoginByLocalStorage = () => {
+    const localToken = localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
+    if (localToken) {
+      const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
+      if (accessTokenInfo.access_token) {
+        this.isLogin = true
+      } else {
+        this.isLogin = false
+      }
+    }
   }
 
   @action

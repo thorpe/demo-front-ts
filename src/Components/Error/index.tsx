@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContentWrap, Title, TitleWrap } from '@styles/base.style'
 
-const Error: React.FC = (props) => (
+const Error: React.FC = () => (
   <ContentWrap>
     <TitleWrap>
       <Title>Test</Title>

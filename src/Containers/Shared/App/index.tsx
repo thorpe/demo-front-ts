@@ -10,8 +10,7 @@ import Provider from './Provider'
 import Routers from '../../../Routes'
 
 const GlobalStyle = (theme: Theme) => css`
-  /* font 설정 */
-  * {
+    * {
     font-family: 'Roboto', 'Noto Sans CJK KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', '돋움', dotum, sans-serif !important;
     user-select: none;
   }

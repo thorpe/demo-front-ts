@@ -10,6 +10,7 @@ const Color = css`
   }
 `
 export default class CircleDownIco extends PureComponent {
+
   render() {
     return (
       <Fragment>

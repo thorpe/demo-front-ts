@@ -5,9 +5,6 @@ import { Fragment, PureComponent } from 'react'
 const Color = css`
   width: inherit;
   height: auto;
-  rect {
-    fill: '#fff';
-  }
   path {
     fill: #089d80;
   }

@@ -8,9 +8,6 @@ import useRootStore from '@store/useRootStore'
 import { Input, List } from 'antd'
 import { observer } from 'mobx-react'
 import { useOnMount } from '@helpers/reactExt'
-
-
-// css
 import {
   SearchWrap,
   ClearBtnStyle,
@@ -24,7 +21,7 @@ const { Search } = Input
 
 const GoodsSearchPopup: React.FC = () => {
 
-  const { goodsStore , testStore} = useRootStore()
+  const { goodsStore } = useRootStore()
 
   const [searchText, setSearchText] = useState('')
 

@@ -13,6 +13,8 @@ export type goodsTrackItem =  GoodsInterface.SchemaGoodsList
 export class GoodsStore extends StoreExt {
 
   goods: goodsList[]
+
+
   count: number
 
   @observable

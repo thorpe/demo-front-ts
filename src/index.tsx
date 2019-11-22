@@ -4,11 +4,15 @@ import ReactDOM from 'react-dom'
 import { configure } from 'mobx'
 import { jsx } from '@emotion/core'
 
+
+
 import App from '@shared/App'
 import registerServiceWorker from './sw'
 
 registerServiceWorker()
 configure({ enforceActions: 'observed' })
+
+
 
 const render = (Component: React.ComponentType) => {
   ReactDOM.render(<Component />, document.getElementById('app'),

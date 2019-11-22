@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>S캐시충전 실패</title>
+</head>
+<body>
+<script>
+  document.domain = "{{ Closeurl }}"
+  var targetWindow = window.opener;
+  targetWindow.doFailureCallBackFunction({
+    code: 'deliverResult',
+    result: 'fail',
+    msg: '승부사 캐시 충전이 실패하였습니다..',
+    mid: "-1", tid: "-1"
+  });
+  self.close();
+</script>
+</body>
+</html>

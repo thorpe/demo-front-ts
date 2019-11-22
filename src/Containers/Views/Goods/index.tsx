@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 import { observer } from 'mobx-react'
 import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
 
-import useRootStore from '@store/useRootStore'
 
 
 const Goods: React.FC = () => {
-  const { goodsStore } = useRootStore()
 
 
   return (

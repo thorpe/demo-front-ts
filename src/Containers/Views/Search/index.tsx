@@ -13,7 +13,6 @@ import {
   ClearBtnStyle,
   ListWrap,
   BettorWrap,
-  BettorName,
 } from './index.style'
 
 
@@ -44,8 +43,7 @@ const GoodsSearchPopup: React.FC = () => {
         renderItem={item => (
           <List.Item>
             <BettorWrap>
-              <BettorName>{item.name}</BettorName>
-              <span>{item.code}</span>
+
             </BettorWrap>
           </List.Item>
         )}

@@ -17,6 +17,6 @@ export interface RootStore {
   routerStore: RouterStore
   socketStore: SocketStore
   testStore: TestStore
-  goodStore: GoodsStore
+  goodsStore: GoodsStore
 }
 

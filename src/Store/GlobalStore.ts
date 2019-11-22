@@ -67,6 +67,8 @@ export class GlobalStore extends StoreExt {
       } else {
         this.isLogin = false
       }
+    } else {
+      this.isLogin = false
     }
   }
 

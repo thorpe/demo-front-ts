@@ -41,6 +41,9 @@ export class GlobalStore extends StoreExt {
   isLogin = false
 
   @observable
+  access_token = ""
+
+  @observable
   sideBarCollapsed = true
 
   @observable
@@ -60,16 +63,7 @@ export class GlobalStore extends StoreExt {
   @action
   toLoginByLocalStorage = () => {
     const localToken = localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN)
-    if (localToken) {
-      const accessTokenInfo = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEYS.ACCESS_TOKEN))
-      if (accessTokenInfo.access_token) {
-        this.isLogin = true
-      } else {
-        this.isLogin = false
-      }
-    } else {
-      this.isLogin = false
-    }
+    this.isLogin = !!localToken
   }
 
   @action

@@ -21,6 +21,8 @@ const SideMenuTest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps)
     authStore.logout()
   }
 
+  console.log('Render ------> Sider ------> SideMenuUser')
+
   return (
     <Fragment>
       <div key="user">

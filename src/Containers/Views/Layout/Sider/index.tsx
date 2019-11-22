@@ -78,6 +78,7 @@ const Sider: React.FC<{}> = props => {
     onClose,
   }
 
+
   const Logout = (
     <LogoutBtnWrap>
       <Button primary onClick={authStore.logout} css={LogoutBtn}>
@@ -113,6 +114,7 @@ const Sider: React.FC<{}> = props => {
     </div>
   )
 
+  console.log('Render ------> Sider Index')
 
   return (
     <Drawer

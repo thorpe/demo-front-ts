@@ -26,6 +26,8 @@ const PrimaryLayout: React.FC = props => {
   // }
   // useOnMount(handleConnect)
 
+  console.log('Render ------> PrimaryLayout')
+
   return (
     <Fragment>
       <LeftMenu />

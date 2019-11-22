@@ -55,6 +55,7 @@ const Test: React.FC = () => {
     window.focus()
   }
 
+  console.log('Render ------> Test')
 
   return (
     <ContentWrap>

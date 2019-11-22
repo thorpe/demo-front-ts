@@ -32,6 +32,8 @@ const MyPage: React.FC = () => {
 
   const { routerStore } = useRootStore()
 
+  console.log('Render ------> MyPage')
+
     return (
       <ContentWrap>
         <WhiteSpace />

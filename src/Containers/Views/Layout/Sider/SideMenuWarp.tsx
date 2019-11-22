@@ -131,6 +131,7 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
     if (!selectedKeys) {
       selectedKeys = ['1']
     }
+
     return (
       <MenuItemContainer>
         <MenuItemWrap>

@@ -6,6 +6,8 @@ import { Tabs, Badge } from 'antd-mobile'
 
 const Dashboard: React.FC = () => {
 
+  console.log('Render ------> Dashboard')
+
   const tabs = [
     { title: <Badge text={'3'}>컬리추천</Badge> },
     { title: <Badge dot>신상품</Badge> },

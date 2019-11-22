@@ -17,7 +17,12 @@ class Carousel2 extends React.Component {
     }, 100)
   }
 
+
+
   render() {
+
+    console.log('render Carousel')
+
     return (
       <ContentWrap>
         <TitleWrap>

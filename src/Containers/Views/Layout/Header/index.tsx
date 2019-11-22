@@ -22,6 +22,9 @@ const Header: React.FC = () => {
   }
 
 
+  console.log('Render ------> Sider -> Header')
+
+
   return (
     <NavBar style={{position: 'fixed', width: '100%', top: 0}}
             key="layout_header"

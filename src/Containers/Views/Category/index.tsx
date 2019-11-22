@@ -10,7 +10,10 @@ const Category: React.FC = () => {
     }
 
 
+    console.log('render Category')
+
     return (
+
         <ContentWrap>
             <TitleWrap>
                 <Title>Test</Title>

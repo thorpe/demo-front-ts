@@ -22,6 +22,8 @@ const SideMenuGuest: React.FC<GuestSiderMenuProps> = (props: GuestSiderMenuProps
     routerStore.replace('login')
   }
 
+  console.log('Render ------> Sider ------> SiderMenuGuest')
+
   return (
     <Fragment>
       <div key="user">

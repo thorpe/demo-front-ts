@@ -13,6 +13,8 @@ const Footer: React.FC = props => {
     routerStore.replace(path)
   }
 
+  console.log('Render ------> Sider -> Footer')
+
   return (
     <div style={{ position: 'fixed', height: '50px', width: '100%', bottom: 0 }}>
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white">

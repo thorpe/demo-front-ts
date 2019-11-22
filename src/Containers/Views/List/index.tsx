@@ -11,6 +11,9 @@ class ListExample extends React.Component {
   }
 
   render() {
+
+    console.log('Render ------> List')
+
     return (
       <ContentWrap>
         <TitleWrap>

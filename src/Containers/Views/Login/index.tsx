@@ -110,6 +110,8 @@ function PopupLogin({ form }: FormComponentProps) {
     setIsPasswordField(!isPassword)
   }
 
+  console.log('Render ------> Login')
+
   return (
     <Fragment>
 

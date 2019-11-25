@@ -52,6 +52,7 @@ export class GlobalStore extends StoreExt {
   @observable
   somethingPopup = false
 
+
   @observable
   currentDialog: DialogData
 
@@ -77,6 +78,13 @@ export class GlobalStore extends StoreExt {
     this.updateSomethingPopup()
   }
 
+  @action
+  toggleLoginCollapsed = (collapsed: boolean) => {
+    this.sideBarCollapsed = collapsed
+    localStorage.setItem(LOCALSTORAGE_KEYS.SIDE_BAR_COLLAPSED, this.sideBarCollapsed ? '1' : '0')
+
+    this.updateSomethingPopup()
+  }
 
   @action
   updateSomethingPopup = () => {

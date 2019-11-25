@@ -1,23 +1,19 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import React from 'react'
-import { observer } from 'mobx-react'
-import { computed } from 'mobx'
-import { Menu } from 'antd'
-import pathToRegexp from 'path-to-regexp'
-import intl from 'react-intl-universal'
-import { RootConsumer } from '@shared/App/Provider'
-import { arrayToTree, queryArray } from '@helpers/Index'
-import { SideBarTheme, GlobalStore } from '@store/GlobalStore'
+import { jsx } from "@emotion/core"
+import React from "react"
+import { observer } from "mobx-react"
+import { computed } from "mobx"
+import { Menu } from "antd"
+import pathToRegexp from "path-to-regexp"
+import intl from "react-intl-universal"
+import { RootConsumer } from "@shared/App/Provider"
+import { arrayToTree, queryArray } from "@helpers/Index"
 
 // css
-import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
+import { IconStyle, MenuItemContainer, MenuItemWrap } from "./index.style"
 
-
-import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/Route'
+import menus, { filterMenus, MenuInTree } from "@routes/Route"
 import { CommonInterface } from "@interfaces/CommonInterface"
-
-
 
 @observer
 class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
@@ -32,16 +28,16 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
   get menuTree() {
     // const { isLogin = false } = this.props
     const filteredMenu = filterMenus(true)
-    const availableMenu = filteredMenu.filter((el: RouteMenu) => {
+    const availableMenu = filteredMenu.filter((el: CommonInterface.RouteMenu) => {
       return el.invisible !== true
     })
 
-    return arrayToTree<MenuInTree>(availableMenu, 'id', 'pid')
+    return arrayToTree<MenuInTree>(availableMenu, "id", "pid")
   }
 
   @computed
   get menuProps() {
-    const { sideBarCollapsed } = this.props
+    const {sideBarCollapsed} = this.props
     return !sideBarCollapsed
       ? {
         onOpenChange: this.onOpenChange
@@ -49,16 +45,12 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
       : {}
   }
 
-
-  goto = ({ key }: { key: string }) => {
-    const { isLogin = false } = this.props
-    const { history } = this.props.routerStore
+  goto = ({key}: { key: string }) => {
+    const {history} = this.props.routerStore
     const selectedMenu = menus.find(item => String(item.id) === key)
     if (selectedMenu) {
 
-      if (selectedMenu.isLogin === true && isLogin === false) {
-        this.props.toggleLoginCollapsed(false)
-      } else if (selectedMenu.namespace && selectedMenu.namespace.length) {
+      if (selectedMenu.namespace && selectedMenu.namespace.length) {
       } else if (selectedMenu.path && selectedMenu.path !== this.currentRoute) {
         history.push(selectedMenu.path)
       }
@@ -70,12 +62,12 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
 
   }
 
-  getPathArray = (array: RouteMenu[], current: RouteMenu): string[] => {
+  getPathArray = (array: CommonInterface.RouteMenu[], current: CommonInterface.RouteMenu): string[] => {
     const result = [String(current.id)]
-    const getPath = (item: RouteMenu): void => {
+    const getPath = (item: CommonInterface.RouteMenu): void => {
       if (item && item.pid) {
         result.unshift(String(item.pid))
-        getPath(queryArray(array, String(item.pid), 'id'))
+        getPath(queryArray(array, String(item.pid), "id"))
       }
     }
     getPath(current)
@@ -101,10 +93,10 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
 
   getSiderMenus = (menuTree: MenuInTree[]) => {
     return menuTree.map(item => {
-      if (item.position == 'left') {
+      if (item.position == "left") {
         return (
           <Menu.Item key={String(item.id)} css={IconStyle}>
-            {item.icon && <item.icon />}
+            {item.icon && <item.icon/>}
             <p>{intl.get(item.locale)}</p>
           </Menu.Item>
         )
@@ -114,10 +106,9 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
 
   render() {
     this.levelMap = {}
-    const { sideBarTheme } = this.props
     const menuItems = this.getSiderMenus(this.menuTree)
 
-    let currentMenu: RouteMenu = null
+    let currentMenu: CommonInterface.RouteMenu = null
     for (const item of menus) {
       if (item.path && pathToRegexp(item.path).exec(this.currentRoute)) {
         currentMenu = item
@@ -129,7 +120,7 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
       selectedKeys = this.getPathArray(menus, currentMenu)
     }
     if (!selectedKeys) {
-      selectedKeys = ['1']
+      selectedKeys = ["1"]
     }
 
     return (
@@ -137,7 +128,6 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
         <MenuItemWrap>
           <Menu
             // className="MenuList"
-            theme={sideBarTheme}
             mode="inline"
             selectedKeys={selectedKeys}
             onClick={this.goto}
@@ -154,14 +144,13 @@ class SiderMenu extends React.Component<CommonInterface.SiderMenuProps> {
 function Wrapper() {
   return (
     <RootConsumer>
-      {({ routerStore, authStore, globalStore }) => (
+      {({routerStore, authStore, globalStore}) => (
         <SiderMenu
           toggleSideBarCollapsed={globalStore.toggleSideBarCollapsed}
           routerStore={routerStore}
           globalStore={globalStore}
           isLogin={globalStore.isLogin}
           sideBarCollapsed={globalStore.sideBarCollapsed}
-          sideBarTheme={globalStore.sideBarTheme}
         />
       )}
     </RootConsumer>

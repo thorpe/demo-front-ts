@@ -1,4 +1,4 @@
-import { GlobalStore, SideBarTheme } from "@store/GlobalStore"
+import { GlobalStore } from "@store/GlobalStore"
 import { AsynchronousComponentKeys } from '@routes/Route'
 
 export namespace CommonInterface {
@@ -11,8 +11,7 @@ export namespace CommonInterface {
   export interface SiderMenuProps {
     toggleSideBarCollapsed: (collapsed: boolean) => void
     sideBarCollapsed: boolean
-    sideBarTheme: SideBarTheme
-    isLogin: object
+    isLogin: boolean
     routerStore: RouterStore
     globalStore: GlobalStore
   }

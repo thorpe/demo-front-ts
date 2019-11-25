@@ -18,7 +18,7 @@ const hashHistory = createHashHistory()
 const history = syncHistoryWithStore(hashHistory, store.routerStore)
 
 const PrimaryLayout = Loadable({
-  loader: () => import('@views/Layout'),
+  loader: () => import('@views/Layout/Index'),
   loading: PageLoading,
 })
 
@@ -28,7 +28,7 @@ const Login = Loadable({
 })
 
 const Popup2 = Loadable({
-  loader: () => import( '@views/Popup2'),
+  loader: () => import( '@views/Popup2/Index'),
   loading: PageLoading,
 })
 

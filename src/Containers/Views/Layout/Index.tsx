@@ -6,14 +6,14 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Error from '@components/Error'
 import menu, { asynchronousComponents } from '@routes/Menu'
-import ComponentPopup from '@views/Popup'
-import Header from './Header'
-import LeftMenu from './Sider'
-import Footer from './Footer'
-import Dialog from '../Dialog'
-import { observer } from "mobx-react";
+import ComponentPopup from '@views/Popup/Index'
+import Header from './Header/Index'
+import LeftMenu from './Sider/Index'
+import Footer from './Footer/Index'
+import Dialog from '../Dialog/Index'
+import { observer } from "mobx-react"
 
-// import { socketConnect } from '@services/Websocket'
+// import { socketConnect } from '@services/Websocket/Index'
 // import { useOnMount } from '@helpers/reactExt'
 // import useRootStore from '@store/useRootStore'
 

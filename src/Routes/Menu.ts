@@ -10,24 +10,25 @@ import { CommonInterface } from '@interfaces/CommonInterface'
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 
 export const asynchronousComponents = {
-  SocketDebugger: loadComponent(() => import('@views/Socket')),
-  Users: loadComponent(() => import('@views/Test')),
-  Test: loadComponent(() => import('@views/Test')),
-  List: loadComponent(() => import('@views/List')),
+  SocketDebugger: loadComponent(() => import('@views/Socket/Index')),
+  Users: loadComponent(() => import('@views/Test/Index')),
+  Test: loadComponent(() => import('@views/Test/Index')),
+  List: loadComponent(() => import('@views/List/Index')),
   Login: loadComponent(() => import('@views/Login')),
-  Toast: loadComponent(() => import('@views/Toast')),
-  Dialog: loadComponent(() => import('@views/Dialog')),
-  Modal: loadComponent(() => import('@views/Modal')),
-  Carousel: loadComponent(() => import('@views/Carousel')),
+  Toast: loadComponent(() => import('@views/Toast/Index')),
+  Dialog: loadComponent(() => import('@views/Dialog/Index')),
+  Modal: loadComponent(() => import('@views/Modal/Index')),
+  Carousel: loadComponent(() => import('@views/Carousel/Index')),
 
 
-  Dashboard: loadComponent(() => import('@views/Dashboard')),
-  Category: loadComponent(() => import('@views/Category')),
-  Search: loadComponent(() => import('@views/Search')),
-  MyPage: loadComponent(() => import('@views/MyPage')),
-  GoogleLogin: loadComponent(() => import('@views/GoogleLogin')),
-  Goods: loadComponent(() => import('@views/Goods')),
+  Dashboard: loadComponent(() => import('@views/Dashboard/Index')),
+  Category: loadComponent(() => import('@views/Category/Index')),
+  Search: loadComponent(() => import('@views/Search/Index')),
+  GoogleLogin: loadComponent(() => import('@views/GoogleLogin/Index')),
+  Goods: loadComponent(() => import('@views/Goods/Index')),
 
+
+  MyPage: loadComponent(() => import('@views/MyPage/Index')),
   PointList: loadComponent(() => import('@views/MyPage/PointList')),
   About: loadComponent(() => import('@views/MyPage/About')),
   BoardFaq: loadComponent(() => import('@views/MyPage/BoardFaq')),

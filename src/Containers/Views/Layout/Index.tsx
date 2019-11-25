@@ -5,7 +5,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 import Error from '@components/Error'
-import menu, { asynchronousComponents } from '@routes/Menu'
+import route, { asynchronousComponents } from '@routes/Route'
 import ComponentPopup from '@views/Popup/Index'
 import Header from './Header/Index'
 import LeftMenu from './Sider/Index'
@@ -34,7 +34,7 @@ const PrimaryLayout: React.FC = props => {
       <Header />
       <Router>
         <Switch>
-          {menu.map(m => {
+          {route.map(m => {
             if (!m.path) {
               return null
             }

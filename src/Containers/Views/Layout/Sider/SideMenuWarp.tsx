@@ -14,7 +14,7 @@ import { SideBarTheme, GlobalStore } from '@store/GlobalStore'
 import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
 
 
-import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/Menu'
+import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/Route'
 import { CommonInterface } from "@interfaces/CommonInterface"
 
 

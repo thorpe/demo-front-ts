@@ -20,7 +20,7 @@ export function getLocaleLoader(locale: string): Promise<LocaleResponse> {
   switch (locale) {
     case LOCALES_KEYS.KO_KR:
       return new Promise(async resolve => {
-        const loc = await import('./ko_KR.json').then(m => m.default)
+        const loc = await import('./KoKr.json').then(m => m.default)
         const antdLoc = await import('antd/lib/locale-provider/ko_KR').then(m => m.default)
         resolve({ localeData: loc, antdLocaleData: antdLoc })
       })

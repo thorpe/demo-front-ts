@@ -54,7 +54,7 @@ export interface MenuInTree extends CommonInterface.RouteMenu {
   children?: MenuInTree[]
 }
 
-export const menu: CommonInterface.RouteMenu[] = [
+export const route: CommonInterface.RouteMenu[] = [
   { id: '01', position: 'footer', path: '/', name: 'Socket', icon: ClubPortalIco, component: 'SocketDebugger', locale: 'menu.sider.socket', isLogin: false, exact: true },
   { id: '02', position: 'footer', path: '/users', name: 'Users', icon: ClubPortalIco, component: 'Users', locale: 'menu.sider.users', isLogin: true, exact: true },
   { id: '03', position: 'left', path: '/test', name: 'Test', icon: ClubPortalIco, component: 'Test', locale: 'menu.sider.test', isLogin: false, exact: true },
@@ -94,7 +94,7 @@ export const menu: CommonInterface.RouteMenu[] = [
 
 export function filterMenus(isLogin: boolean) {
 
-  const filtered = filter(menu, (el: CommonInterface.RouteMenu) => {
+  const filtered = filter(route, (el: CommonInterface.RouteMenu) => {
     return el.id.length > 0
   })
   if (isLogin === true) {
@@ -106,4 +106,4 @@ export function filterMenus(isLogin: boolean) {
   })
 }
 
-export default menu
+export default route

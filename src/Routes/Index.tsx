@@ -23,7 +23,7 @@ const PrimaryLayout = Loadable({
 })
 
 const Login = Loadable({
-  loader: () => import( '@views/Login'),
+  loader: () => import( '@views/Login/Index'),
   loading: PageLoading,
 })
 

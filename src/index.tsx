@@ -6,7 +6,7 @@ import { jsx } from '@emotion/core'
 
 
 
-import App from '@shared/App'
+import App from '@shared/App/Index'
 import registerServiceWorker from './sw'
 
 registerServiceWorker()

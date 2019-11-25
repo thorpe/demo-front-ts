@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { Select } from 'antd'
 
 import useRootStore from '@store/useRootStore'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 import { DATA_FORMATS } from '@constants/socket'
 
 function DataFormat() {

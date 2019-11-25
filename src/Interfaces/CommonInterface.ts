@@ -1,5 +1,5 @@
 import { GlobalStore, SideBarTheme } from "@store/GlobalStore"
-import { AsynchronousComponentKeys } from '@routes/menu'
+import { AsynchronousComponentKeys } from '@routes/Menu'
 
 export namespace CommonInterface {
 

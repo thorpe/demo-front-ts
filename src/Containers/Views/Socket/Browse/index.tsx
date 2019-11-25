@@ -6,7 +6,7 @@ import { CellMeasurerCache, CellMeasurer } from 'react-virtualized/dist/es/CellM
 import { List as VList, ListRowProps } from 'react-virtualized/dist/es/List'
 
 import useRootStore from '@store/useRootStore'
-import { useOnMount } from '@helpers/reactExt'
+import { useOnMount } from '@helpers/ReactExt'
 import Message from './Message'
 
 const Browse: React.FC = props => {

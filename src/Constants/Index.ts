@@ -7,6 +7,9 @@ export enum LOCALSTORAGE_KEYS {
   USER_ID = 'user_id',
   SIDE_BAR_COLLAPSED = 'sideBarCollapsed',
   USER_INFO = 'user_info',
+  SOCKETIO = 'socket.io',
+  WEBSOCKET = 'websocket',
+  NOT_SUPPORT_POLLING = 'true',
 }
 
 export enum SOCKET_TYPE {
@@ -24,4 +27,6 @@ export enum DATA_FORMAT_TYPE {
   TEXT = 'text',
 }
 
-export const DATA_FORMATS: DATA_FORMAT_TYPE[] = [DATA_FORMAT_TYPE.JSON, DATA_FORMAT_TYPE.TEXT]
+export const DATA_FORMATS: DATA_FORMAT_TYPE[] = [
+  DATA_FORMAT_TYPE.JSON, DATA_FORMAT_TYPE.TEXT,
+]

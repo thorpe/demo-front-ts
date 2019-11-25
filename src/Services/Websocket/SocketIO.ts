@@ -3,7 +3,7 @@ import socketioWildcard from 'socketio-wildcard'
 import { message } from 'antd'
 import { reaction } from 'mobx'
 
-import { socketStore } from '@store/index'
+import { socketStore } from '@store/Index'
 
 const patch = socketioWildcard(io.Manager)
 

@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 
-import { StoreExt } from '@helpers/reactExt'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { StoreExt } from '@helpers/ReactExt'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 import uuid from 'uuid'
 
 export type SideBarTheme = 'light' | 'dark'

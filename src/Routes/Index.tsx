@@ -8,7 +8,7 @@ import { createHashHistory } from 'history'
 import { syncHistoryWithStore } from 'mobx-react-router'
 
 
-import * as store from '@store/index'
+import * as store from '@store/Index'
 import PageLoading from '@components/Loading'
 import Error from '@components/Error'
 import { ReactElement } from 'react'

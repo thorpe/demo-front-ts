@@ -1,6 +1,6 @@
 import { action, computed, observable } from 'mobx'
 
-import { StoreExt } from '@helpers/reactExt'
+import { StoreExt } from '@helpers/ReactExt'
 
 
 export class TestStore extends StoreExt {

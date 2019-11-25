@@ -7,7 +7,7 @@ import { Theme } from '@themes/theme'
 import TamarsTheme from '@themes/tamars.theme'
 import IntlWrapper from './IntlWrapper'
 import Provider from './Provider'
-import Routers from '../../../Routes'
+import Routers from '@routes/Index'
 
 const GlobalStyle = (theme: Theme) => css`
     * {

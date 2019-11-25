@@ -1,10 +1,10 @@
 import { observable, action, computed } from 'mobx'
 
-import { StoreExt } from '@helpers/reactExt'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { StoreExt } from '@helpers/ReactExt'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 
 import { AuthInterface } from '@interfaces/AuthInterface'
-import { routerStore, globalStore } from '@store/index'
+import { routerStore, globalStore } from '@store/Index'
 
 export type loginParams = AuthInterface.ParamsOfLogin
 

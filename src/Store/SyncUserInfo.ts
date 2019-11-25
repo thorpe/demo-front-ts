@@ -1,4 +1,4 @@
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 import { AuthInterface } from '@interfaces/AuthInterface'
 
 export const initialTokenInfo = (() => {

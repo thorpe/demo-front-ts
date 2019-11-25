@@ -1,7 +1,7 @@
 import React, { createContext, ReactElement } from 'react'
 import { Observer } from 'mobx-react'
 
-import * as store from '@store/index'
+import * as store from '@store/Index'
 import { RootStore } from '../../../../typings/store'
 
 

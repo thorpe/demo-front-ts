@@ -2,7 +2,7 @@ import { observable, action, runInAction } from 'mobx'
 import { PaginationConfig } from 'antd/lib/pagination'
 import { UserInterface } from '@interfaces/UserInterface'
 
-import { StoreExt } from '@helpers/reactExt'
+import { StoreExt } from '@helpers/ReactExt'
 
 export class UserStore extends StoreExt {
   /**

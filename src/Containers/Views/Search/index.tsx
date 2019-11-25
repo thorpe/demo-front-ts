@@ -7,7 +7,7 @@ import useRootStore from '@store/useRootStore'
 
 import { Input, List } from 'antd'
 import { observer } from 'mobx-react'
-import { useOnMount } from '@helpers/reactExt'
+import { useOnMount } from '@helpers/ReactExt'
 import {
   SearchWrap,
   ClearBtnStyle,

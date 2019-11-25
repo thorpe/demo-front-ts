@@ -5,7 +5,7 @@ import ReactJson from 'react-json-view'
 
 import styles from './index.scss'
 import useRootStore from '@store/useRootStore'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 import { DATA_FORMATS } from '@constants/socket'
 import { send } from '@services/Websocket'
 

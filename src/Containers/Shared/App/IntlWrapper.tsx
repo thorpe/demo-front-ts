@@ -3,8 +3,8 @@ import intl from 'react-intl-universal'
 import { find } from 'lodash'
 import { LocaleProvider } from 'antd-mobile'
 import { Locale } from 'antd/lib/locale-provider'
-import { useOnMount } from '@helpers/reactExt'
-import { COOKIE_KEYS } from '@constants/index'
+import { useOnMount } from '@helpers/ReactExt'
+import { COOKIE_KEYS } from '@constants/Index'
 
 
 import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader'

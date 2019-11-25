@@ -5,7 +5,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 import Error from '@components/Error'
-import menu, { asynchronousComponents } from '@routes/menu'
+import menu, { asynchronousComponents } from '@routes/Menu'
 import ComponentPopup from '@views/Popup'
 import Header from './Header'
 import LeftMenu from './Sider'

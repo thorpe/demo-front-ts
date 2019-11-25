@@ -7,14 +7,14 @@ import { Menu } from 'antd'
 import pathToRegexp from 'path-to-regexp'
 import intl from 'react-intl-universal'
 import { RootConsumer } from '@shared/App/Provider'
-import { arrayToTree, queryArray } from '@helpers/index'
+import { arrayToTree, queryArray } from '@helpers/Index'
 import { SideBarTheme, GlobalStore } from '@store/GlobalStore'
 
 // css
 import { IconStyle, MenuItemContainer, MenuItemWrap } from './index.style'
 
 
-import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/menu'
+import menus, { filterMenus, RouteMenu, MenuInTree } from '@routes/Menu'
 import { CommonInterface } from "@interfaces/CommonInterface"
 
 

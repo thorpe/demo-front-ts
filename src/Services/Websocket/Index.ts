@@ -2,7 +2,7 @@ import {
   socketConnect as socketConnectFromSocketIO,
   socketDisconnect as socketDisconnectFromSocketIO,
   send as sendFromSocketIO
-} from './socketIO'
+} from './SocketIO'
 
 
 export const socketConnect = (url: string) => {

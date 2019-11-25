@@ -4,7 +4,7 @@ import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
 import useRootStore from '@store/useRootStore'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
+import { LOCALSTORAGE_KEYS } from '@constants/Index'
 import { SOCKER_TYPES } from '@constants/socket'
 
 function Type() {

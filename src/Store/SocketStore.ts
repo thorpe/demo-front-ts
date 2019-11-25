@@ -1,8 +1,7 @@
 import { observable, action, computed } from 'mobx'
 
-import { StoreExt } from '@helpers/reactExt'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
-import { SOCKER_TYPES, DATA_FORMATS } from '@constants/socket'
+import { StoreExt } from '@helpers/ReactExt'
+import { LOCALSTORAGE_KEYS, SOCKER_TYPES, DATA_FORMATS } from '@constants/Index'
 import { SocketInterface } from '@interfaces/SocketInterface'
 
 /**
@@ -15,10 +14,10 @@ import { SocketInterface } from '@interfaces/SocketInterface'
 export class SocketStore extends StoreExt {
 
   @observable
-  socketType: SocketInterface.SocketType = (localStorage.getItem(LOCALSTORAGE_KEYS.SOCKET_TYPE) as SocketInterface.SocketType) || SOCKER_TYPES[0]
+  socketType: SocketInterface.SocketType = SOCKER_TYPES[0]
 
   @observable
-  dataFormat: SocketInterface.DataFormatType = (localStorage.getItem(LOCALSTORAGE_KEYS.DATA_FORMAT) as SocketInterface.DataFormatType) || DATA_FORMATS[0]
+  dataFormat: SocketInterface.DataFormatType = DATA_FORMATS[0]
 
   @observable
   socketIsConnected = false

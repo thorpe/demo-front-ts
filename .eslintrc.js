@@ -15,8 +15,6 @@ module.exports = {
   },
   rules: {
     // prettier/prettier 옵션이 많은 문제를 일으켜서 off 로 해둠
-    'prettier/prettier': 'off',
-
     "@typescript-eslint/no-namespace": "off",
 
     "@typescript-eslint/class-name-casing": "off",

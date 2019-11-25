@@ -1,24 +1,14 @@
 import { CommonInterface } from '@interfaces/CommonInterface'
 
-
 /**
  * /user/user
  */
 
-export namespace UserInterface {
+export namespace StandardInterface {
 
   export interface Schema {
-    id?: string
-    cash?: number
-    mileage?: number
-    point?: number
-    money?: number
-    heart?: number
-    job?: number
-    nick?: string
-    avatar?: string
-    present_box_openedAt?: Date
-    clubId?: string
+    id: string
+    createdAt: string
   }
 
   export interface ParamsOfSearch {
@@ -27,7 +17,10 @@ export namespace UserInterface {
 
 
   export interface ResponseSchema extends CommonInterface.ResponseBase {
-
+    body?: {
+      body: Schema[]
+      count: number
+    }
   }
 
 }

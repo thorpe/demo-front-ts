@@ -1,4 +1,6 @@
 import { CommonInterface } from '@interfaces/CommonInterface'
+import { BannerInterface } from '@interfaces/BannerInterface'
+import { GoodsInterface } from '@interfaces/GoodsInterface'
 
 
 /**
@@ -7,20 +9,11 @@ import { CommonInterface } from '@interfaces/CommonInterface'
 
 export namespace InitialInterface {
 
-  export interface SchemaInitialList {
-    id?: string
-    createdAt?: string
-  }
-
-  export interface SearchParams {
-    name?: string
-  }
-
 
   export interface listSchema extends CommonInterface.ResponseBase {
-    body?: {
-      body: SchemaInitialList[]
-      count: number
+    body: {
+      banner?: BannerInterface.Schema[]
+      goods?: GoodsInterface.Schema[]
     }
   }
 }

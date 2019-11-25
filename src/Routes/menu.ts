@@ -5,6 +5,7 @@ import PageLoading from '@components/Loading'
 import {
   ClubPortalIco,
 } from '@components/Icon/MenuIcon'
+import { CommonInterface } from '@interfaces/CommonInterface'
 
 const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading: PageLoading })
 
@@ -46,26 +47,13 @@ export const asynchronousComponents = {
 // all routers key
 export type AsynchronousComponentKeys = keyof typeof asynchronousComponents
 
-export interface RouteMenu {
-  id: string
-  position: string
-  exact: boolean
-  pid?: number
-  isLogin?: boolean
-  path?: string
-  name?: string
-  icon?: () => JSX.Element
-  component?: AsynchronousComponentKeys
-  namespace?: string // models's namespace to set popup page
-  locale?: string
-  invisible?: boolean
-}
 
-export interface MenuInTree extends RouteMenu {
+
+export interface MenuInTree extends CommonInterface.RouteMenu {
   children?: MenuInTree[]
 }
 
-export const menu: RouteMenu[] = [
+export const menu: CommonInterface.RouteMenu[] = [
   { id: '01', position: 'footer', path: '/', name: 'Socket', icon: ClubPortalIco, component: 'SocketDebugger', locale: 'menu.sider.socket', isLogin: false, exact: true },
   { id: '02', position: 'footer', path: '/users', name: 'Users', icon: ClubPortalIco, component: 'Users', locale: 'menu.sider.users', isLogin: true, exact: true },
   { id: '03', position: 'left', path: '/test', name: 'Test', icon: ClubPortalIco, component: 'Test', locale: 'menu.sider.test', isLogin: false, exact: true },
@@ -105,14 +93,14 @@ export const menu: RouteMenu[] = [
 
 export function filterMenus(isLogin: boolean) {
 
-  const filtered = filter(menu, (el: RouteMenu) => {
+  const filtered = filter(menu, (el: CommonInterface.RouteMenu) => {
     return el.id.length > 0
   })
   if (isLogin === true) {
     return filtered
   }
 
-  return filter(filtered, (el: RouteMenu) => {
+  return filter(filtered, (el: CommonInterface.RouteMenu) => {
     return el.isLogin === false
   })
 }

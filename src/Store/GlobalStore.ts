@@ -44,6 +44,9 @@ export class GlobalStore extends StoreExt {
   access_token = ""
 
   @observable
+  initial_data = {}
+
+  @observable
   sideBarCollapsed = true
 
   @observable

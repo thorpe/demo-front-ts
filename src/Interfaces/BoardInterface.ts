@@ -7,18 +7,17 @@ import { CommonInterface } from '@interfaces/CommonInterface'
 
 export namespace BoardInterface {
 
-  export interface SchemaBoardList {
-    id?: string
-    createdAt?: string
+  export interface Schema {
+    id: string
+    createdAt: string
   }
 
-  export interface SearchParams {
+  export interface ParamsOfSearch {
     id?: string
   }
 
 
-  export interface listSchema extends CommonInterface.ResponseBase {
-    data?: SchemaBoardList[]
+  export interface ResponseSchema extends CommonInterface.ResponseBase {
   }
 
 }

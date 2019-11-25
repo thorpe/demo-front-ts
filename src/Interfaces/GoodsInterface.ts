@@ -7,12 +7,12 @@ import { CommonInterface } from '@interfaces/CommonInterface'
 
 export namespace GoodsInterface {
 
-  export interface SchemaGoodsList {
-    id?: string
-    name?: string
-    code?: string
-    imageUrl?: string
-    createdAt?: string
+  export interface Schema {
+    id: string
+    name: string
+    code: string
+    imageUrl: string
+    createdAt: string
   }
 
   export interface SearchParams {
@@ -22,7 +22,7 @@ export namespace GoodsInterface {
 
   export interface listSchema extends CommonInterface.ResponseBase {
     body?: {
-      body: SchemaGoodsList[]
+      body: Schema[]
       count: number
     }
   }

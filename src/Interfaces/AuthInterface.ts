@@ -2,7 +2,14 @@ import { CommonInterface } from '@interfaces/CommonInterface'
 
 export namespace AuthInterface {
 
-  export interface loginParams {
+  export interface SchemaOfAccessToken  {
+    access_token: string,
+    expired_in: number,
+    token_type: string,
+    refresh_token?: string,
+  }
+
+  export interface ParamsOfLogin {
     type?: string
     account?: string
     password?: string
@@ -10,13 +17,6 @@ export namespace AuthInterface {
 
 
   export interface listSchema extends CommonInterface.ResponseBase {
-    body?: AuthInterface.accessTokenInfoSchema
-  }
-
-  export interface accessTokenInfoSchema  {
-    access_token: string,
-    expired_in: number,
-    token_type: string,
-    refresh_token?: string,
+    body?: AuthInterface.SchemaOfAccessToken
   }
 }

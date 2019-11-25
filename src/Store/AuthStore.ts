@@ -6,7 +6,7 @@ import { LOCALSTORAGE_KEYS } from '@constants/index'
 import { AuthInterface } from '@interfaces/AuthInterface'
 import { routerStore, globalStore } from '@store/index'
 
-export type loginParams = AuthInterface.loginParams
+export type loginParams = AuthInterface.ParamsOfLogin
 
 export class AuthStore extends StoreExt {
 

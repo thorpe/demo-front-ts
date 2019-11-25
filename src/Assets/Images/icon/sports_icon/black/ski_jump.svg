@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <g id="ski_jump" data-name="ski jump" transform="translate(-70 -198)">
-    <path id="패스_748" data-name="패스 748" d="M0,0V64H64V0Z" transform="translate(70 198)" fill="rgba(255,255,255,0)"/>
-    <path id="ski_jump-2" data-name="ski jump" d="M454.052,258.073a5.251,5.251,0,0,0,1.673-7.248l-1.8,1.11a3.154,3.154,0,0,1-1.01,4.341l-57.2,36.2,1.133,1.781Zm-36.241,3.539,18.622-12.029a5.214,5.214,0,0,0-5.575-8.813l-13.725,8.875a5.228,5.228,0,0,0-1.8,1.92l-14.3,28.175a3.373,3.373,0,0,0,6,3.084Zm21.976-20.989a5.17,5.17,0,1,0-.023,0Z" transform="translate(-323.72 -32.26)"/>
-  </g>
-</svg>

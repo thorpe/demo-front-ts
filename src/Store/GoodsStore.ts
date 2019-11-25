@@ -6,8 +6,8 @@ import { extend } from 'lodash'
 import { message } from "antd"
 
 
-export type goodsList = GoodsInterface.SchemaGoodsList
-export type goodsTrackItem =  GoodsInterface.SchemaGoodsList
+export type goodsList = GoodsInterface.Schema
+export type goodsTrackItem =  GoodsInterface.Schema
 
 
 export class GoodsStore extends StoreExt {

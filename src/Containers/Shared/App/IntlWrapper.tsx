@@ -7,7 +7,7 @@ import { useOnMount } from '@helpers/ReactExt'
 import { COOKIE_KEYS } from '@constants/Index'
 
 
-import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader'
+import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/Index'
 
 interface Props {
   children?: React.ReactNode

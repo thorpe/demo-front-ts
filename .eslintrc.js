@@ -25,10 +25,6 @@ module.exports = {
 
     "react/jsx-key": "off",
 
-
-    // git 에서 (CRLF)windows 스타일로 줄바꿈 셋팅되어 있음
-    //'linebreak-style': ['error', 'windows'],
-
     // FunctionStatement와 BinaryExpression 은 제외 시킬려고 오버라이딩
     'no-restricted-syntax': [
       'error',
@@ -42,9 +38,7 @@ module.exports = {
       },
     ],
 
-    //console.log 같은 구문이 디버깅시 필요함
     'no-console': 'off',
-    //Prettier와 동일하게 120으로 맞춤 그외 주석이나 문자열, 정규식 같은 경우는 무시
     'max-len': [
       'error',
       {
@@ -74,9 +68,6 @@ module.exports = {
     'no-multi-assign': 'off',
     // 데코레이터가 먹지 않아서 off로 해둠
     'new-cap': 'off',
-
-    // mongodb _id, _doc때문에 예외로 허용
-    'no-underscore-dangle': ['error', { allow: ['_id', '_doc', '_length', '_decimals'] }],
 
     // continue 문이 없으면 중첩된 if문이 되기 때문에 코드 보기가 불편해짐
     'no-continue': 'off',

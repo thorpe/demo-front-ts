@@ -21,7 +21,7 @@ export default function IntlWrapper({ children }: Props) {
     let targetLocale = intl.determineLocale({ cookieLocaleKey: COOKIE_KEYS.LANG }) as LOCALES_KEYS
 
     if (!find(SUPPOER_LOCALES, { value: targetLocale })) {
-      targetLocale = LOCALES_KEYS.EN_US
+      targetLocale = LOCALES_KEYS.KO_KR
     }
 
     getLocaleLoader(targetLocale).then(res => {

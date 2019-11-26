@@ -3,7 +3,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
 
-const MyPage: React.FC = () => {
+const ConfigAlarm: React.FC = () => {
 
   return (
     <ContentWrap>
@@ -16,4 +16,4 @@ const MyPage: React.FC = () => {
   )
 }
 
-export default observer(MyPage)
+export default observer(ConfigAlarm)

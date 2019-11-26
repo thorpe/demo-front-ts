@@ -1,52 +1,6 @@
 import { cloneDeep } from 'lodash'
 
 /**
- * setCookie
- *
- * @export
- * @param {string} name
- * @param {string} value
- * @param {number} [expireDays=365]
- */
-export function setCookie(name: string, value: string, expireDays = 365): void {
-  const exDate = new Date()
-  exDate.setDate(exDate.getDate() + expireDays)
-  document.cookie = `${name}=${escape(value)};expires=${exDate.toUTCString()}`
-}
-
-/**
- * getCookie
- *
- * @export
- * @param {string} name
- * @returns
- */
-export function getCookie(name: string): string {
-  if (document.cookie.length > 0) {
-    let cStart = document.cookie.indexOf(name + '=')
-    if (cStart !== -1) {
-      cStart = cStart + name.length + 1
-      let cEnd = document.cookie.indexOf(';', cStart)
-      if (cEnd === -1) {
-        cEnd = document.cookie.length
-      }
-      return unescape(document.cookie.substring(cStart, cEnd))
-    }
-  }
-  return ''
-}
-
-/**
- * clearCookie
- *
- * @export
- * @param {string} name
- */
-export function clearCookie(name: string): void {
-  setCookie(name, '')
-}
-
-/**
  * 从url获取参数
  *
  * @export
@@ -113,4 +67,20 @@ export function arrayToTree<T>(array: any[], id = 'id', pid = 'pid', children = 
     }
   })
   return result
+}
+
+export function formatNumber(src: number | string | undefined): string {
+  const value = String(src || 0)
+  const list = value.split('.')
+  const prefix = list[0].charAt(0) === '-' ? '-' : ''
+  let num = prefix ? list[0].slice(1) : list[0]
+  let result = ''
+  while (num.length > 3) {
+    result = `,${num.slice(-3)}${result}`
+    num = num.slice(0, num.length - 3)
+  }
+  if (num) {
+    result = num + result
+  }
+  return `${prefix}${result}${list[1] ? `.${list[1]}` : ''}`
 }

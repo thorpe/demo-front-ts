@@ -6,7 +6,7 @@ import { Title, TitleWrap, ContentWrap } from '@styles/base.style'
 import { Drawer } from 'antd'
 import { WhiteSpace } from 'antd-mobile'
 
-import ClubInfoPopUp from '../Popup/ClubInfo'
+import ClubInfoPopUp from '../../Popup/ClubInfo'
 import { Button } from 'antd-mobile'
 import useRootStore from '@store/useRootStore'
 import { Helmet } from 'react-helmet'

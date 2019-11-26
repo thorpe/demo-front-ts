@@ -11,8 +11,8 @@ const loadComponent = (loader: () => Promise<any>) => Loadable({ loader, loading
 
 export const asynchronousComponents = {
   SocketDebugger: loadComponent(() => import('@views/Socket/Index')),
-  Users: loadComponent(() => import('@views/Test/Index')),
-  Test: loadComponent(() => import('@views/Test/Index')),
+  Users: loadComponent(() => import('@views/Examples/Test/Index')),
+  Test: loadComponent(() => import('@views/Examples/Test/Index')),
   List: loadComponent(() => import('@views/List/Index')),
   Login: loadComponent(() => import('@views/Login/Index')),
   Toast: loadComponent(() => import('@views/Toast/Index')),

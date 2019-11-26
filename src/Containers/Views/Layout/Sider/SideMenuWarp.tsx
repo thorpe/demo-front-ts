@@ -7,7 +7,7 @@ import { Menu } from "antd"
 import pathToRegexp from "path-to-regexp"
 import intl from "react-intl-universal"
 import { RootConsumer } from "@shared/App/Provider"
-import { arrayToTree, queryArray } from "@helpers/Index"
+import { arrayToTree, queryArray } from "@helpers/CommonHelper"
 
 // css
 import { IconStyle, MenuItemContainer, MenuItemWrap } from "./index.style"

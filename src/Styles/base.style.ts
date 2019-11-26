@@ -9,6 +9,10 @@ export const FontMedium = '1.2rem'
 export const FontSmall = '1rem'
 export const FontTiny = '0.8rem'
 
+// export const Show = css({
+//   display: block
+// })
+
 export const Show = css`
   display: block;
 `
